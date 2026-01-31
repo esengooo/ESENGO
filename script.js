@@ -16,3 +16,11 @@ function toggleBio() {
     btn.textContent = "Read less";
   }
 }
+<script>
+  const toggleWorkBtn = document.getElementById('toggle-work');
+  const workSection = document.getElementById('work');
+
+  toggleWorkBtn.addEventListener('click', () => {
+    workSection.classList.toggle('hidden');
+  });
+</script>
