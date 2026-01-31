@@ -74,28 +74,22 @@
         <img src="./assets/email.png" alt="Email" class="icon" onclick="location.href='mailto:esengo.artist@gmail.com'" />
       </div>
 
-      <!-- Profile Boxes -->
-      <div class="profile-boxes">
-        <!-- Education -->
-        <div class="profile-box">
-          <img src="./assets/education.png" alt="Education icon" class="icon" />
-          <h3>Education</h3>
-          <p>
-            Bachelor in Art and Design,<br />
-            Academy of Art and Design (HGK) FHNW, Basel (Sep 2022 – Jul 2025)<br />
-            Pedagogical Maturity, ECG Ella-Maillart & Henry Dunant, Geneva
-          </p>
-        </div>
-        <!-- Info -->
-        <div class="profile-box">
-          <img src="./assets/info.png" alt="Info icon" class="icon" />
-          <h3>Info</h3>
-          <p>
-            Email: esengo.artist@gmail.com<br />
-            Based in Geneva & Basel, Switzerland
-          </p>
-        </div>
-      </div>
+     <!-- PROFILE BOXES -->
+<div class="profile-boxes">
+  <!-- Education Box -->
+  <div class="profile-box">
+    <img src="./assets/education.png" alt="Education icon" class="icon" />
+    <h3>Education</h3>
+    <p>
+      <strong>B.A. – Bachelor of Arts</strong><br />
+      Academy of Art and Design (HGK) FHNW, Basel (September 2022 – July 2025)
+    </p>
+    <p class="pedagogy">
+      <strong>Pedagogical Maturity</strong><br />
+      ECG Ella-Maillart & Henry Dunant, Geneva
+    </p>
+  </div>
+</div>
     </div>
   </section>
 
@@ -144,33 +138,53 @@
     </div>
   </section>
 
-  <!-- ===========================
-       WORK / PROJECTS SECTION
-  ============================ -->
-  <section id="work-section">
-    <button id="toggle-work" class="read-more-btn">Read More / Read Less</button>
+<!-- ===========================
+     WORK / PROJECTS SECTION
+============================ -->
+<section id="work-section">
+  <h1 class="title">Work / Projects</h1>
 
-    <div id="work" class="hidden">
-      <h1 class="title">Work / Projects</h1>
-      <div class="projects-container">
-        <div class="project">
-          <p>Vogue Beats production</p>
-        </div>
-        <div class="project">
-          <h2>Remix for UK producer Arma</h2>
-          <p>Arma Edit</p>
-        </div>
-        <div class="project">
-          <h2>Event organizer - Kaserne Basel, Cartoon Network Kiki Ball 1 & 2, Basel (2025 & 2026)</h2>
-          <p>
-            Production of the first and second ballroom event in Basel, fundraising for workshops and after-party in collaboration with various institutions such as Kaserne Basel, Humbug, Basel Jittbugers, and Redbull, artist placement of international and local artists, and coordination.
-          </p>
-          <h2>Curator and event organizer - Blackbox Association, Zurich/Geneva/Basel</h2>
-          <p>2022-2025, Curating the event program, fundraising, project calls, social media, artist communication, and coordination.</p>
-        </div>
+  <div class="section-container">
+
+    <!-- ALWAYS VISIBLE -->
+    <div class="projects-container">
+      <!-- Project 1 -->
+      <div class="project">
+        <h2>Vogue Beats Production</h2>
+        <p>Production of music and sound design for events.</p>
+        <p><a href="https://example.com/vogue-events" target="_blank" class="project-link">See events & details</a></p>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project">
+        <h2>Remix for UK producer Arma</h2>
+        <p>Arma – Sequencing (ESENGO Edit)</p>
+        <p><a href="https://example.com/arma-remix" target="_blank" class="project-link">Listen / Details</a></p>
       </div>
     </div>
-  </section>
+
+    <!-- HIDDEN PART -->
+    <div id="more-work" class="hidden">
+      <!-- Extra Project 1 -->
+      <div class="project">
+        <h2>Event Organizer - Kaserne Basel & Cartoon Network Kiki Ball 1 & 2, Basel (2025 & 2026)</h2>
+        <p>Production of the first and second ballroom events in Basel, fundraising for workshops and after-party in collaboration with various institutions.</p>
+        <p><a href="https://example.com/kiki-ball" target="_blank" class="project-link">See more</a></p>
+      </div>
+
+      <!-- Extra Project 2 -->
+      <div class="project">
+        <h2>Curator & Event Organizer - Blackbox Association, Zurich/Geneva/Basel</h2>
+        <p>2022-2025: Curating the event program, fundraising, project calls, social media, artist communication, and coordination.</p>
+        <p><a href="https://example.com/blackbox" target="_blank" class="project-link">See more</a></p>
+      </div>
+    </div>
+
+    <!-- BUTTON -->
+    <button class="read-more-btn" onclick="toggleWork()">Read more</button>
+
+  </div>
+</section>
 
   <!-- ===========================
        MUSIC
@@ -215,9 +229,6 @@
         <p><a href="mailto:esengo.artist@gmail.com">esengo.artist@gmail.com</a></p>
       </div>
     </div>
-    <div class="btn-container">
-      <button class="btn btn-color-2" onclick="window.open('./assets/DE Curriculum Vitae Jérémy Ndoum 2026.pdf')">Download DE CV</button>
-      <button class="btn btn-color-2" onclick="window.open('./assets/ENG Curriculum Vitae Jérémy Ndoum 2026 (1).pdf')">Download ENG CV</button>
     </div>
   </section>
 
