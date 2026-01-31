@@ -316,3 +316,23 @@ footer {
   }
 
   .section__t
+/* READ MORE TOGGLE */
+
+.hidden {
+  display: none;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.read-more-btn:hover {
+  color: grey;
+}
