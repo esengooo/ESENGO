@@ -24,3 +24,16 @@ function toggleBio() {
     workSection.classList.toggle('hidden');
   });
 </script>
+function toggleWork() {
+  const moreWork = document.getElementById("more-work");
+  const btn = document.querySelector("#work-section .read-more-btn");
+
+  moreWork.classList.toggle("hidden");
+  if (moreWork.classList.contains("hidden")) {
+    moreWork.style.display = "none";
+    btn.textContent = "Read more";
+  } else {
+    moreWork.style.display = "block";
+    btn.textContent = "Read less";
+  }
+}
