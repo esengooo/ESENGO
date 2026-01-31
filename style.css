@@ -469,3 +469,23 @@ footer {
     display: block;
   }
 }
+/* Work / Projects links */
+.project-link {
+  color: #444;
+  text-decoration: underline;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.project-link:hover {
+  color: #000;
+}
+
+/* Hide extra projects initially */
+#more-work {
+  display: none;
+}
+
+
+
