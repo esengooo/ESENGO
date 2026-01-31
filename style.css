@@ -261,57 +261,25 @@ section {
   gap: 1rem;
 }
 
-/* ABOUT SECTION */
+/* ABOUT FIX */
 
-#about {
-  position: relative;
+.about-section {
+  align-items: center;
 }
 
-.about-containers {
-  gap: 2rem;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-}
-
-.about-details-container {
-  justify-content: center;
-  flex-direction: column;
-}
-
-.about-containers,
 .about-details-container {
   display: flex;
+  justify-content: center;
 }
 
-.about-pic {
-  border-radius: 2rem;
+.about-text {
+  max-width: 520px; /* controls text width */
+  text-align: left;
 }
 
-.arrow {
-  position: absolute;
-  right: -5rem;
-  bottom: 2.5rem;
-}
-
-.details-container {
-  padding: 1.5rem;
-  flex: 1;
-  background: white;
-  border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
-  text-align: center;
-}
-
-.section-container {
-  gap: 4rem;
-  height: 80%;
-}
-
-.section__pic-container {
-  height: 400px;
-  width: 400px;
-  margin: auto 0;
+.about-text p {
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
 }
 
 /* EXPERIENCE SECTION */
@@ -419,6 +387,21 @@ article .icon {
 .email-icon {
   height: 2.5rem;
 }
+/* MUSIC LIST */
+.music-list {
+  list-style-type: disc; /* bullet points */
+  margin: 1rem auto;
+  padding-left: 2rem;
+  max-width: 600px; /* keeps it narrow */
+  text-align: left;
+}
+
+.music-list li {
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
 
 /* FOOTER SECTION */
 
