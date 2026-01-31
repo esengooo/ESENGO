@@ -1,0 +1,87 @@
+/* General */
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background: white;
+  color: black;
+  line-height: 1.6;
+}
+
+/* Desktop nav */
+#desktop-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+#desktop-nav .nav-links li {
+  display: inline;
+  margin-left: 20px;
+}
+#desktop-nav .nav-links li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+/* Hamburger nav */
+#hamburger-nav {
+  display: none;
+  background: #fff;
+  padding: 20px;
+}
+.hamburger-icon span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: black;
+  margin: 5px 0;
+  cursor: pointer;
+}
+.menu-links {
+  display: none;
+  list-style: none;
+  padding: 10px 0;
+}
+.menu-links li {
+  margin: 10px 0;
+}
+.menu-links li a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+}
+
+/* Buttons */
+.btn-container button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Social icons */
+#socials-container img {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #desktop-nav { display: none; }
+  #hamburger-nav { display: block; }
+}
