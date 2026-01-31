@@ -11,9 +11,6 @@
 
 body {
   font-family: "Poppins", sans-serif;
-}
-
-html {
   scroll-behavior: smooth;
 }
 
@@ -22,9 +19,47 @@ p {
   line-height: 1.6;
 }
 
-/* TRANSITIONS */
-a, .btn {
+/* ===============================
+   LINKS & BUTTONS
+=============================== */
+a {
+  color: black;
+  text-decoration: none;
   transition: all 0.3s ease;
+}
+
+a:hover {
+  color: grey;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.btn {
+  font-weight: 600;
+  padding: 1rem;
+  border-radius: 2rem;
+  width: 8rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-color-1 {
+  background: rgb(53, 53, 53);
+  color: white;
+  border: 0.1rem solid rgb(53,53,53);
+}
+
+.btn-color-1:hover {
+  background: black;
+}
+
+.btn-color-2 {
+  background: none;
+  border: 0.1rem solid rgb(53,53,53);
+}
+
+.btn-color-2:hover {
+  border: 0.1rem solid rgb(0,0,0);
 }
 
 /* ===============================
@@ -42,17 +77,6 @@ nav {
   gap: 2rem;
   list-style: none;
   font-size: 1.5rem;
-}
-
-a {
-  color: black;
-  text-decoration: none;
-}
-
-a:hover {
-  color: grey;
-  text-decoration: underline;
-  text-underline-offset: 0.5rem;
 }
 
 .logo {
@@ -91,4 +115,460 @@ a:hover {
   right: 0;
   background-color: white;
   width: fit-content;
-  max-height
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-links a {
+  display: block;
+  padding: 10px;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.menu-links.open {
+  max-height: 300px;
+}
+
+/* ===============================
+   SECTIONS & GENERAL SPACING
+=============================== */
+section {
+  padding-top: 4vh;
+  margin: 0 10rem;
+  min-height: fit-content;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* ===============================
+   PROFILE SECTION
+=============================== */
+#profile {
+  display: flex;
+  justify-content: flex-start;
+  gap: 4rem;
+  height: 80vh;
+  align-items: center;
+  margin-top: 2rem; /* space above header */
+}
+
+.section__pic-container {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section__pic-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.section__text {
+  flex: 1;
+  text-align: left;
+}
+
+.section__text__p1 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.section__text__p2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+#socials-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.icon {
+  cursor: pointer;
+  height: 2rem;
+}
+
+.btn-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* ===============================
+   ABOUT SECTION
+=============================== */
+.about-details-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-pic {
+  width: 400px;
+  height: 400px;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+.about-text {
+  max-width: 520px;
+  text-align: left;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+}
+
+/* ===============================
+   MUSIC SECTION
+=============================== */
+.music-list {
+  list-style-type: disc;
+  max-width: 600px;
+  margin: 1rem auto;
+  padding-left: 2rem;
+  text-align: left;
+}
+
+.music-list li {
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+#music iframe {
+  display: block;
+  margin: 1rem auto;
+  max-width: 800px;
+  width: 100%;
+  height: 166px; /* typical SoundCloud iframe */
+  border: 0;
+}
+
+/* ===============================
+   VIDEO SECTION
+=============================== */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ===============================
+   WORK / PROJECTS SECTION
+=============================== */
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.project p {
+  font-size: 1rem;
+}
+
+.project-link {
+  color: #444;
+  text-decoration: underline;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.project-link:hover {
+  color: #000;
+}
+
+/* ===============================
+   CONTACT SECTION
+=============================== */
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-height: 50vh;
+}
+
+.contact-info-upper-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  border: 0.1rem solid rgb(163,163,163);
+  border-radius: 1rem;
+  background: rgb(250,250,250);
+  flex-wrap: wrap;
+}
+
+.contact-info-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-info-container p {
+  font-size: 1.1rem;
+}
+
+/* ===============================
+   PROFILE BOXES
+=============================== */
+.profile-boxes {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.profile-box {
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  flex: 1 1 200px;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.profile-box .icon {
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+.profile-box h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.profile-box p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* ===============================
+   READ MORE TOGGLE
+=============================== */
+.hidden {
+  display: none;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.read-more-btn:hover {
+  color: grey;
+}
+
+/* ===============================
+   RESPONSIVE / MOBILE
+=============================== */
+@media (max-width: 768px) {
+  section {
+    margin: 0 2rem;
+    padding-top: 5vh;
+  }
+
+  #profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    gap: 2rem;
+  }
+
+  .section__pic-container,
+  .about-pic {
+    width: 250px;
+    height: 250px;
+  }
+
+  .section__text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .section__text__p1,
+  .section__text__p2 {
+    font-size: 1rem;
+  }
+
+  .btn {
+    width: 7rem;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  #socials-container {
+    justify-content: center;
+  }
+
+  /* Contact alignment for mobile */
+  #contact {
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-info-upper-container {
+    flex-direction: column;
+    gap: 0.8rem;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  .contact-info-container {
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Video */
+  #video {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    margin: 0 1rem;
+  }
+
+  .profile-boxes {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .profile-box {
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .section__text__p1,
+  .section__text__p2 {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    width: 6rem;
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .projects-container {
+    gap: 0.8rem;
+  }
+
+  .project h2 {
+    font-size: 1rem;
+  }
+
+  .project p {
+    font-size: 0.9rem;
+  }
+
+  #toggle-work {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    width: 80%;
+    margin: 0 auto 1rem auto;
+    display: block;
+  }
+
+  #video iframe {
+    height: 200px;
+  }
+
+  #music iframe {
+    height: 140px;
+  }
+}
+@media (min-width: 1024px) {
+  #profile {
+    min-height: 90vh;
+    padding-top: 6vh;
+    padding-bottom: 6vh;
+  }
+}
+.about-details-container {
+  display: flex;
+  gap: 2rem;
+}
+@media (min-width: 1024px) {
+  .about-details-container {
+    gap: 3rem;
+  }
+}
+@media (max-width: 768px) {
+  nav {
+    height: auto;
+    padding: 1.5rem 0;
+  }
+
+  .logo {
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .btn-container {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .profile-box {
+    height: auto;
+    min-height: unset;
+    padding: 1.2rem;
+  }
+
+  .profile-box p {
+    word-wrap: break-word;
+    line-height: 1.5;
+  }
+}
