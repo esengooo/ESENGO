@@ -486,6 +486,32 @@ footer {
 #more-work {
   display: none;
 }
+/* ===============================
+   CONTACT ALIGNMENT FOR MOBILE
+=============================== */
+@media (max-width: 768px) {
+  #contact {
+    align-items: center;       /* Center everything horizontally */
+    text-align: center;        /* Text centered */
+  }
+
+  .contact-info-upper-container {
+    flex-direction: column;    /* Stack contact info vertically */
+    gap: 0.8rem;               /* Less gap between email lines */
+    width: auto;               /* Shrink container width */
+    max-width: 250px;          /* Align with profile text width */
+    margin: 0 auto;            /* Center horizontally */
+  }
+
+  .contact-info-container {
+    justify-content: center;   /* Center icons + text inside each line */
+    gap: 0.5rem;
+  }
+
+  #socials-container {
+    justify-content: center;   /* Center social icons with profile */
+  }
+}
 
 
 
