@@ -13,19 +13,22 @@
 </head>
 <body>
 
-  <!-- DESKTOP NAV -->
+  <!-- ===========================
+       NAVIGATION
+  ============================ -->
+  <!-- Desktop -->
   <nav id="desktop-nav">
     <div class="logo">ESENGO</div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
+      <li><a href="#work-section">Work</a></li>
       <li><a href="#music">Music</a></li>
       <li><a href="#video">Video</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- HAMBURGER NAV -->
+  <!-- Hamburger -->
   <nav id="hamburger-nav">
     <div class="logo">ESENGO</div>
     <div class="hamburger-menu">
@@ -36,191 +39,195 @@
       </div>
       <div class="menu-links">
         <li><a href="#about" onclick="toggleMenu()">About</a></li>
-        <li><a href="#work" onclick="toggleMenu()">Work</a></li>
+        <li><a href="#work-section" onclick="toggleMenu()">Work</a></li>
         <li><a href="#music" onclick="toggleMenu()">Music</a></li>
         <li><a href="#video" onclick="toggleMenu()">Video</a></li>
-        <li><a href="#video" onclick="toggleMenu()">Articles</a></li>
         <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
       </div>
     </div>
   </nav>
 
-  <!-- PROFILE -->
-<section id="profile">
-  <div class="section__pic-container">
-    <img src="./assets/VisàlKimEsengo.jpg" alt="ESENGO profile picture" />
-  </div>
-
-  <div class="section__text">
-    <p class="section__text__p1">Hello, I'm</p>
-    <h1 class="title">ESENGO</h1>
-    <p class="section__text__p2">Culture Producer & Event Organizer | Sound Artist</p>
-
-    <div class="btn-container">
-      <button class="btn btn-color-1" onclick="location.href='#contact'">Contact Info</button>
-    </div>
-
-    <!-- SOCIAL ICONS -->
-    <div id="socials-container">
-      <img src="./assets/instagram.png" alt="Instagram" class="icon" onclick="location.href='https://instagram.com/esengo'" />
-      <img src="./assets/linktree2.png" alt="Linktree" class="icon" onclick="location.href='https://linktr.ee/esengo.artist'" />
-      <img src="./assets/Logo-Resident-Advisor.jpeg.png" alt="Resident Advisor" class="icon" onclick="location.href='https://ra.co/dj/esengo'" />
-      <img src="./assets/soundcloud.png" alt="SoundCloud" class="icon" onclick="location.href='https://soundcloud.com/esengoartist'" />
-      <img src="./assets/email.png" alt="Email" class="icon" onclick="location.href='mailto:esengo.artist@gmail.com'" />
-    </div>
-
-    <!-- BOXES -->
-<div class="profile-boxes">
-  <!-- Education Box -->
-  <div class="profile-box">
-    <img src="./assets/education.png" alt="Education icon" class="icon" />
-    <h3>Education</h3>
-    <p>
-      Bachelor in Art and Design,<br />
-      Academy of Art and Design (HGK) FHNW, Basel (September 2022 – July 2025)<br />
-      Pedagogical Maturity, ECG Ella-Maillart & Henry Dunant, Geneva
-    </p>
-  </div>
-<section> 
-
-<!-- ABOUT -->
-<section id="about">
-  <h1 class="title">About</h1>
-  <div class="section-container about-section">
+  <!-- ===========================
+       PROFILE SECTION
+  ============================ -->
+  <section id="profile">
     <div class="section__pic-container">
-      <img src="./assets/PROFILE PIC.jpeg" alt="ESENGO" class="about-pic" />
+      <img src="./assets/VisàlKimEsengo.jpg" alt="ESENGO profile picture" />
     </div>
-    <div class="about-details-container">
-    <div class="about-text">
 
-  <!-- ALWAYS VISIBLE -->
-  <p>
-    <strong>Jeremy Ndoum</strong>, known as <strong>ESENGO</strong> (<em>er/he/il</em>), 
-    is a cultural producer, event organizer, and sound artist based between 
-    <strong>Geneva</strong> and <strong>Basel</strong>, Switzerland.
-  </p>
+    <div class="section__text">
+      <p class="section__text__p1">Hello, I'm</p>
+      <h1 class="title">ESENGO</h1>
+      <p class="section__text__p2">Culture Producer & Event Organizer | Sound Artist</p>
 
-  <p>
-    As a cultural producer and event organizer, <strong>ESENGO</strong> develops 
-    cultural and educational projects with strong public outreach, grounded in 
-    community exchange and political awareness.
-  </p>
+      <!-- Contact Button -->
+      <div class="btn-container">
+        <button class="btn btn-color-1" onclick="location.href='#contact'">Contact Info</button>
+      </div>
 
-  <!-- HIDDEN PART -->
-  <div id="more-bio" class="hidden">
-    <p>
-      As a sound artist and DJ, <strong>ESENGO</strong> draws from his 
-      <em>African heritage</em> and the Black and queer diasporas, weaving sonic 
-      and historical narratives across club spaces, performances, and collaborations.
-    </p>
+      <!-- Social Icons -->
+      <div id="socials-container">
+        <img src="./assets/instagram.png" alt="Instagram" class="icon" onclick="location.href='https://instagram.com/esengo'" />
+        <img src="./assets/linktree2.png" alt="Linktree" class="icon" onclick="location.href='https://linktr.ee/esengo.artist'" />
+        <img src="./assets/Logo-Resident-Advisor.jpeg.png" alt="Resident Advisor" class="icon" onclick="location.href='https://ra.co/dj/esengo'" />
+        <img src="./assets/soundcloud.png" alt="SoundCloud" class="icon" onclick="location.href='https://soundcloud.com/esengoartist'" />
+        <img src="./assets/email.png" alt="Email" class="icon" onclick="location.href='mailto:esengo.artist@gmail.com'" />
+      </div>
 
-    <p>
-      A key work within his artistic practice is the sound design for the short film 
-      <strong>NVLH</strong> by Thaís Iroko and Felipe Dutra, screened at the 
-      Cinemateca do Museu de Arte Moderna do Rio de Janeiro (MAM).
-    </p>
-
-    <p>
-      His work spans venues such as <strong>Motel Campo</strong> (Geneva), 
-      <strong>La Créole</strong> (Paris), <strong>OXI</strong> (Berlin), ballroom 
-      events across Europe, and the <strong>Montreux Jazz Festival</strong>.
-    </p>
-
-    <p>
-      In 2023, he released <strong>Arma – Sequencing (ESENGO Edit)</strong>, followed by 
-      releases on <strong>TIG WERK</strong> and collaborations with artists including 
-      <strong>Fels</strong>.
-    </p>
-
-    <p>
-      A member of <strong>Angels in Disguise</strong>, ESENGO released his debut EP 
-      <strong><em>A KII</em></strong> in June 2024. His work has been recognized by 
-      <strong>Cakes da Killa</strong> and <strong>Nídia</strong>.
-    </p>
-  </div>
-
-  <!-- BUTTON -->
-  <button class="read-more-btn" onclick="toggleBio()">Read more</button>
-
-</div>
-
-</section>
-
-
-<!-- WORK / PROJECTS TOGGLE BUTTON -->
-<button id="toggle-work" class="read-more-btn">Show / Hide Work & Projects</button>
-
-<!-- WORK / PROJECTS SECTION -->
-<section id="work" class="hidden">
-  <h1 class="title">Work / Projects</h1>
-  <div class="projects-container">
-    <div class="project">
-      <p>Vogue Beats production</p>
+      <!-- Profile Boxes -->
+      <div class="profile-boxes">
+        <!-- Education -->
+        <div class="profile-box">
+          <img src="./assets/education.png" alt="Education icon" class="icon" />
+          <h3>Education</h3>
+          <p>
+            Bachelor in Art and Design,<br />
+            Academy of Art and Design (HGK) FHNW, Basel (Sep 2022 – Jul 2025)<br />
+            Pedagogical Maturity, ECG Ella-Maillart & Henry Dunant, Geneva
+          </p>
+        </div>
+        <!-- Info -->
+        <div class="profile-box">
+          <img src="./assets/info.png" alt="Info icon" class="icon" />
+          <h3>Info</h3>
+          <p>
+            Email: esengo.artist@gmail.com<br />
+            Based in Geneva & Basel, Switzerland
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="project">
-      <h2>Remix for UK producer Arma</h2>
-      <p>Arma Edit</p>
-    </div>
-    <div class="project">
-      <h2>Event organizer - in collaboration with Kaserne Basel, The Cartoon Network Kiki Ball 1 & 2, Basel, Editions 2025 & 2026</h2>
-      <p>Production of the first and second ballroom event in Basel, fundraising for workshops and after-party in collaboration with various institutions such as Kaserne Basel, Humbug, Basel Jittbugers and Redbull, artist placement of international and local artists and coordination.</p>
-      <h2>Curator and event organizer - Blackbox Association, Zurich/Geneva/Basel</h2>
-      <p>2022-2025, Curating the event program, fundraising, project calls, social media, artist communication and coordination.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-  <!-- MUSIC -->
+  <!-- ===========================
+       ABOUT SECTION
+  ============================ -->
+  <section id="about">
+    <h1 class="title">About</h1>
+    <div class="section-container about-section">
+      <div class="section__pic-container">
+        <img src="./assets/PROFILE PIC.jpeg" alt="ESENGO" class="about-pic" />
+      </div>
+      <div class="about-details-container">
+        <div class="about-text">
+          <!-- Always Visible -->
+          <p>
+            <strong>Jeremy Ndoum</strong>, known as <strong>ESENGO</strong> (<em>er/he/il</em>), is a cultural producer, event organizer, and sound artist based between <strong>Geneva</strong> and <strong>Basel</strong>, Switzerland.
+          </p>
+          <p>
+            As a cultural producer and event organizer, <strong>ESENGO</strong> develops cultural and educational projects with strong public outreach, grounded in community exchange and political awareness.
+          </p>
+
+          <!-- Hidden -->
+          <div id="more-bio" class="hidden">
+            <p>
+              As a sound artist and DJ, <strong>ESENGO</strong> draws from his <em>African heritage</em> and the Black and queer diasporas, weaving sonic and historical narratives across club spaces, performances, and collaborations.
+            </p>
+            <p>
+              A key work within his artistic practice is the sound design for the short film <strong>NVLH</strong> by Thaís Iroko and Felipe Dutra, screened at the Cinemateca do Museu de Arte Moderna do Rio de Janeiro (MAM).
+            </p>
+            <p>
+              His work spans venues such as <strong>Motel Campo</strong> (Geneva), <strong>La Créole</strong> (Paris), <strong>OXI</strong> (Berlin), ballroom events across Europe, and the <strong>Montreux Jazz Festival</strong>.
+            </p>
+            <p>
+              In 2023, he released <strong>Arma – Sequencing (ESENGO Edit)</strong>, followed by releases on <strong>TIG WERK</strong> and collaborations with artists including <strong>Fels</strong>.
+            </p>
+            <p>
+              A member of <strong>Angels in Disguise</strong>, ESENGO released his debut EP <strong><em>A KII</em></strong> in June 2024. His work has been recognized by <strong>Cakes da Killa</strong> and <strong>Nídia</strong>.
+            </p>
+          </div>
+
+          <!-- Read More Button -->
+          <button class="read-more-btn" onclick="toggleBio()">Read more</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       WORK / PROJECTS SECTION
+  ============================ -->
+  <section id="work-section">
+    <button id="toggle-work" class="read-more-btn">Read More / Read Less</button>
+
+    <div id="work" class="hidden">
+      <h1 class="title">Work / Projects</h1>
+      <div class="projects-container">
+        <div class="project">
+          <p>Vogue Beats production</p>
+        </div>
+        <div class="project">
+          <h2>Remix for UK producer Arma</h2>
+          <p>Arma Edit</p>
+        </div>
+        <div class="project">
+          <h2>Event organizer - Kaserne Basel, Cartoon Network Kiki Ball 1 & 2, Basel (2025 & 2026)</h2>
+          <p>
+            Production of the first and second ballroom event in Basel, fundraising for workshops and after-party in collaboration with various institutions such as Kaserne Basel, Humbug, Basel Jittbugers, and Redbull, artist placement of international and local artists, and coordination.
+          </p>
+          <h2>Curator and event organizer - Blackbox Association, Zurich/Geneva/Basel</h2>
+          <p>2022-2025, Curating the event program, fundraising, project calls, social media, artist communication, and coordination.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       MUSIC
+  ============================ -->
   <section id="music">
-  <h1 class="title">Music</h1>
-
-  <ul class="music-list">
-    <li><strong>Wesout</strong> – <em>Pista (ESENGO Remix)</em> <span>(2025)</span></li>
-    <li><strong>e-garbage</strong> – <em>virus.bat (ESENGO Remix)</em> <span>(2025)</span></li>
-    <li><strong>Missy Da Kunt</strong> ft. <strong>ESENGO</strong> – <em>PCG</em> <span>(2025)</span></li>
-    <li><strong>ESENGO</strong> – <em>Titties At The Top</em> <span>(2024)</span></li>
-    <li><strong>ESENGO</strong> – <em>EP “A KII”</em> <span>(June 2024)</span></li>
-    <li><strong>ESENGO</strong> – <em>The Mean Beat</em> <span>(2023)</span></li>
-    <li><strong>ESENGO</strong> – <em>The Flute Ha</em> <span>(2023)</span></li>
-    <li><strong>ESENGO</strong> – <em>Just Like A FQ</em> <span>(2023)</span></li>
-    <li><strong>Arma</strong> – <em>Sequencing (ESENGO Edit)</em> <span>(2023)</span></li>
-    <li><strong>Fels</strong> – <em>Dizzy Head (ESENGO Remix)</em> <span>(2023)</span></li>
-  </ul>
-</section>
+    <h1 class="title">Music</h1>
+    <ul class="music-list">
+      <li><strong>Wesout</strong> – <em>Pista (ESENGO Remix)</em> <span>(2025)</span></li>
+      <li><strong>e-garbage</strong> – <em>virus.bat (ESENGO Remix)</em> <span>(2025)</span></li>
+      <li><strong>Missy Da Kunt</strong> ft. <strong>ESENGO</strong> – <em>PCG</em> <span>(2025)</span></li>
+      <li><strong>ESENGO</strong> – <em>Titties At The Top</em> <span>(2024)</span></li>
+      <li><strong>ESENGO</strong> – <em>EP “A KII”</em> <span>(June 2024)</span></li>
+      <li><strong>ESENGO</strong> – <em>The Mean Beat</em> <span>(2023)</span></li>
+      <li><strong>ESENGO</strong> – <em>The Flute Ha</em> <span>(2023)</span></li>
+      <li><strong>ESENGO</strong> – <em>Just Like A FQ</em> <span>(2023)</span></li>
+      <li><strong>Arma</strong> – <em>Sequencing (ESENGO Edit)</em> <span>(2023)</span></li>
+      <li><strong>Fels</strong> – <em>Dizzy Head (ESENGO Remix)</em> <span>(2023)</span></li>
+    </ul>
     <iframe src="https://w.soundcloud.com/player/?url=https://soundcloud.com/esengoartist" frameborder="0" allow="autoplay"></iframe>
   </section>
 
-  <!-- VIDEO -->
+  <!-- ===========================
+       VIDEO
+  ============================ -->
   <section id="video">
     <h1 class="title">Video</h1>
     <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ===========================
+       CONTACT
+  ============================ -->
   <section id="contact">
     <h1 class="title">Contact Me</h1>
     <div class="contact-info-upper-container">
       <div class="contact-info-container">
         <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
-        <p><a href="mailto:jade@chabloz.art"> Bookings:jade@chabloz.art</a></p>
+        <p><a href="mailto:jade@chabloz.art">Bookings: jade@chabloz.art</a></p>
       </div>
       <div class="contact-info-container">
         <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
-         <p><a href="mailto:esengo.artist@gmail.com">esengo.artist@gmail.com</a></p>
-      </div>
+        <p><a href="mailto:esengo.artist@gmail.com">esengo.artist@gmail.com</a></p>
       </div>
     </div>
-   <div class="btn-container">
-        <button class="btn btn-color-2" onclick="window.open('./assets/DE Curriculum Vitae Jérémy Ndoum 2026.pdf')">Download DE CV</button>
-       <button class="btn btn-color-2" onclick="window.open('./assets/ENG Curriculum Vitae Jérémy Ndoum 2026 (1).pdf')">Download ENG CV</button>
-      </div>
+    <div class="btn-container">
+      <button class="btn btn-color-2" onclick="window.open('./assets/DE Curriculum Vitae Jérémy Ndoum 2026.pdf')">Download DE CV</button>
+      <button class="btn btn-color-2" onclick="window.open('./assets/ENG Curriculum Vitae Jérémy Ndoum 2026 (1).pdf')">Download ENG CV</button>
+    </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ===========================
+       FOOTER
+  ============================ -->
   <footer>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
+      <li><a href="#work-section">Work</a></li>
       <li><a href="#music">Music</a></li>
       <li><a href="#video">Video</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -228,8 +235,29 @@
     <p>&copy; 2026 ESENGO. All rights reserved.</p>
   </footer>
 
-  <!-- Script -->
-  <script src="script.js"></script>
+  <!-- ===========================
+       SCRIPTS
+  ============================ -->
+  <script>
+    // Hamburger toggle
+    function toggleMenu() {
+      const menu = document.querySelector('.menu-links');
+      menu.classList.toggle('open');
+    }
+
+    // Read More / Read Less for Bio
+    function toggleBio() {
+      const bio = document.getElementById('more-bio');
+      bio.classList.toggle('hidden');
+    }
+
+    // Read More / Read Less for Work
+    const toggleWorkBtn = document.getElementById('toggle-work');
+    const workSection = document.getElementById('work');
+
+    toggleWorkBtn.addEventListener('click', () => {
+      workSection.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
-
