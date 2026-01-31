@@ -413,3 +413,39 @@ footer {
 footer p {
   text-align: center;
 }
+/* MOBILE / SMALL SCREENS */
+@media (max-width: 768px) {
+  /* Sections padding */
+  section {
+    margin: 0 1.5rem;  /* less side margin */
+    padding-top: 3vh;
+  }
+
+  /* Profile / hero */
+  #profile {
+    flex-direction: column;
+    height: auto;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .section__pic-container {
+    height: 250px;
+    width: 250px;
+    margin: 0 auto;
+  }
+
+  .section__text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 2rem; /* smaller title on mobile */
+  }
+
+  .section__text__p2 {
+    font-size: 1.25rem;
+  }
+
+ 
