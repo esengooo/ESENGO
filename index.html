@@ -1,127 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ESENGO</title>
-
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-
-<!-- Font Awesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-<!-- Main Styles -->
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESENGO</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- DESKTOP NAV -->
-<nav id="desktop-nav">
-  <div class="logo">ESENGO</div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#music">Music</a></li>
-    <li><a href="#video">Video</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+  <!-- DESKTOP NAV -->
+  <nav id="desktop-nav">
+    <div class="logo">ESENGO</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<!-- HAMBURGER NAV -->
-<nav id="hamburger-nav">
-  <div class="logo">ESENGO</div>
-  <div class="hamburger-icon" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <ul id="menu-links" class="menu-links">
-    <li><a href="#about" onclick="toggleMenu()">About</a></li>
-    <li><a href="#work" onclick="toggleMenu()">Work</a></li>
-    <li><a href="#music" onclick="toggleMenu()">Music</a></li>
-    <li><a href="#video" onclick="toggleMenu()">Video</a></li>
-    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section id="profile">
-  <div class="section__pic-container">
-    <img src="assets/profile-pic.png" alt="ESENGO profile picture">
-  </div>
-  <div class="section__text">
-    <p>Hello, I'm</p>
-    <h1>ESENGO</h1>
-    <p>Event Coordinator | Community Organizer | Sound Artist</p>
-    <div class="btn-container">
-      <button onclick="window.open('assets/ESENGO_CV.pdf')">Download CV</button>
-      <button onclick="location.href='#contact'">Contact Info</button>
+  <!-- HAMBURGER NAV -->
+  <nav id="hamburger-nav">
+    <div class="logo">ESENGO</div>
+    <div class="hamburger-menu">
+      <div class="hamburger-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="menu-links">
+        <li><a href="#about" onclick="toggleMenu()">About</a></li>
+        <li><a href="#work" onclick="toggleMenu()">Work</a></li>
+        <li><a href="#music" onclick="toggleMenu()">Music</a></li>
+        <li><a href="#video" onclick="toggleMenu()">Video</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+      </div>
     </div>
-    <div id="socials-container">
-      <img src="assets/instagram.png" alt="Instagram" onclick="location.href='https://instagram.com/esengo'">
-      <img src="assets/linktree.png" alt="Linktree" onclick="location.href='https://linktr.ee/esengo.artist'">
-      <img src="assets/ra.png" alt="Resident Advisor" onclick="location.href='https://ra.co/dj/esengo'">
-      <img src="assets/soundcloud.png" alt="SoundCloud" onclick="location.href='https://soundcloud.com/esengoartist'">
-      <img src="assets/email.png" alt="Email" onclick="location.href='mailto:esengo.artist@gmail.com'">
+  </nav>
+
+  <!-- PROFILE -->
+  <section id="profile">
+    <div class="section__pic-container">
+      <img src="./assets/profile-pic.png" alt="ESENGO profile picture" />
     </div>
-  </div>
-</section>
+    <div class="section__text">
+      <p class="section__text__p1">Hello, I'm</p>
+      <h1 class="title">ESENGO</h1>
+      <p class="section__text__p2">DJ, Producer & Community Organizer</p>
+      <div class="btn-container">
+        <button class="btn btn-color-2" onclick="window.open('./assets/ESENGO_CV.pdf')">Download CV</button>
+        <button class="btn btn-color-1" onclick="location.href='#contact'">Contact Info</button>
+      </div>
+      <div id="socials-container">
+        <img src="./assets/instagram.png" alt="Instagram" class="icon" onclick="location.href='https://instagram.com/esengo'" />
+        <img src="./assets/linktree.png" alt="Linktree" class="icon" onclick="location.href='https://linktr.ee/esengo.artist'" />
+        <img src="./assets/ra.png" alt="Resident Advisor" class="icon" onclick="location.href='https://ra.co/dj/esengo'" />
+        <img src="./assets/soundcloud.png" alt="SoundCloud" class="icon" onclick="location.href='https://soundcloud.com/esengoartist'" />
+        <img src="./assets/email.png" alt="Email" class="icon" onclick="location.href='mailto:esengo.artist@gmail.com'" />
+      </div>
+    </div>
+  </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <h1>About</h1>
-  <p>Esengo, is Event Coordinator | Community Organizer | Sound Artist based between the crossroads of Geneva and Basel in Switzerland,which makes him a very forward-thinking artist.He weaves together the vibrant threads of Kuduro, Gqom,and Vogue Beats, crafting DJ sets that warms rooms and souls.
-From Motel Campo as a regular here in Geneva, La Créole in Paris, OXI in Berlin to the prestigious Montreux Jazz Festival, Esengo reclaims the sounds of black communities through his mixes.
-In 2023, Esengo released an edit of a track by UK producer Arma, titled Arma - Sequencing (Esengo Edit) and continued to release his music productions - including a remix for Swiss music producer Fels and a release on TIG WERK ( alongside Kaval, King Doudou and more) in support of Légal Team Antiraciste - which reintroduced us to his new role as a music producer.
-Committed to the roots of nightlife and creating reciprocal spaces of joy, Esengo is a member of the Swiss ballroom collective Angels in Disguise. In June 2024, he released his debut EP, "A KII", paying tribute to dance floors and his ballroom legacy. His work has garnered attention from NYC rapper Cakes da Killa and Nídia, for whom he has opened as a DJ.</p>
-</section>
+  <!-- ABOUT -->
+  <section id="about">
+    <h1 class="title">About</h1>
+    <div class="section-container">
+      <div class="section__pic-container">
+        <img src="./assets/about-pic.png" alt="ESENGO" class="about-pic" />
+      </div>
+      <div class="about-details-container">
+        <p>DJ, producer & community organizer based between Geneva and Basel. I create music and events to celebrate and reclaim the sounds of Black and Latinx communities in club and ballroom culture.</p>
+      </div>
+    </div>
+  </section>
 
-<!-- WORK / PROJECTS -->
-<section id="work">
-  <h1>Work / Projects</h1>
-  <ul>
-    <li>EP "A KII" (2024) – Vogue Beats production</li>
-    <li>Remix for UK producer Arma – Arma Edit</li>
-    <li>Kiki Ball Organization – Events in Geneva, Basel, Paris, Berlin</li>
-  </ul>
-</section>
+  <!-- WORK / PROJECTS -->
+  <section id="work">
+    <h1 class="title">Work / Projects</h1>
+    <div class="projects-container">
+      <div class="project">
+        <h2>EP "A KII" (2024)</h2>
+        <p>Vogue Beats production</p>
+      </div>
+      <div class="project">
+        <h2>Remix for UK producer Arma</h2>
+        <p>Arma Edit</p>
+      </div>
+      <div class="project">
+        <h2>Kiki Ball Organization</h2>
+        <p>Events in Geneva, Basel, Paris, Berlin</p>
+      </div>
+    </div>
+  </section>
 
-<!-- MUSIC -->
-<section id="music">
-  <h1>Music</h1>
-  <iframe src="https://w.soundcloud.com/player/?url=https://soundcloud.com/esengoartist" frameborder="0" allow="autoplay"></iframe>
-</section>
+  <!-- MUSIC -->
+  <section id="music">
+    <h1 class="title">Music</h1>
+    <iframe src="https://w.soundcloud.com/player/?url=https://soundcloud.com/esengoartist" frameborder="0" allow="autoplay"></iframe>
+  </section>
 
-<!-- VIDEO -->
-<section id="video">
-  <h1>Video</h1>
-  <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-</section>
+  <!-- VIDEO -->
+  <section id="video">
+    <h1 class="title">Video</h1>
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <h1>Contact</h1>
-  <p>Email: <a href="mailto:esengo.artist@gmail.com">esengo.artist@gmail.com</a></p>
-  <form action="https://formsubmit.co/esengo.artist@gmail.com" method="POST">
-    <label>Name</label>
-    <input type="text" name="name" required>
-    <label>Email</label>
-    <input type="email" name="email" required>
-    <label>Message</label>
-    <textarea name="message" rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+  <!-- CONTACT -->
+  <section id="contact">
+    <h1 class="title">Contact Me</h1>
+    <div class="contact-info-upper-container">
+      <div class="contact-info-container">
+        <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
+        <p><a href="mailto:esengo.artist@gmail.com">esengo.artist@gmail.com</a></p>
+      </div>
+      <div class="contact-info-container">
+        <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
+        <p><a href="https://www.linkedin.com">LinkedIn</a></p>
+      </div>
+    </div>
+    <form action="https://formsubmit.co/esengo.artist@gmail.com" method="POST">
+      <label>Name</label>
+      <input type="text" name="name" required>
+      <label>Email</label>
+      <input type="email" name="email" required>
+      <label>Message</label>
+      <textarea name="message" rows="5" required></textarea>
+      <button type="submit" class="btn btn-color-1">Send Message</button>
+    </form>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>&copy; 2026 ESENGO. All rights reserved.</p>
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <p>&copy; 2026 ESENGO. All rights reserved.</p>
+  </footer>
 
-<script src="script.js"></script>
+  <!-- Script -->
+  <script src="script.js"></script>
 </body>
 </html>
+
