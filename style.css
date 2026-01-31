@@ -512,6 +512,30 @@ footer {
     justify-content: center;   /* Center social icons with profile */
   }
 }
+/* Responsive YouTube iframe */
+#video {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+#video iframe {
+  width: 100%;
+  max-width: 800px; /* limits width on large screens */
+  height: 450px;    /* 16:9 aspect ratio */
+}
+
+@media (max-width: 768px) {
+  #video iframe {
+    height: 240px; /* smaller height on phones */
+  }
+}
+
+@media (max-width: 480px) {
+  #video iframe {
+    height: 200px; /* even smaller height for very small screens */
+  }
+}
 
 
 
