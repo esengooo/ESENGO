@@ -537,5 +537,36 @@ footer {
   }
 }
 
+#profile {
+  margin-top: 2rem; /* adds space above profile section */
+}
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+@media (max-width: 768px) {
+  .contact-info-upper-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .contact-info-container {
+    justify-content: center;
+    text-align: center;
+  }
+}
 
 
