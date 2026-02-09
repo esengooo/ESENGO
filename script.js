@@ -1,5 +1,5 @@
 <script>
-  // Hamburger menu toggle
+  // Hamburger menu
   function toggleMenu() {
     const menu = document.querySelector(".menu-links");
     const icon = document.querySelector(".hamburger-icon");
