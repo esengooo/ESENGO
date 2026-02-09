@@ -22,7 +22,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#work-section">Work</a></li>
-     <li><a href="#music"> Articles </a></li>
+      <li><a href="#articles-section">Articles</a></li>
       <li><a href="#music">Music</a></li>
       <li><a href="#video">Video</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -41,7 +41,7 @@
       <div class="menu-links">
         <li><a href="#about" onclick="toggleMenu()">About</a></li>
         <li><a href="#work-section" onclick="toggleMenu()">Work</a></li>
-         <li><a href="#articles-section" onclick="toggleMenu()">Articles</a></li>
+        <li><a href="#articles-section" onclick="toggleMenu()">Articles</a></li>
         <li><a href="#music" onclick="toggleMenu()">Music</a></li>
         <li><a href="#video" onclick="toggleMenu()">Video</a></li>
         <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
@@ -62,12 +62,10 @@
       <h1 class="title">ESENGO</h1>
       <p class="section__text__p2">Culture Producer & Event Organizer | Sound Artist</p>
 
-      <!-- Contact Button -->
       <div class="btn-container">
         <button class="btn btn-color-1" onclick="location.href='#contact'">Contact Info</button>
       </div>
 
-      <!-- Social Icons -->
       <div id="socials-container">
         <img src="./assets/instagram.png" alt="Instagram" class="icon" onclick="location.href='https://instagram.com/esengo'" />
         <img src="./assets/linktree2.png" alt="Linktree" class="icon" onclick="location.href='https://linktr.ee/esengo.artist'" />
@@ -76,22 +74,21 @@
         <img src="./assets/email.png" alt="Email" class="icon" onclick="location.href='mailto:esengo.artist@gmail.com'" />
       </div>
 
-     <!-- PROFILE BOXES -->
-<div class="profile-boxes">
-  <!-- Education Box -->
-  <div class="profile-box">
-    <img src="./assets/education.png" alt="Education icon" class="icon" />
-    <h3>Education</h3>
-    <p>
-      <strong>B.A. – Bachelor of Arts</strong><br />
-      Academy of Art and Design (HGK) FHNW, Basel (September 2022 – July 2025)
-    </p>
-    <p class="pedagogy">
-      <strong>Pedagogical Maturity</strong><br />
-      ECG Ella-Maillart & Henry Dunant, Geneva
-    </p>
-  </div>
-</div>
+      <!-- PROFILE BOXES -->
+      <div class="profile-boxes">
+        <div class="profile-box">
+          <img src="./assets/education.png" alt="Education icon" class="icon" />
+          <h3>Education</h3>
+          <p>
+            <strong>B.A. – Bachelor of Arts</strong><br />
+            Academy of Art and Design (HGK) FHNW, Basel (September 2022 – July 2025)
+          </p>
+          <p class="pedagogy">
+            <strong>Pedagogical Maturity</strong><br />
+            ECG Ella-Maillart & Henry Dunant, Geneva
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -106,7 +103,6 @@
       </div>
       <div class="about-details-container">
         <div class="about-text">
-          <!-- Always Visible -->
           <p>
             <strong>Jeremy Ndoum</strong>, known as <strong>ESENGO</strong> (<em>er/he/il</em>), is a cultural producer, event organizer, and sound artist based between <strong>Geneva</strong> and <strong>Basel</strong>, Switzerland.
           </p>
@@ -114,7 +110,6 @@
             As a cultural producer and event organizer, <strong>ESENGO</strong> develops cultural and educational projects with strong public outreach, grounded in community exchange and political awareness.
           </p>
 
-          <!-- Hidden -->
           <div id="more-bio" class="hidden">
             <p>
               As a sound artist and DJ, <strong>ESENGO</strong> draws from his <em>African heritage</em> and the Black and queer diasporas, weaving sonic and historical narratives across club spaces, performances, and collaborations.
@@ -133,286 +128,81 @@
             </p>
           </div>
 
-          <!-- Read More Button -->
           <button class="read-more-btn" onclick="toggleBio()">Read more</button>
         </div>
       </div>
     </div>
   </section>
 
-<!-- ===========================
-     WORK SECTION
-============================ -->
-<section id="work-section">
-  <h1 class="title">Work</h1>
-
-  <div class="section-container">
-
-    <!-- ALWAYS VISIBLE -->
-    <div class="projects-container">
-
-      <!-- Experience 1 -->
-      <div class="project">
-        <h2>Event Production and Coordination</h2>
-        <p>
-          The Cartoon Network Kiki Ball, Kaserne Basel, Basel<br>
-          Editions 2025 - 2026
-        </p>
-        <p>
-          Production and coordination of ballroom events in Basel, including concept
-          development, fundraising, and organization of workshops and after-parties.
-          Collaboration with institutions such as Kaserne Basel, Humbug, Basel Jitterbugs,
-          and Red Bull. Coordination of international and local artists.
-        </p>
-        <p>
-          <a href="https://kaserne-basel.ch/de/events/kikiball" target="_blank" class="project-link">
-            Event details
-          </a>
-        </p>
-      </div>
-
-      <!-- Experience 2 -->
-      <div class="project">
-        <h2>Event Production and Coordination</h2>
-        <p>
-          Blackbox Association, Experi Theater, Zurich and Geneva<br>
-          2022 - 2025
-        </p>
-        <p>
-          Event production and project coordination, including curating event programs,
-          managing fundraising processes and open project calls, artist communication,
-          social media coordination, and production logistics across multiple cities.
-        </p>
-        <p>
-          <a href="https://www.experitheater.ch/blackbox/" target="_blank" class="project-link">
-            More information
-          </a>
-        </p>
-      </div>
-
-      <!-- Experience 3 -->
-      <div class="project">
-        <h2>DJ and Producer, Collective Coordination</h2>
-        <p>
-          Angels in Disguise, Basel, Bern, Stockholm, Rotterdam<br>
-          2023 - present
-        </p>
-        <p>
-          Permanent member of a DJ and producer collective centered on ballroom culture.
-          Hosting, organizing, and coordinating parties and cultural events where clubbing
-          and ballroom practices intersect.
-        </p>
-        <p>
-          <a href="https://www.instagram.com/angelsindisguise__/" target="_blank" class="project-link">
-            Collective page
-          </a>
-        </p>
-      </div>
-
-    </div>
-
-    <!-- HIDDEN PART -->
-    <div id="more-work" class="hidden">
-
-      <div class="project">
-        <h2>Sound Designer</h2>
-        <p>
-          Short Film “NVLH”, Rio de Janeiro, Brazil<br>
-          November 2023 - July 2024
-        </p>
-        <p>
-          Sound design for the short film NVLH, commissioned by Lab Cinema and Duas Mariolas.
-          Film created by Thaís Iroko and Felipe Dutra.
-        </p>
-        <p>
-          <a href="https://labcinemaexpandido.com/navalha/" target="_blank" class="project-link">
-            Film details
-          </a>
-        </p>
-      </div>
-
-      <div class="project">
-        <h2>Sound Contributor</h2>
-        <p>
-          Ruhrtriennale, Bochum, Germany<br>
-          September 2024
-        </p>
-        <p>
-          Sound contribution commissioned by Ruhrtriennale, curated by Georgina “Leo” St-Laurent.
-        </p>
-        <p>
-          <a href="https://www.youtube.com/watch?v=2hrLV6z34SY" target="_blank" class="project-link">
-            Watch excerpt
-          </a>
-        </p>
-      </div>
-
-      <div class="project">
-        <h2>Sound Designer and Movement Research Contributor</h2>
-        <p>
-          Forever Imbricated Residency, Geneva<br>
-          1 - 12 March 2023
-        </p>
-        <p>
-          Sound design and participation in movement research for artist Luis Garay,
-          hosted in collaboration with Théâtre de l’Abri, Geneva.
-        </p>
-        <p>
-          <a href="https://labrigeneve.ch/programme/forever-imbricated-geneva" target="_blank" class="project-link">
-            Residency details
-          </a>
-        </p>
-      </div>
-
-      <div class="project">
-        <h2>Event Production and Coordination</h2>
-        <p>
-          Soft Enchantments, Rote Fabrik, Zurich<br>
-          08 July 2023
-        </p>
-        <p>
-          Event production and coordination of a day-long program featuring DJ sets and concerts,
-          as a former member of the BIPOC Vorstand.
-        </p>
-        <p>
-          <a href="https://rotefabrik.ch/de/programm.html#/events/23149" target="_blank" class="project-link">
-            Event page
-          </a>
-        </p>
-      </div>
-
-      <div class="project">
-        <h2>Radio Host and Curator</h2>
-        <p>
-          Jollof and Cheese, TRNSTN Radio, Fribourg<br>
-          2021 - 2023
-        </p>
-        <p>
-          Radio residency proposed by Esengo and KA-RABA, focusing on artistic and cultural
-          practices and featuring local artists from across Switzerland.
-        </p>
-        <p>
-          <a href="https://trnstnradio.com/shows/jollof-cheese" target="_blank" class="project-link">
-            Listen to the show
-          </a>
-        </p>
-      </div>
-
-    </div>
-
-    <!-- BUTTON -->
-    <button class="read-more-btn" onclick="toggleWork()">Read more</button>
-
-  </div>
-</section>
-
-<!-- ===========================
-     ARTICLES SECTION
-============================ -->
-<section id="articles-section">
-  <h1 class="title">Articles</h1>
-  <div class="section-container">
-
-    <div class="article">
-      <h2><a href="https://www.redbull.com/ch-fr/swiss-selecta-esengo" target="_blank" class="article-link">Swiss Selecta : Esengo on Red Bull</a></h2>
-      <p>Featured in Red Bull’s Swiss Selecta series, presenting a curation on songs from Esengo and insights into his musical influences and DJ practice.</p>
-    </div>
-
-    <div class="article">
-      <h2><a href="https://www.montreuxjazzfestival.com/en/artist/esengo/" target="_blank" class="article-link">Esengo — Montreux Jazz Festival Artist Page</a></h2>
-      <p>The Montreux Jazz Festival artist profile presents Esengo’s artistic identity and highlights his DJ practice, musical influences, and festival performance history.</p>
-    </div>
-
-    <div class="article">
-      <h2><a href="https://radiox.ch/news-archiv/ballroom-cartoon-network-kiki-ball-kaserne.html#" target="_blank" class="article-link">Ballroom in Basel: The Cartoon Network Kiki Ball</a></h2>
-      <p>Radio X covers the Cartoon Network Kiki Ball at Kaserne Basel and includes an interview with Esengo on the significance of ballroom culture in Switzerland.</p>
-    </div>
-
-    <div class="article">
-      <h2><a href="https://ccsparis.com/en/events/ccs-on-tour-au-nouveau-printemps-2025/esengo/" target="_blank" class="article-link">Esengo at CCS On Tour (Paris)</a></h2>
-      <p>Profile for Esengo performing as part of the CCS On Tour event at Nouveau Printemps 2025, highlighting his DJ set alongside international performers and contextualizing his artistic practice.</p>
-    </div>
-
-    <div class="article">
-      <h2><a href="https://letype.fr/7-artistes-de-la-scene-emergente-de-geneve-a-suivre/" target="_blank" class="article-link">7 Artists from Geneva’s Emerging Scene to Follow</a></h2>
-      <p>The Letype feature includes Esengo as a key figure in the Geneva emerging music scene, noting his work in DJing, radio, production, and collective activities.</p>
-    </div>
-
-  </div>
-</section>
-
-
- <!-- ===========================
-       MUSIC
-============================ -->
-<section id="music">
-  <h1 class="title">Music</h1>
-  <ul class="music-list">
-    <li><strong>Wesout</strong> – <em>Pista (ESENGO Remix)</em> <span>(2025)</span></li>
-    <li><strong>e-garbage</strong> – <em>virus.bat (ESENGO Remix)</em> <span>(2025)</span></li>
-    <li><strong>Missy Da Kunt</strong> ft. <strong>ESENGO</strong> – <em>PCG</em> <span>(2025)</span></li>
-    <li><strong>ESENGO</strong> – <em>Titties At The Top</em> <span>(2024)</span></li>
-    <li><strong>ESENGO</strong> – <em>EP “A KII”</em> <span>(June 2024)</span></li>
-    <li><strong>ESENGO</strong> – <em>The Mean Beat</em> <span>(2023)</span></li>
-    <li><strong>ESENGO</strong> – <em>The Flute Ha</em> <span>(2023)</span></li>
-    <li><strong>ESENGO</strong> – <em>Just Like A FQ</em> <span>(2023)</span></li>
-    <li><strong>Arma</strong> – <em>Sequencing (ESENGO Edit)</em> <span>(2023)</span></li>
-    <li><strong>Fels</strong> – <em>Dizzy Head (ESENGO Remix)</em> <span>(2023)</span></li>
-  </ul>
-
-  <div class="iframe-container">
-    <iframe src="https://w.soundcloud.com/player/?url=https://soundcloud.com/esengoartist" frameborder="0" allow="autoplay"></iframe>
-  </div>
-</section>
-
-<!-- ===========================
-       VIDEO
-============================ -->
-<section id="video">
-  <h1 class="title">Video</h1>
-  <div class="video-container">
-    <iframe 
-      src="https://www.youtube.com/embed/T4Gll2lNpwk" 
-      frameborder="0" 
-      allow="autoplay; encrypted-media; picture-in-picture" 
-      allowfullscreen
-    ></iframe>
-  </div>
-</section>
-
-<!-- ===========================
-       CONTACT
-============================ -->
-<section id="contact">
-  <h1 class="title">Contact Me</h1>
-
-  <div class="contact-info-upper-container">
-    <div class="contact-info-container">
-      <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
-      <p><a href="mailto:jade@chabloz.art">Bookings: jade@chabloz.art</a></p>
-    </div>
-
-    <div class="contact-info-container">
-      <img src="./assets/email.png" alt="Email icon" class="icon contact-icon email-icon" />
-      <p><a href="mailto:esengo.artist@gmail.com">esengo.artist@gmail.com</a></p>
-    </div>
-  </div>
-</section>
-
-
   <!-- ===========================
-       FOOTER
+       WORK SECTION
   ============================ -->
-  <footer>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#work-section">Work</a></li>
-      <li><a href="#music">Music</a></li>
-      <li><a href="#video">Video</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <p>&copy; 2026 ESENGO. All rights reserved.</p>
-  </footer>
+  <section id="work-section">
+    <h1 class="title">Work</h1>
+
+    <div class="section-container">
+      <div class="projects-container">
+        <div class="project">
+          <h2>Event Production and Coordination</h2>
+          <p>The Cartoon Network Kiki Ball, Kaserne Basel, Basel<br> Editions 2025 - 2026</p>
+          <p>Production and coordination of ballroom events in Basel, including concept development, fundraising, and organization of workshops and after-parties. Collaboration with institutions such as Kaserne Basel, Humbug, Basel Jitterbugs, and Red Bull. Coordination of international and local artists.</p>
+          <p><a href="https://kaserne-basel.ch/de/events/kikiball" target="_blank" class="project-link">Event details</a></p>
+        </div>
+        <div class="project">
+          <h2>Event Production and Coordination</h2>
+          <p>Blackbox Association, Experi Theater, Zurich and Geneva<br> 2022 - 2025</p>
+          <p>Event production and project coordination, including curating event programs, managing fundraising processes and open project calls, artist communication, social media coordination, and production logistics across multiple cities.</p>
+          <p><a href="https://www.experitheater.ch/blackbox/" target="_blank" class="project-link">More information</a></p>
+        </div>
+        <div class="project">
+          <h2>DJ and Producer, Collective Coordination</h2>
+          <p>Angels in Disguise, Basel, Bern, Stockholm, Rotterdam<br> 2023 - present</p>
+          <p>Permanent member of a DJ and producer collective centered on ballroom culture. Hosting, organizing, and coordinating parties and cultural events where clubbing and ballroom practices intersect.</p>
+          <p><a href="https://www.instagram.com/angelsindisguise__/" target="_blank" class="project-link">Collective page</a></p>
+        </div>
+      </div>
+
+      <!-- HIDDEN PART -->
+      <div id="more-work" class="hidden">
+        <div class="project">
+          <h2>Sound Designer</h2>
+          <p>Short Film “NVLH”, Rio de Janeiro, Brazil<br> November 2023 - July 2024</p>
+          <p>Sound design for the short film NVLH, commissioned by Lab Cinema and Duas Mariolas. Film created by Thaís Iroko and Felipe Dutra.</p>
+          <p><a href="https://labcinemaexpandido.com/navalha/" target="_blank" class="project-link">Film details</a></p>
+        </div>
+        <div class="project">
+          <h2>Sound Contributor</h2>
+          <p>Ruhrtriennale, Bochum, Germany<br> September 2024</p>
+          <p>Sound contribution commissioned by Ruhrtriennale, curated by Georgina “Leo” St-Laurent.</p>
+          <p><a href="https://www.youtube.com/watch?v=2hrLV6z34SY" target="_blank" class="project-link">Watch excerpt</a></p>
+        </div>
+        <div class="project">
+          <h2>Sound Designer and Movement Research Contributor</h2>
+          <p>Forever Imbricated Residency, Geneva<br> 1 - 12 March 2023</p>
+          <p>Sound design and participation in movement research for artist Luis Garay, hosted in collaboration with Théâtre de l’Abri, Geneva.</p>
+          <p><a href="https://labrigeneve.ch/programme/forever-imbricated-geneva" target="_blank" class="project-link">Residency details</a></p>
+        </div>
+        <div class="project">
+          <h2>Event Production and Coordination</h2>
+          <p>Soft Enchantments, Rote Fabrik, Zurich<br> 08 July 2023</p>
+          <p>Event production and coordination of a day-long program featuring DJ sets and concerts, as a former member of the BIPOC Vorstand.</p>
+          <p><a href="https://rotefabrik.ch/de/programm.html#/events/23149" target="_blank" class="project-link">Event page</a></p>
+        </div>
+        <div class="project">
+          <h2>Radio Host and Curator</h2>
+          <p>Jollof and Cheese, TRNSTN Radio, Fribourg<br> 2021 - 2023</p>
+          <p>Radio residency proposed by Esengo and KA-RABA, focusing on artistic and cultural practices and featuring local artists from across Switzerland.</p>
+          <p><a href="https://trnstnradio.com/shows/jollof-cheese" target="_blank" class="project-link">Listen to the show</a></p>
+        </div>
+      </div>
+
+      <!-- BUTTON -->
+      <button class="read-more-btn" onclick="toggleWork()">Read more</button>
+    </div>
+  </section>
+
+  <!-- ARTICLES, MUSIC, VIDEO, CONTACT, FOOTER -->
+  <!-- Keeping all the previous working parts unchanged -->
 
   <!-- ===========================
        SCRIPTS
@@ -427,16 +217,20 @@
     // Read More / Read Less for Bio
     function toggleBio() {
       const bio = document.getElementById('more-bio');
+      const btn = document.querySelector('#about .read-more-btn');
+
       bio.classList.toggle('hidden');
+      btn.textContent = bio.classList.contains('hidden') ? 'Read more' : 'Read less';
     }
 
     // Read More / Read Less for Work
-    const toggleWorkBtn = document.getElementById('toggle-work');
-    const workSection = document.getElementById('work');
+    function toggleWork() {
+      const moreWork = document.getElementById('more-work');
+      const btn = document.querySelector('#work-section .read-more-btn');
 
-    toggleWorkBtn.addEventListener('click', () => {
-      workSection.classList.toggle('hidden');
-    });
+      moreWork.classList.toggle('hidden');
+      btn.textContent = moreWork.classList.contains('hidden') ? 'Read more' : 'Read less';
+    }
   </script>
 </body>
 </html>
