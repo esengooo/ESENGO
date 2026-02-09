@@ -278,7 +278,7 @@ section {
 }
 
 /* ===============================
-   WORK / PROJECTS SECTION
+   WORK  SECTION
 =============================== */
 .projects-container {
   display: flex;
@@ -572,3 +572,21 @@ section {
     line-height: 1.5;
   }
 }
+
+
+
+
+√<script>
+  function toggleWork() {
+    const moreWork = document.getElementById("more-work");
+    const button = document.querySelector(".read-more-btn");
+
+    if (moreWork.classList.contains("hidden")) {
+      moreWork.classList.remove("hidden");
+      button.textContent = "Read less";
+    } else {
+      moreWork.classList.add("hidden");
+      button.textContent = "Read more";
+    }
+  }
+</script>
