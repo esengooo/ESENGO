@@ -592,3 +592,15 @@ section {
 </script>
 const toggleWorkBtn = document.getElementById('toggle-work');
 const workSection = document.getElementById('work');
+.hidden {
+  display: none;
+}
+#more-work, #more-bio {
+  transition: all 0.3s ease;
+}
+
+
+
+
+
+
