@@ -590,3 +590,5 @@ section {
     }
   }
 </script>
+const toggleWorkBtn = document.getElementById('toggle-work');
+const workSection = document.getElementById('work');
