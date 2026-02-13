@@ -2,9 +2,32 @@
    MENU TOGGLE
 =============================== */
 function toggleMenu() {
-  const menu = document.getElementById("menu-panel");
-  menu.classList.toggle("hidden");
+  const menu = document.querySelector("#hamburger-nav .menu-links");
+  menu.classList.toggle("open");
 }
+
+/* ===============================
+   SMOOTH SCROLL & CLOSE MENU ON LINK CLICK
+=============================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const menuLinks = document.querySelectorAll("#hamburger-nav .menu-links a");
+
+  menuLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+
+      // Scroll to target section smoothly
+      const targetId = link.getAttribute("href").substring(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Close the menu after click
+      toggleMenu();
+    });
+  });
+});
 
 /* ===============================
    GENERIC READ MORE TOGGLE
@@ -12,7 +35,6 @@ function toggleMenu() {
 =============================== */
 function toggleSection(sectionId, button) {
   const section = document.getElementById(sectionId);
-
   if (!section) return;
 
   if (section.classList.contains("hidden")) {
@@ -29,7 +51,6 @@ function toggleSection(sectionId, button) {
 =============================== */
 function toggleCategory(sectionId, button) {
   const section = document.getElementById(sectionId);
-
   if (!section) return;
 
   if (section.classList.contains("hidden")) {
@@ -58,16 +79,3 @@ function toggleBachelor() {
     btn.textContent = "Read more";
   }
 }
-
-/* ===============================
-   CLOSE MENU ON LINK CLICK
-=============================== */
-document.addEventListener("DOMContentLoaded", () => {
-  const menuLinks = document.querySelectorAll(".menu-panel a");
-
-  menuLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      document.getElementById("menu-panel")?.classList.add("hidden");
-    });
-  });
-});
