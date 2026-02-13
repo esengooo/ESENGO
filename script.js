@@ -1,25 +1,73 @@
-<script>
-  // Hamburger menu
-  function toggleMenu() {
-    const menu = document.querySelector(".menu-links");
-    const icon = document.querySelector(".hamburger-icon");
-    menu.classList.toggle("open");
-    icon.classList.toggle("open");
-  }
+/* ===============================
+   MENU TOGGLE
+=============================== */
+function toggleMenu() {
+  const menu = document.getElementById("menu-panel");
+  menu.classList.toggle("hidden");
+}
 
-  // Bio Read More / Read Less
-  function toggleBio() {
-    const moreBio = document.getElementById("more-bio");
-    const btn = document.querySelector("#profile .read-more-btn");
-    moreBio.classList.toggle("hidden");
-    btn.textContent = moreBio.classList.contains("hidden") ? "Read more" : "Read less";
-  }
+/* ===============================
+   GENERIC READ MORE TOGGLE
+   (Reusable for all sections)
+=============================== */
+function toggleSection(sectionId, button) {
+  const section = document.getElementById(sectionId);
 
-  // Work Read More / Read Less
-  function toggleWork() {
-    const moreWork = document.getElementById("more-work");
-    const btn = document.querySelector("#work-section .read-more-btn");
-    moreWork.classList.toggle("hidden");
-    btn.textContent = moreWork.classList.contains("hidden") ? "Read more" : "Read less";
+  if (!section) return;
+
+  if (section.classList.contains("hidden")) {
+    section.classList.remove("hidden");
+    button.textContent = "Read less";
+  } else {
+    section.classList.add("hidden");
+    button.textContent = "Read more";
   }
-</script>
+}
+
+/* ===============================
+   WORK CATEGORY TOGGLE
+=============================== */
+function toggleCategory(sectionId, button) {
+  const section = document.getElementById(sectionId);
+
+  if (!section) return;
+
+  if (section.classList.contains("hidden")) {
+    section.classList.remove("hidden");
+    button.textContent = button.textContent.replace("Show", "Hide");
+  } else {
+    section.classList.add("hidden");
+    button.textContent = button.textContent.replace("Hide", "Show");
+  }
+}
+
+/* ===============================
+   BACHELOR PROJECT TOGGLE
+=============================== */
+function toggleBachelor() {
+  const more = document.getElementById("more-bachelor");
+  const btn = document.querySelector("#bachelor-project .read-more-btn");
+
+  if (!more || !btn) return;
+
+  if (more.classList.contains("hidden")) {
+    more.classList.remove("hidden");
+    btn.textContent = "Read less";
+  } else {
+    more.classList.add("hidden");
+    btn.textContent = "Read more";
+  }
+}
+
+/* ===============================
+   CLOSE MENU ON LINK CLICK
+=============================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const menuLinks = document.querySelectorAll(".menu-panel a");
+
+  menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      document.getElementById("menu-panel")?.classList.add("hidden");
+    });
+  });
+});
