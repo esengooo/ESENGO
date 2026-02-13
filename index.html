@@ -13,122 +13,99 @@
 </head>
 <body>
 
-<!-- ===========================
-     DESKTOP NAVIGATION
-============================ -->
-<nav id="desktop-nav">
-  <div class="logo">ESENGO</div>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#profile">Profile</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#work-section">Work</a></li>
-    <li><a href="#bachelor-project">Bachelor Project</a></li>
-    <li><a href="#articles-section">Articles</a></li>
-    <li><a href="#music">Music</a></li>
-    <li><a href="#video">Video</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+  <!-- ===========================
+       FLOATING MENU TOGGLE
+  ============================ -->
+  <div class="menu-toggle" onclick="toggleMenu()">MENU</div>
 
-<!-- ===========================
-     HAMBURGER / MOBILE NAVIGATION
-============================ -->
-<nav id="hamburger-nav">
-  <div class="logo">ESENGO</div>
-  <div class="hamburger-menu">
-    <div class="hamburger-icon" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div id="menu-panel" class="menu-links hidden">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#profile">Profile</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#work-section">Work</a></li>
-        <li><a href="#bachelor-project">Bachelor Project</a></li>
-        <li><a href="#articles-section">Articles</a></li>
-        <li><a href="#music">Music</a></li>
-        <li><a href="#video">Video</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- ===========================
-     HOME SECTION (VIDEO HERO)
-============================ -->
-<section id="home" class="home-section">
-  <video
-    class="home-video"
-    autoplay
-    muted
-    loop
-    playsinline
-  >
-    <source src="./assets/home-video.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-
-  <div class="home-overlay">
-    <h1>ESENGO</h1>
-  </div>
-</section>
-
-<!-- ===========================
-     PROFILE SECTION
-============================ -->
-<section id="profile">
-  <div class="section__pic-container">
-    <img src="./assets/VisàlKimEsengo.jpg" alt="ESENGO profile picture" />
-    <p class="image-credit">Photo credit: Visàl Kim</p>
+  <div id="menu-panel" class="menu-panel hidden">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work-section">Work</a></li>
+      <li><a href="#bachelor-project">Bachelor Project</a></li>
+      <li><a href="#articles-section">Articles</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </div>
 
-  <div class="section__text">
-    <h1 class="title">ESENGO</h1>
-    <p class="section__text__p2">
-      Culture Producer & Event Producer | Sound Artist
-    </p>
+  <!-- ===========================
+       HOME SECTION (VIDEO HERO)
+  ============================ -->
+  <section id="home" class="home-section">
+    <div class="home-video-container">
+      <video
+        class="home-video"
+        autoplay
+        muted
+        loop
+        playsinline
+      >
+        <source src="./assets/home-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-    <div class="btn-container">
-      <button class="btn btn-color-1" onclick="location.href='#contact'">
-        Contact Info
-      </button>
-    </div>
-
-    <div id="socials-container">
-      <img src="./assets/instagram.png" alt="Instagram" class="icon"
-        onclick="location.href='https://instagram.com/esengo'" />
-      <img src="./assets/linktree2.png" alt="Linktree" class="icon"
-        onclick="location.href='https://linktr.ee/esengo.artist'" />
-      <img src="./assets/Logo-Resident-Advisor.jpeg" alt="Resident Advisor" class="icon"
-        onclick="location.href='https://ra.co/dj/esengo'" />
-      <img src="./assets/soundcloud.png" alt="SoundCloud" class="icon"
-        onclick="location.href='https://soundcloud.com/esengoartist'" />
-      <img src="./assets/email.png" alt="Email" class="icon"
-        onclick="location.href='mailto:esengo.artist@gmail.com'" />
-    </div>
-
-    <div class="profile-boxes">
-      <div class="profile-box">
-        <img src="./assets/education.png" alt="Education icon" class="icon" />
-        <h3>Education</h3>
-        <p>
-          <strong>B.A. – Bachelor of Arts</strong><br />
-          Academy of Art and Design (HGK) FHNW, Basel
-          (September 2022 – July 2025)
-        </p>
-        <p class="pedagogy">
-          <strong>Pedagogical Maturity</strong><br />
-          ECG Ella-Maillart & Henry Dunant, Geneva
-        </p>
+      <div class="home-overlay">
+        <h1>ESENGO</h1>
+        <p>Culture Producer · Event Producer · Sound Artist</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ===========================
+       PROFILE SECTION
+  ============================ -->
+  <section id="profile">
+    <div class="section__pic-container">
+      <img src="./assets/VisàlKimEsengo.jpg" alt="ESENGO profile picture" />
+      <p class="image-credit">Photo credit: Visàl Kim</p>
+    </div>
+
+    <div class="section__text">
+      <h1 class="title">ESENGO</h1>
+      <p class="section__text__p2">
+        Culture Producer & Event Producer | Sound Artist
+      </p>
+
+      <div class="btn-container">
+        <button class="btn btn-color-1" onclick="location.href='#contact'">
+          Contact Info
+        </button>
+      </div>
+
+      <div id="socials-container">
+        <img src="./assets/instagram.png" alt="Instagram" class="icon"
+          onclick="location.href='https://instagram.com/esengo'" />
+        <img src="./assets/linktree2.png" alt="Linktree" class="icon"
+          onclick="location.href='https://linktr.ee/esengo.artist'" />
+        <img src="./assets/Logo-Resident-Advisor.jpeg" alt="Resident Advisor" class="icon"
+          onclick="location.href='https://ra.co/dj/esengo'" />
+        <img src="./assets/soundcloud.png" alt="SoundCloud" class="icon"
+          onclick="location.href='https://soundcloud.com/esengoartist'" />
+        <img src="./assets/email.png" alt="Email" class="icon"
+          onclick="location.href='mailto:esengo.artist@gmail.com'" />
+      </div>
+
+      <div class="profile-boxes">
+        <div class="profile-box">
+          <img src="./assets/education.png" alt="Education icon" class="icon" />
+          <h3>Education</h3>
+          <p>
+            <strong>B.A. – Bachelor of Arts</strong><br />
+            Academy of Art and Design (HGK) FHNW, Basel
+            (September 2022 – July 2025)
+          </p>
+          <p class="pedagogy">
+            <strong>Pedagogical Maturity</strong><br />
+            ECG Ella-Maillart & Henry Dunant, Geneva
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
   <!-- ===========================
