@@ -39,8 +39,8 @@ a:hover {
   padding: 1rem;
   border-radius: 2rem;
   width: 8rem;
-  transition: all 0.3s ease;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .btn-color-1 {
@@ -56,42 +56,39 @@ a:hover {
 /* ===============================
    HOME / VIDEO HERO
 =============================== */
-#home {
+.home-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.home-video-container {
   position: relative;
   width: 100%;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
+  max-height: 400px;
   overflow: hidden;
+  border-radius: 1rem;
 }
 
 .home-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  z-index: -1;
 }
 
 .home-overlay {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
-  background: rgba(0, 0, 0, 0.25);
+  text-align: center;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 
 .home-overlay h1 {
-  font-size: 4rem;
-  letter-spacing: 0.2rem;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
 }
 
 .home-overlay p {
@@ -108,7 +105,7 @@ a:hover {
   right: 20px;
   background: black;
   color: white;
-  padding: 0.7rem 1rem;
+  padding: 0.8rem 1rem;
   cursor: pointer;
   z-index: 9999;
   border-radius: 1rem;
@@ -155,7 +152,6 @@ a:hover {
   display: none;
 }
 
-
 /* ===============================
    SECTIONS & SPACING
 =============================== */
@@ -164,7 +160,7 @@ section {
   min-height: fit-content;
 }
 
-section:not(#home) {
+section:not(.home-section) {
   margin: 0 10rem;
 }
 
@@ -216,6 +212,8 @@ section:not(#home) {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .icon {
@@ -227,6 +225,8 @@ section:not(#home) {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* ===============================
@@ -237,6 +237,7 @@ section:not(#home) {
   gap: 2rem;
   flex-wrap: wrap;
   margin-top: 2rem;
+  justify-content: center;
 }
 
 .profile-box {
@@ -246,6 +247,11 @@ section:not(#home) {
   max-width: 300px;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-box .icon {
+  height: 3rem;
+  margin-bottom: 1rem;
 }
 
 /* ===============================
@@ -309,6 +315,7 @@ section:not(#home) {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  padding: 2rem 0;
 }
 
 .contact-info-upper-container {
@@ -317,6 +324,8 @@ section:not(#home) {
   padding: 1rem;
   border-radius: 1rem;
   border: 1px solid #ccc;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* ===============================
@@ -334,8 +343,14 @@ section:not(#home) {
 /* ===============================
    RESPONSIVE
 =============================== */
+@media (max-width: 1024px) {
+  section:not(.home-section) {
+    margin: 0 4rem;
+  }
+}
+
 @media (max-width: 768px) {
-  section:not(#home) {
+  section:not(.home-section) {
     margin: 0 2rem;
   }
 
@@ -347,6 +362,7 @@ section:not(#home) {
   .section__pic-container {
     width: 250px;
     height: 250px;
+    margin: 0 auto;
   }
 
   .home-overlay h1 {
@@ -355,7 +371,7 @@ section:not(#home) {
 }
 
 @media (max-width: 480px) {
-  section:not(#home) {
+  section:not(.home-section) {
     margin: 0 1rem;
   }
 
