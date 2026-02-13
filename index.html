@@ -13,82 +13,99 @@
 </head>
 <body>
 
-  <!-- ===========================
-       NAVIGATION
-  ============================ -->
-  <nav id="desktop-nav">
-    <div class="logo">ESENGO</div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#work-section">Work</a></li>
-      <li><a href="#articles-section">Articles</a></li>
-      <li><a href="#music">Music</a></li>
-      <li><a href="#video">Video</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  !-- ===========================
+     FLOATING MENU TOGGLE
+============================ -->
+<div class="menu-toggle" onclick="toggleMenu()">MENU</div>
 
-  <!-- Hamburger -->
-  <nav id="hamburger-nav">
-    <div class="logo">ESENGO</div>
-    <div class="hamburger-menu">
-      <div class="hamburger-icon" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="menu-links">
-        <li><a href="#about" onclick="toggleMenu()">About</a></li>
-        <li><a href="#work-section" onclick="toggleMenu()">Work</a></li>
-        <li><a href="#articles-section" onclick="toggleMenu()">Articles</a></li>
-        <li><a href="#music" onclick="toggleMenu()">Music</a></li>
-        <li><a href="#video" onclick="toggleMenu()">Video</a></li>
-        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-      </div>
-    </div>
-  </nav>
+<nav id="menu-panel" class="menu-panel hidden">
+  <ul>
+    <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+    <li><a href="#profile" onclick="toggleMenu()">Profile</a></li>
+    <li><a href="#work-section" onclick="toggleMenu()">Work</a></li>
+    <li><a href="#bachelor-project" onclick="toggleMenu()">Bachelor Project</a></li>
+    <li><a href="#articles-section" onclick="toggleMenu()">Articles</a></li>
+    <li><a href="#music" onclick="toggleMenu()">Music</a></li>
+    <li><a href="#video" onclick="toggleMenu()">Video</a></li>
+    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- ===========================
+<!-- ===========================
+     HOME SECTION (VIDEO HERO)
+============================ -->
+<section id="home" class="home-section">
+  <video
+    class="home-video"
+    autoplay
+    muted
+    loop
+    playsinline
+  >
+    <source src="./assets/home-video.mp4" type="video/mp4" />
+    <!-- fallback text -->
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Optional overlay content -->
+  <div class="home-overlay">
+    <h1>ESENGO</h1>
+    <p>Culture Producer · Event Producer · Sound Artist</p>
+  </div>
+</section>
+
+<!-- ===========================
        PROFILE SECTION
-  ============================ -->
-  <section id="profile">
-    <div class="section__pic-container">
-      <img src="./assets/VisàlKimEsengo.jpg" alt="ESENGO profile picture" />
+=========================== -->
+<section id="profile">
+  <div class="section__pic-container">
+    <img src="./assets/VisàlKimEsengo.jpg" alt="ESENGO profile picture" />
+    <p class="image-credit">Photo credit: Visàl Kim</p>
+  </div>
+
+  <div class="section__text">
+    <h1 class="title">ESENGO</h1>
+    <p class="section__text__p2">
+      Culture Producer & Event Producer | Sound Artist
+    </p>
+
+    <div class="btn-container">
+      <button class="btn btn-color-1" onclick="location.href='#contact'">
+        Contact Info
+      </button>
     </div>
 
-    <div class="section__text">
-      <h1 class="title">ESENGO</h1>
-      <p class="section__text__p2">Culture Producer & Event Producer | Sound Artist</p>
+    <div id="socials-container">
+      <img src="./assets/instagram.png" alt="Instagram" class="icon"
+        onclick="location.href='https://instagram.com/esengo'" />
+      <img src="./assets/linktree2.png" alt="Linktree" class="icon"
+        onclick="location.href='https://linktr.ee/esengo.artist'" />
+      <img src="./assets/Logo-Resident-Advisor.jpeg" alt="Resident Advisor" class="icon"
+        onclick="location.href='https://ra.co/dj/esengo'" />
+      <img src="./assets/soundcloud.png" alt="SoundCloud" class="icon"
+        onclick="location.href='https://soundcloud.com/esengoartist'" />
+      <img src="./assets/email.png" alt="Email" class="icon"
+        onclick="location.href='mailto:esengo.artist@gmail.com'" />
+    </div>
 
-      <div class="btn-container">
-        <button class="btn btn-color-1" onclick="location.href='#contact'">Contact Info</button>
-      </div>
-
-      <div id="socials-container">
-        <img src="./assets/instagram.png" alt="Instagram" class="icon" onclick="location.href='https://instagram.com/esengo'" />
-        <img src="./assets/linktree2.png" alt="Linktree" class="icon" onclick="location.href='https://linktr.ee/esengo.artist'" />
-        <img src="./assets/Logo-Resident-Advisor.jpeg" alt="Resident Advisor" class="icon" onclick="location.href='https://ra.co/dj/esengo'" />
-        <img src="./assets/soundcloud.png" alt="SoundCloud" class="icon" onclick="location.href='https://soundcloud.com/esengoartist'" />
-        <img src="./assets/email.png" alt="Email" class="icon" onclick="location.href='mailto:esengo.artist@gmail.com'" />
-      </div>
-
-      <!-- PROFILE BOXES -->
-      <div class="profile-boxes">
-        <div class="profile-box">
-          <img src="./assets/education.png" alt="Education icon" class="icon" />
-          <h3>Education</h3>
-          <p>
-            <strong>B.A. – Bachelor of Arts</strong><br />
-            Academy of Art and Design (HGK) FHNW, Basel (September 2022 – July 2025)
-          </p>
-          <p class="pedagogy">
-            <strong>Pedagogical Maturity</strong><br />
-            ECG Ella-Maillart & Henry Dunant, Geneva
-          </p>
-        </div>
+    <div class="profile-boxes">
+      <div class="profile-box">
+        <img src="./assets/education.png" alt="Education icon" class="icon" />
+        <h3>Education</h3>
+        <p>
+          <strong>B.A. – Bachelor of Arts</strong><br />
+          Academy of Art and Design (HGK) FHNW, Basel
+          (September 2022 – July 2025)
+        </p>
+        <p class="pedagogy">
+          <strong>Pedagogical Maturity</strong><br />
+          ECG Ella-Maillart & Henry Dunant, Geneva
+        </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- ===========================
        ABOUT SECTION
@@ -151,17 +168,15 @@
         <p>Production and coordination of ballroom events in Basel, including concept development, fundraising, and organization of workshops and after-parties. Collaboration with institutions such as <strong>Kaserne Basel, Humbug, Red Bull, Catapult, and Basel Jitterbugs</strong>. Coordination of local and international artists.</p>
         <p><a href="https://kaserne-basel.ch/de/events/kikiball" target="_blank" class="project-link">Event details</a></p>
       </div>
-
+    <div class="project" style="margin-bottom: 30px;">
+        <p style="color:#000; font-weight:bold; margin-bottom: 5px;">Blackbox Association, Experi Theater, Zurich & Geneva<br><span style="font-weight:normal;">2022–2025</span></p>
+        <p>Event production and project coordination, with a focus on Geneva. Managed fundraising, artist communication, social media, and logistics across multiple cities. Also contributed to the <a href="https://www.instagram.com/reel/DKiKF-uKC3G/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">Basel edition</a>.</p>
+        <p><a href="https://www.experitheater.ch/blackbox/" target="_blank" class="project-link">More information</a></p>
       <div class="project" style="margin-bottom: 30px;">
         <p style="color:#000; font-weight:bold; margin-bottom: 5px;"> OMG FRANCK : DJ Sets & Dance Performances<br><span style="font-weight:normal;">19.06.2025</span></p>
         <p>Co-production with Danielle Bürgin (Radio X & OMG Franck) and coordination of an evening program featuring DJ sets and ballroom performances during Art Basel.</p>
         <p><a href="https://labcinemaexpandido.com/navalha/" target="_blank" class="project-link">Event Details</a></p>
       </div>
-
-      <div class="project" style="margin-bottom: 30px;">
-        <p style="color:#000; font-weight:bold; margin-bottom: 5px;">Blackbox Association, Experi Theater, Zurich & Geneva<br><span style="font-weight:normal;">2022–2025</span></p>
-        <p>Event production and project coordination, with a focus on Geneva. Managed fundraising, artist communication, social media, and logistics across multiple cities. Also contributed to the <a href="https://www.instagram.com/reel/DKiKF-uKC3G/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">Basel edition</a>.</p>
-        <p><a href="https://www.experitheater.ch/blackbox/" target="_blank" class="project-link">More information</a></p>
       </div>
     </div>
 
@@ -236,8 +251,11 @@
   }
 </script>
 
-<section id="bachelor-project">
-  <h1 class="title">Bachelor Project</h1>
+<!-- ===========================
+     BACHELOR PROJECT SECTION
+============================ -->
+<section id="bachelor-project" style="padding: 60px 20px;">
+  <h1 class="title" style="margin-bottom: 40px;">Bachelor Project</h1>
 
   <div class="section-container">
 
@@ -248,16 +266,21 @@
         <strong>BA Prozessgestaltung</strong>, HyperWerk FHNW (2025)
       </p>
       <p>
-        A practical and research‑based exploration of the role of <strong>sound in community practices</strong>, focusing on club culture, education, and methodologies that support collaborative sound creation.
+        A practical and research-based exploration of the role of <strong>sound in community practices</strong>, focusing on club culture, education, and methodologies that support collaborative sound creation.
+      </p>
+      <p>
+        <a href="https://nextgeneration.hgk.fhnw.ch/2025/diplom/hyperwerk/ndoum-jeremy-esengo/" target="_blank" class="project-link">
+          See the project on NEXT GENERATION (HyperWerk FHNW)
+        </a>
       </p>
     </div>
 
     <!-- Hidden detailed description -->
-    <div id="more-bachelor" class="hidden" style="margin-top: 15px;">
+    <div id="more-bachelor" class="hidden" style="margin-top: 15px; margin-bottom: 20px;">
       <p>
-        The bachelor project aims to gather and develop tools for sound‑related practices, including
+        The bachelor project aims to gather and develop tools for sound-related practices, including
         workshops, interviews, a designed card game, sound mapping, and archival work of both
-        institutional and self‑produced methodologies.
+        institutional and self-produced methodologies.
       </p>
       <p>
         By creating accessible methods and tools for interaction with sound, the project investigates
@@ -271,6 +294,7 @@
   </div>
 </section>
 
+
   <!-- ===========================
        ARTICLES SECTION
   ============================ -->
@@ -279,7 +303,7 @@
     <div class="section-container">
       <div class="article">
         <h2><a href="https://www.redbull.com/ch-fr/swiss-selecta-esengo" target="_blank" class="article-link">Swiss Selecta : Esengo on Red Bull</a></h2>
-        <p>Featured in Red Bull’s Swiss Selecta series, presenting a curation on songs from Esengo and insights into his musical influences and DJ practice.</p>
+        <p>Featured in Red Bull’s Swiss Selecta series, presenting a curation on songs from Esengo and insights into his musical influences and DJ practice.This article has been written by François Graz</p>
       </div>
       <div class="article">
         <h2><a href="https://www.montreuxjazzfestival.com/en/artist/esengo/" target="_blank" class="article-link">Esengo — Montreux Jazz Festival Artist Page</a></h2>
@@ -287,15 +311,15 @@
       </div>
       <div class="article">
         <h2><a href="https://radiox.ch/news-archiv/ballroom-cartoon-network-kiki-ball-kaserne.html#" target="_blank" class="article-link">Ballroom in Basel: The Cartoon Network Kiki Ball</a></h2>
-        <p>Radio X covers the Cartoon Network Kiki Ball at Kaserne Basel and includes an interview with Esengo on the significance of ballroom culture in Switzerland.</p>
+        <p>Radio X covers the Cartoon Network Kiki Ball at Kaserne Basel and includes an interview with Esengo on the significance of ballroom culture in Switzerland.This article has been written by Danielle Bürgin </p>
       </div>
       <div class="article">
-        <h2><a href="https://ccsparis.com/en/events/ccs-on-tour-au-nouveau-printemps-2025/esengo/" target="_blank" class="article-link">Esengo at CCS On Tour (Paris)</a></h2>
+        <h2><a href="https://ccsparis.com/en/events/ccs-on-tour-au-nouveau-printemps-2025/esengo/" target="_blank" class="article-link">Esengo at Centre Culturel Suisse (CCS) On Tour (Paris)</a></h2>
         <p>Profile for Esengo performing as part of the CCS On Tour event at Nouveau Printemps 2025, highlighting his DJ set alongside international performers and contextualizing his artistic practice.</p>
       </div>
       <div class="article">
         <h2><a href="https://letype.fr/7-artistes-de-la-scene-emergente-de-geneve-a-suivre/" target="_blank" class="article-link">7 Artists from Geneva’s Emerging Scene to Follow</a></h2>
-        <p>The Letype feature includes Esengo as a key figure in the Geneva emerging music scene, noting his work in DJing, radio, production, and collective activities.</p>
+        <p>The Letype feature includes Esengo as a key figure in the Geneva emerging music scene, noting his work in DJing, radio, production, and collective activities.This article has been written by Maxence Pourpoint.</p>
       </div>
     </div>
   </section>
