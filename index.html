@@ -13,13 +13,12 @@
 </head>
 <body>
 
- <!-- ===========================
-     FLOATING MENU TOGGLE
+<!-- ===========================
+     DESKTOP NAVIGATION
 ============================ -->
-<div class="menu-toggle" onclick="toggleMenu()">MENU</div>
-
-<div id="menu-panel" class="menu-panel hidden">
-  <ul>
+<nav id="desktop-nav">
+  <div class="logo">ESENGO</div>
+  <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#profile">Profile</a></li>
     <li><a href="#about">About</a></li>
@@ -30,8 +29,33 @@
     <li><a href="#video">Video</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-</div>
+</nav>
 
+<!-- ===========================
+     HAMBURGER / MOBILE NAVIGATION
+============================ -->
+<nav id="hamburger-nav">
+  <div class="logo">ESENGO</div>
+  <div class="hamburger-menu">
+    <div class="hamburger-icon" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div id="menu-panel" class="menu-links hidden">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work-section">Work</a></li>
+        <li><a href="#bachelor-project">Bachelor Project</a></li>
+        <li><a href="#articles-section">Articles</a></li>
+        <li><a href="#music">Music</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
 <!-- ===========================
@@ -46,20 +70,17 @@
     playsinline
   >
     <source src="./assets/home-video.mp4" type="video/mp4" />
-    <!-- fallback text -->
     Your browser does not support the video tag.
   </video>
 
-  <!-- Optional overlay content -->
   <div class="home-overlay">
     <h1>ESENGO</h1>
-    <p>Culture Producer · Event Producer · Sound Artist</p>
   </div>
 </section>
 
 <!-- ===========================
-       PROFILE SECTION
-=========================== -->
+     PROFILE SECTION
+============================ -->
 <section id="profile">
   <div class="section__pic-container">
     <img src="./assets/VisàlKimEsengo.jpg" alt="ESENGO profile picture" />
