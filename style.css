@@ -1,6 +1,7 @@
-/* =========================
-   BASE RESET (SAFE)
-========================= */
+/* ===============================
+   GLOBAL RESET
+=============================== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 * {
   margin: 0;
@@ -8,131 +9,258 @@
   box-sizing: border-box;
 }
 
-html, body {
+body {
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
   width: 100%;
   overflow-x: hidden;
-  scroll-behavior: smooth;
-  font-family: sans-serif;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
-
-header,
-nav {
+/* ===============================
+   NAVIGATION BUTTON
+=============================== */
+.menu-toggle {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
+  top: 20px;
+  right: 20px;
+  background: black;
+  color: white;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  z-index: 9999;
+  border-radius: 1rem;
+  font-weight: 600;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.2rem;
+.menu-panel {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 9998;
+}
+.menu-panel.hidden {
+  display: none;
+}
+.menu-panel li {
+  margin: 1rem 0;
+}
+.menu-panel li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.menu-panel li a:hover {
+  color: grey;
 }
 
-/* =========================
-   PAGE FLOW (IMPORTANT)
-========================= */
-
-/* DO NOT force block on everything */
-main {
-  width: 100%;
-}
-
-/* Sections scroll naturally */
-section {
-  width: 100%;
-  position: relative;
-}
-
-/* =========================
-   HERO VIDEO (FIXED)
-========================= */
-
-.hero {
-  position: relative;
+/* ===============================
+   HERO VIDEO (FULL SCREEN)
+=============================== */
+.home-section {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 
-.hero video {
+.home-video-container {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  position: relative;
+}
+
+.home-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover entire area */
   object-position: center;
 }
 
-/* Mobile safe viewport */
-@media (max-width: 767px) {
-  .hero {
+/* Hero mobile fix */
+@media (max-width: 768px) {
+  .home-section {
     height: 100svh;
   }
 }
 
-/* =========================
-   DESKTOP STACKING FIX
-========================= */
-
-/* Desktop was breaking because sections were allowed to sit side by side */
-@media (min-width: 768px) {
-  section {
-    clear: both;
-  }
-}
-
-/* =========================
-   CONTENT SPACING (NON-DESTRUCTIVE)
-========================= */
-
-.work,
-.about,
-.music,
-.articles,
-.contact {
-  padding: 5rem 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .work,
-  .about,
-  .music,
-  .articles,
-  .contact {
-    padding: 7rem 8vw;
-  }
-}
-
-/* =========================
-   YOUTUBE / VIDEO LINK VISIBILITY
-========================= */
-
-iframe {
+/* ===============================
+   SECTION STACKING (VERTICAL)
+=============================== */
+section {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  margin-top: 2rem;
+  display: block;
+  position: relative;
+  padding: 60px 0;
 }
 
-/* Optional visual cue without overlays */
-iframe {
-  cursor: pointer;
+/* Center content inside sections */
+.section__text,
+.about-details-container,
+.profile-boxes,
+.projects-container,
+.music-list,
+.contact-info-upper-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-/* =========================
-   CONTACT SPACING FIX
-========================= */
-
-.contact .contact-button {
-  margin-bottom: 2.5rem;
+/* ===============================
+   GENERAL TEXT & TITLES
+=============================== */
+.title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
-.contact .icons,
-.contact .socials {
-  margin-top: 2.5rem;
+/* ===============================
+   PROFILE SECTION
+=============================== */
+#profile {
+  text-align: center;
+}
+
+.section__text__p2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+#socials-container {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-box {
+  background: #f5f5f5;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  max-width: 300px;
+  text-align: center;
+  margin: 1rem auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ===============================
+   ABOUT SECTION
+=============================== */
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.section__pic-container {
+  width: 350px;
+  height: 350px;
+}
+
+.section__pic-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+/* ===============================
+   LINKS & BUTTONS
+=============================== */
+a {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: grey;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+/* ===============================
+   PROJECTS / WORK
+=============================== */
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ===============================
+   MUSIC LIST
+=============================== */
+.music-list {
+  list-style: none;
+  padding: 0 1.5rem;
+  margin: 0 auto 2rem auto;
+  max-width: 900px;
+}
+
+.music-list li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+/* ===============================
+   VIDEO SECTION
+=============================== */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+.video-container iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===============================
+   CONTACT SECTION
+=============================== */
+#contact {
+  text-align: center;
+}
+
+.contact-info-upper-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* ===============================
+   RESPONSIVE BREAKPOINTS
+=============================== */
+@media (max-width: 768px) {
+  .section__pic-container {
+    width: 250px;
+    height: 250px;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
 }
