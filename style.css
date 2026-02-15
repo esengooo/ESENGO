@@ -1,5 +1,5 @@
 /* =========================
-   RESET & GLOBAL
+   BASE RESET (SAFE)
 ========================= */
 
 * {
@@ -10,15 +10,9 @@
 
 html, body {
   width: 100%;
-  height: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
   font-family: sans-serif;
-}
-
-/* Prevent any gallery / grid layout */
-body {
-  display: block;
 }
 
 /* =========================
@@ -41,29 +35,22 @@ nav ul {
 }
 
 /* =========================
-   MAIN PAGE STRUCTURE
+   PAGE FLOW (IMPORTANT)
 ========================= */
 
+/* DO NOT force block on everything */
 main {
   width: 100%;
 }
 
-/* FORCE ONE COLUMN SCROLL */
+/* Sections scroll naturally */
 section {
   width: 100%;
-  min-height: 100vh;
-  display: block;
   position: relative;
 }
 
-/* Prevent grid/gallery behaviour */
-section,
-section * {
-  max-width: 100%;
-}
-
 /* =========================
-   HERO VIDEO (HOME)
+   HERO VIDEO (FIXED)
 ========================= */
 
 .hero {
@@ -74,27 +61,32 @@ section * {
 }
 
 .hero video {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transform: translateZ(0); /* helps sharpness */
-  backface-visibility: hidden;
 }
 
-/* Optional overlay for readability */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.15);
-  pointer-events: none;
+/* Mobile safe viewport */
+@media (max-width: 767px) {
+  .hero {
+    height: 100svh;
+  }
 }
 
 /* =========================
-   CONTENT SECTIONS
+   DESKTOP STACKING FIX
+========================= */
+
+/* Desktop was breaking because sections were allowed to sit side by side */
+@media (min-width: 768px) {
+  section {
+    clear: both;
+  }
+}
+
+/* =========================
+   CONTENT SPACING (NON-DESTRUCTIVE)
 ========================= */
 
 .work,
@@ -102,82 +94,40 @@ section * {
 .music,
 .articles,
 .contact {
-  padding: 6rem 1.5rem;
-  display: block;
+  padding: 5rem 1.5rem;
 }
 
-/* Desktop spacing */
 @media (min-width: 768px) {
   .work,
   .about,
   .music,
   .articles,
   .contact {
-    padding: 8rem 10vw;
+    padding: 7rem 8vw;
   }
 }
 
 /* =========================
-   FIX DESKTOP "MIXED UP" ISSUE
+   YOUTUBE / VIDEO LINK VISIBILITY
 ========================= */
 
-/* Kill grids/flex accidentally applied */
-.work,
-.about,
-.music,
-.articles {
-  display: block !important;
-}
-
-.work > *,
-.about > *,
-.music > *,
-.articles > * {
-  display: block;
-  width: 100%;
-}
-
-/* =========================
-   YOUTUBE / VIDEO LINK FIX
-========================= */
-
-.video-link,
 iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
-  display: block;
   margin-top: 2rem;
 }
 
-/* Make it obvious it's clickable */
-.video-link {
-  position: relative;
+/* Optional visual cue without overlays */
+iframe {
   cursor: pointer;
 }
 
-.video-link::after {
-  content: "▶";
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 4rem;
-  color: white;
-  background: rgba(0,0,0,0.3);
-  pointer-events: none;
-}
-
 /* =========================
-   CONTACT SECTION FIX
+   CONTACT SPACING FIX
 ========================= */
 
-.contact {
-  padding-bottom: 6rem;
-}
-
 .contact .contact-button {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .contact .icons,
@@ -185,32 +135,4 @@ iframe {
   margin-top: 2.5rem;
   display: flex;
   gap: 1.5rem;
-}
-
-/* =========================
-   MOBILE SAFETY
-========================= */
-
-@media (max-width: 767px) {
-  section {
-    min-height: auto;
-  }
-
-  .hero {
-    height: 100svh;
-  }
-
-  .hero video {
-    object-fit: cover;
-  }
-}
-
-/* =========================
-   DEBUG SAFETY NET
-========================= */
-
-/* If ANY element turns into a grid/gallery — kill it */
-[class*="grid"],
-[class*="gallery"] {
-  display: block !important;
 }
