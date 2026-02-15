@@ -2,9 +2,12 @@
    MENU TOGGLE
 =============================== */
 function toggleMenu() {
-  const menu = document.querySelector("#hamburger-nav .menu-links");
-  menu.classList.toggle("open");
+  const menu = document.getElementById("menu-panel"); // correct target
+  if (!menu) return;
+
+  menu.classList.toggle("hidden"); // toggle visibility
 }
+
 
 /* ===============================
    SMOOTH SCROLL & CLOSE MENU ON LINK CLICK
