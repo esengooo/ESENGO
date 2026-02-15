@@ -1,36 +1,24 @@
-/* ===============================
-   MENU TOGGLE
-=============================== */
-function toggleMenu() {
-  const menu = document.getElementById("menu-panel"); // correct target
-  if (!menu) return;
+const menuToggle = document.querySelector('.menu-toggle');
+const menuPanel = document.getElementById('menu-panel');
 
-  menu.classList.toggle("hidden"); // toggle visibility
-}
+// Toggle menu open/close
+menuToggle.addEventListener('click', () => {
+  menuPanel.classList.toggle('open');
+});
 
+// Smooth scroll & close menu when a link is clicked
+menuPanel.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href').substring(1);
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) targetSection.scrollIntoView({ behavior: 'smooth' });
 
-/* ===============================
-   SMOOTH SCROLL & CLOSE MENU ON LINK CLICK
-=============================== */
-document.addEventListener("DOMContentLoaded", () => {
-  const menuLinks = document.querySelectorAll("#menu-panel a"); // updated selector
-
-  menuLinks.forEach(link => {
-    link.addEventListener("click", e => {
-      e.preventDefault();
-
-      // Scroll to target section smoothly
-      const targetId = link.getAttribute("href").substring(1);
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: "smooth" });
-      }
-
-      // Close the menu after click
-      toggleMenu();
-    });
+    // Close menu
+    menuPanel.classList.remove('open');
   });
 });
+
 
 /* ===============================
    GENERIC READ MORE TOGGLE
