@@ -1,5 +1,5 @@
 /* ===============================
-   GENERAL STYLES
+   RESET & GLOBAL
 =============================== */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
@@ -19,9 +19,6 @@ p {
   line-height: 1.6;
 }
 
-/* ===============================
-   LINKS & BUTTONS
-=============================== */
 a {
   color: black;
   text-decoration: none;
@@ -34,6 +31,9 @@ a:hover {
   text-underline-offset: 0.3rem;
 }
 
+/* ===============================
+   BUTTONS
+=============================== */
 .btn {
   font-weight: 600;
   padding: 1rem;
@@ -53,37 +53,32 @@ a:hover {
   background: black;
 }
 
-/* HOME VIDEO HERO */
-.home-video-container {
+/* ===============================
+   HERO VIDEO (FULL SCREEN)
+=============================== */
+.home-section {
   width: 100%;
-  max-height: 500px; /* limits height on large screens */
+  height: 100vh;
   overflow: hidden;
   position: relative;
-  margin-bottom: 2rem; /* space before next section */
+}
+
+.home-video-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .home-video {
   width: 100%;
-  height: auto; /* maintain aspect ratio */
-  display: block;
-}
-
-/* Optional: make it taller on desktop */
-@media (min-width: 1024px) {
-  .home-video-container {
-    max-height: 600px;
-  }
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .home-video-container {
-    max-height: 300px;
-  }
+  height: 100%;
+  object-fit: cover; /* fills screen without breaking ratio */
+  position: absolute;
+  inset: 0;
 }
 
 /* ===============================
-   FLOATING MENU STYLES
+   FLOATING MENU
 =============================== */
 .menu-toggle {
   position: fixed;
@@ -96,11 +91,6 @@ a:hover {
   z-index: 9999;
   border-radius: 1rem;
   font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.menu-toggle:hover {
-  background: #333;
 }
 
 .menu-panel {
@@ -112,7 +102,6 @@ a:hover {
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   z-index: 9998;
-  transition: all 0.3s ease;
 }
 
 .menu-panel ul {
@@ -123,52 +112,95 @@ a:hover {
   margin: 1rem 0;
 }
 
-.menu-panel li a {
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-  font-size: 1.2rem;
-}
-
-.menu-panel li a:hover {
-  color: grey;
-}
-
 .menu-panel.hidden {
   display: none;
 }
 
 /* ===============================
-   SECTIONS & SPACING
+   LAYOUT SYSTEM (THE FIX)
 =============================== */
 section {
-  padding-top: 4vh;
-  min-height: fit-content;
+  padding: 4rem 0;
 }
 
-section:not(.home-section) {
-  margin: 0 10rem;
+.section-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
 }
 
 .title {
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
 /* ===============================
-   PROFILE SECTION
+   PROFILE
 =============================== */
 #profile {
   display: flex;
-  gap: 4rem;
-  align-items: center;
+  justify-content: center;
   min-height: 80vh;
 }
 
+.section__text {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.section__text__p2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+#socials-container,
+.btn-container,
+.profile-boxes {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.icon {
+  height: 2rem;
+  cursor: pointer;
+}
+
+/* ===============================
+   PROFILE BOXES
+=============================== */
+.profile-box {
+  background: #f5f5f5;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.profile-box .icon {
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* ===============================
+   ABOUT
+=============================== */
+.about-section {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
 .section__pic-container {
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
 }
 
 .section__pic-container img {
@@ -181,63 +213,7 @@ section:not(.home-section) {
 .image-credit {
   font-size: 0.75rem;
   color: #777;
-  margin-top: 0.4rem;
   text-align: center;
-}
-
-.section__text {
-  flex: 1;
-}
-
-.section__text__p2 {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-}
-
-#socials-container {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.icon {
-  height: 2rem;
-  cursor: pointer;
-}
-
-.btn-container {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* ===============================
-   PROFILE BOXES
-=============================== */
-.profile-boxes {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-  justify-content: center;
-}
-
-.profile-box {
-  background: #f5f5f5;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  max-width: 300px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.profile-box .icon {
-  height: 3rem;
-  margin-bottom: 1rem;
 }
 
 /* ===============================
@@ -246,11 +222,7 @@ section:not(.home-section) {
 .projects-container {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-}
-
-.project p {
-  font-size: 1rem;
+  gap: 1.5rem;
 }
 
 .project-link {
@@ -282,7 +254,6 @@ section:not(.home-section) {
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
-  margin-top: 1rem;
 }
 
 .video-container iframe {
@@ -290,7 +261,6 @@ section:not(.home-section) {
   inset: 0;
   width: 100%;
   height: 100%;
-  border: none;
 }
 
 /* ===============================
@@ -300,8 +270,6 @@ section:not(.home-section) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  padding: 2rem 0;
 }
 
 .contact-info-upper-container {
@@ -317,51 +285,31 @@ section:not(.home-section) {
 /* ===============================
    FOOTER
 =============================== */
-.site-footer {
+footer {
   padding: 2rem;
   text-align: center;
   font-size: 0.8rem;
   color: #666;
   border-top: 1px solid #e0e0e0;
-  margin-top: 4rem;
 }
 
 /* ===============================
    RESPONSIVE
 =============================== */
-@media (max-width: 1024px) {
-  section:not(.home-section) {
-    margin: 0 4rem;
+@media (max-width: 900px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
-@media (max-width: 768px) {
-  section:not(.home-section) {
-    margin: 0 2rem;
-  }
-
-  #profile {
-    flex-direction: column;
-    text-align: center;
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.2rem;
   }
 
   .section__pic-container {
     width: 250px;
     height: 250px;
-    margin: 0 auto;
-  }
-
-  .home-overlay h1 {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  section:not(.home-section) {
-    margin: 0 1rem;
-  }
-
-  .home-overlay h1 {
-    font-size: 2rem;
   }
 }
