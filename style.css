@@ -386,3 +386,20 @@ section:not(.home-section) {
     font-size: 2rem;
   }
 }
+
+.menu-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 1000;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-panel:not(.hidden) {
+  transform: translateY(0);
+  opacity: 1;
+}
