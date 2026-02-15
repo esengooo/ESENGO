@@ -53,36 +53,33 @@ a:hover {
   background: black;
 }
 
-/* ===============================
-   HOME VIDEO HERO (FULL SCREEN)
-=============================== */
+/* HOME VIDEO HERO */
 .home-video-container {
   width: 100%;
-  height: 100vh; /* full viewport height */
+  max-height: 500px; /* limits height on large screens */
   overflow: hidden;
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 2rem; /* space before next section */
 }
 
 .home-video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  height: auto; /* maintain aspect ratio */
   display: block;
-  transform: translateZ(0); /* improves rendering */
-  backface-visibility: hidden;
-  will-change: transform; /* for sharper desktop playback */
 }
 
-.home-overlay h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-  font-size: 3rem;
+/* Optional: make it taller on desktop */
+@media (min-width: 1024px) {
+  .home-video-container {
+    max-height: 600px;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .home-video-container {
+    max-height: 300px;
+  }
 }
 
 /* ===============================
@@ -285,7 +282,7 @@ section:not(.home-section) {
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .video-container iframe {
@@ -294,25 +291,6 @@ section:not(.home-section) {
   width: 100%;
   height: 100%;
   border: none;
-}
-
-/* Make video clickable / obvious on mobile */
-.video-link {
-  position: relative;
-  cursor: pointer;
-}
-
-.video-link::after {
-  content: "▶";
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 4rem;
-  color: white;
-  background: rgba(0,0,0,0.3);
-  pointer-events: none;
 }
 
 /* ===============================
@@ -336,10 +314,6 @@ section:not(.home-section) {
   justify-content: center;
 }
 
-.contact .btn-container {
-  margin-top: 2rem; /* more space below icons */
-}
-
 /* ===============================
    FOOTER
 =============================== */
@@ -358,10 +332,6 @@ section:not(.home-section) {
 @media (max-width: 1024px) {
   section:not(.home-section) {
     margin: 0 4rem;
-  }
-
-  .home-video-container {
-    max-height: 80vh; /* reduce a bit for tablets */
   }
 }
 
@@ -393,14 +363,5 @@ section:not(.home-section) {
 
   .home-overlay h1 {
     font-size: 2rem;
-  }
-}
-
-/* ===============================
-   DESKTOP HERO SHARPNESS TWEAK
-=============================== */
-@media (min-width: 1024px) {
-  .home-video {
-    image-rendering: auto; /* sharper rendering on large screens */
   }
 }
