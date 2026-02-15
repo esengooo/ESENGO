@@ -13,7 +13,7 @@ function toggleMenu() {
    SMOOTH SCROLL & CLOSE MENU ON LINK CLICK
 =============================== */
 document.addEventListener("DOMContentLoaded", () => {
-  const menuLinks = document.querySelectorAll("#hamburger-nav .menu-links a");
+  const menuLinks = document.querySelectorAll("#menu-panel a"); // updated selector
 
   menuLinks.forEach(link => {
     link.addEventListener("click", e => {
