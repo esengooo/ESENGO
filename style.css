@@ -1,7 +1,6 @@
-/* ===============================
-   GENERAL STYLES
-=============================== */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+/* =========================
+   RESET & GLOBAL
+========================= */
 
 * {
   margin: 0;
@@ -9,265 +8,209 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
-  scroll-behavior: smooth;
-}
-
-p {
-  color: rgb(85, 85, 85);
-  line-height: 1.6;
-}
-
-/* ===============================
-   LINKS & BUTTONS
-=============================== */
-a {
-  color: black;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-a:hover {
-  color: grey;
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
-}
-
-.btn {
-  font-weight: 600;
-  padding: 1rem;
-  border-radius: 2rem;
-  width: 8rem;
-  cursor: pointer;
-}
-
-.btn-color-1 {
-  background: rgb(53, 53, 53);
-  color: white;
-  border: 0.1rem solid rgb(53, 53, 53);
-}
-
-/* ===============================
-   HERO VIDEO (FIXED)
-=============================== */
-.home-section {
-  height: 100vh;
+html, body {
   width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-family: sans-serif;
+}
+
+/* Prevent any gallery / grid layout */
+body {
+  display: block;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+header,
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+}
+
+/* =========================
+   MAIN PAGE STRUCTURE
+========================= */
+
+main {
+  width: 100%;
+}
+
+/* FORCE ONE COLUMN SCROLL */
+section {
+  width: 100%;
+  min-height: 100vh;
+  display: block;
+  position: relative;
+}
+
+/* Prevent grid/gallery behaviour */
+section,
+section * {
+  max-width: 100%;
+}
+
+/* =========================
+   HERO VIDEO (HOME)
+========================= */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 
-.home-video-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.home-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ===============================
-   FLOATING MENU
-=============================== */
-.menu-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: black;
-  color: white;
-  padding: 0.8rem 1rem;
-  cursor: pointer;
-  z-index: 9999;
-  border-radius: 1rem;
-  font-weight: 600;
-}
-
-.menu-panel {
-  position: fixed;
-  top: 60px;
-  right: 20px;
-  background: white;
-  padding: 1rem 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  z-index: 9998;
-}
-
-.menu-panel.hidden {
-  display: none;
-}
-
-/* ===============================
-   SECTIONS (ONE PAGE STACK)
-=============================== */
-section {
-  padding: 4rem 0;
-  width: 100%;
-}
-
-/* REAL CENTERING — NOT SIDE MARGINS */
-section:not(.home-section) > * {
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1.5rem;
-}
-
-/* ===============================
-   TITLES
-=============================== */
-.title {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-/* ===============================
-   PROFILE
-=============================== */
-#profile {
-  min-height: 80vh;
-}
-
-.section__text {
-  text-align: center;
-}
-
-.section__text__p2 {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-}
-
-#socials-container,
-.btn-container,
-.profile-boxes {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* ===============================
-   PROFILE BOXES
-=============================== */
-.profile-box {
-  background: #f5f5f5;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  max-width: 300px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.icon {
-  height: 2rem;
-  cursor: pointer;
-}
-
-/* ===============================
-   ABOUT
-=============================== */
-.about-section {
-  display: flex;
-  gap: 3rem;
-  align-items: center;
-}
-
-.section__pic-container {
-  width: 350px;
-  height: 350px;
-}
-
-.section__pic-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 1rem;
-}
-
-/* ===============================
-   PROJECTS / WORK
-=============================== */
-.projects-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-/* ===============================
-   READ MORE
-=============================== */
-.hidden {
-  display: none;
-}
-
-.read-more-btn {
-  background: none;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: underline;
-  margin-top: 1rem;
-}
-
-/* ===============================
-   VIDEO EMBED
-=============================== */
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-}
-
-.video-container iframe {
+.hero video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: translateZ(0); /* helps sharpness */
+  backface-visibility: hidden;
 }
 
-/* ===============================
-   CONTACT
-=============================== */
-#contact {
-  text-align: center;
+/* Optional overlay for readability */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+  pointer-events: none;
 }
 
-.contact-info-upper-container {
+/* =========================
+   CONTENT SECTIONS
+========================= */
+
+.work,
+.about,
+.music,
+.articles,
+.contact {
+  padding: 6rem 1.5rem;
+  display: block;
+}
+
+/* Desktop spacing */
+@media (min-width: 768px) {
+  .work,
+  .about,
+  .music,
+  .articles,
+  .contact {
+    padding: 8rem 10vw;
+  }
+}
+
+/* =========================
+   FIX DESKTOP "MIXED UP" ISSUE
+========================= */
+
+/* Kill grids/flex accidentally applied */
+.work,
+.about,
+.music,
+.articles {
+  display: block !important;
+}
+
+.work > *,
+.about > *,
+.music > *,
+.articles > * {
+  display: block;
+  width: 100%;
+}
+
+/* =========================
+   YOUTUBE / VIDEO LINK FIX
+========================= */
+
+.video-link,
+iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  margin-top: 2rem;
+}
+
+/* Make it obvious it's clickable */
+.video-link {
+  position: relative;
+  cursor: pointer;
+}
+
+.video-link::after {
+  content: "▶";
+  position: absolute;
+  inset: 0;
   display: flex;
-  gap: 1rem;
+  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  font-size: 4rem;
+  color: white;
+  background: rgba(0,0,0,0.3);
+  pointer-events: none;
 }
 
-/* ===============================
-   FOOTER
-=============================== */
-footer {
-  padding: 2rem;
-  text-align: center;
-  font-size: 0.8rem;
-  border-top: 1px solid #e0e0e0;
+/* =========================
+   CONTACT SECTION FIX
+========================= */
+
+.contact {
+  padding-bottom: 6rem;
 }
 
-/* ===============================
-   MOBILE
-=============================== */
-@media (max-width: 768px) {
-  .about-section {
-    flex-direction: column;
-    text-align: center;
+.contact .contact-button {
+  margin-bottom: 2rem;
+}
+
+.contact .icons,
+.contact .socials {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* =========================
+   MOBILE SAFETY
+========================= */
+
+@media (max-width: 767px) {
+  section {
+    min-height: auto;
   }
 
-  .section__pic-container {
-    width: 250px;
-    height: 250px;
+  .hero {
+    height: 100svh;
   }
 
-  .title {
-    font-size: 2.2rem;
+  .hero video {
+    object-fit: cover;
   }
+}
+
+/* =========================
+   DEBUG SAFETY NET
+========================= */
+
+/* If ANY element turns into a grid/gallery — kill it */
+[class*="grid"],
+[class*="gallery"] {
+  display: block !important;
 }
