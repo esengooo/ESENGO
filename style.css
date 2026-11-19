@@ -403,3 +403,121 @@ section:not(.home-section) {
   transform: translateY(0);
   opacity: 1;
 }
+
+
+ /* ===============================
+    WORK ARCHIVE SLIDER
+ =============================== */
+ .work-archive {
+   margin-top: 3rem;
+   padding: 1.5rem 0 2rem;
+   border-top: 1px solid #e5e5e5;
+   overflow: hidden;
+}
+ .work-archive .archive-heading {
+   margin-bottom: 1.5rem;
+}
+ .work-archive .archive-heading h2 {
+   font-size: 1.6rem;
+   font-weight: 500;
+   margin-bottom: 0.35rem;
+}
+ .work-archive .archive-heading p {
+   font-size: 0.95rem;
+}
+ .work-archive .work-swiper {
+   width: 100%;
+   overflow: hidden;
+}
+ .work-archive .swiper-slide {
+   height: auto;
+}
+ .work-archive .archive-card {
+   display: block;
+   height: 100%;
+   color: #111;
+   text-decoration: none;
+   border: 1px solid #e6e6e6;
+   background: #fff;
+   border-radius: 0.8rem;
+   overflow: hidden;
+   transition: transform 0.25s ease, box-shadow 0.25s ease;
+ }
+color: #111;
+  text-decoration: none;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.09);
+}
+.work-archive .archive-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+margin: 0;
+  max-width: none;
+}
+.work-archive .archive-card-info {
+  padding: 1rem;
+}
+.work-archive .archive-card-info .archive-category {
+  margin: 0 0 0.45rem;
+  color: #666;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.work-archive .archive-card-info h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  font-weight: 600;
+}
+.work-archive .archive-card-info .archive-meta {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #666;
+}
+.work-archive .archive-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  margin-top: 1.25rem;
+}
+.work-archive .archive-prev,
+.work-archive .archive-next {
+  width: 2.3rem;
+  height: 2.3rem;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background: white;
+  color: #111;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+.work-archive .archive-prev:hover,
+.work-archive .archive-next:hover {
+  background: #111;
+  color: white;
+}
+.work-archive .archive-pagination {
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.work-archive .archive-pagination .swiper-pagination-bullet {
+  opacity: 1;
+  background: #ccc;
+}
+.work-archive .archive-pagination .swiper-pagination-bullet-active {
+  background: #111;
+   }
+@media (max-width: 768px) {
+  .work-archive {
+    margin-top: 2rem;
+  }
+  .work-archive .archive-heading h2 {
+    font-size: 1.35rem;
+} }
+ .work-archive .archive-card:hover {
