@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css" />
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 </head>
 <body>
 
@@ -148,7 +150,55 @@
   <h1 class="title" style="margin-bottom: 40px;">Work</h1>
 
   <div class="section-container">
-
+<!-- WORK ARCHIVE SLIDER -->
+   <div id="work-archive" class="work-archive">
+     <div class="archive-heading">
+       <h2>Selected Projects</h2>
+       <p>Explore my work and collaborations.</p>
+</div>
+     <div class="swiper work-swiper">
+       <div class="swiper-wrapper">
+         <div class="swiper-slide">
+           <a href="#project-1" class="archive-card">
+             <img src="assets/images/COVER B&Y.jpeg"
+                  alt="Cover image for project one">
+             <div class="archive-card-info">
+               <p class="archive-category">Sound</p>
+               <h3>Project One</h3>
+               <p class="archive-meta">2026 · Music Production</p>
+</div> </a>
+</div>
+         <div class="swiper-slide">
+           <a href="#project-2" class="archive-card">
+             <img src="assets/images/COVER OMG FRANCK.jpg"
+                  alt="Cover image for project two">
+             <div class="archive-card-info">
+               <p class="archive-category">Events</p>
+               <h3>Project Two</h3>
+               <p class="archive-meta">2026 · Event Production</p>
+</div> </a>
+</div>
+         <div class="swiper-slide">
+           <a href="#project-3" class="archive-card">
+             <img src="assets/images/COVER NYC.JPG"
+                  alt="Cover image for project three">
+             <div class="archive-card-info">
+               <p class="archive-category">Research</p>
+               <h3>Project Three</h3>
+               <p class="archive-meta">2025 · Research & Archiving</p>
+</div> </a>
+</div>
+       </div>
+     </div>
+     <div class="archive-controls">
+       <button type="button" class="archive-prev"
+aria-label="Previous projects">←</button> <div class="archive-pagination"></div>
+<button type="button" class="archive-next"
+  aria-label="Next projects">→</button>
+     </div>
+   </div>
+       
+       <!-- END WORK ARCHIVE SLIDER -->
     <!-- ===== EVENT PRODUCTION ===== -->
     <h2 class="work-category" style="margin-bottom: 20px;">Event Production & Coordination</h2>
     <div class="projects-container">
@@ -417,6 +467,8 @@
       btn.textContent = moreWork.classList.contains('hidden') ? 'Read more' : 'Read less';
     }
   </script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
 </body>
 </html>
 
