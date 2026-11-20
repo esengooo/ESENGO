@@ -521,3 +521,59 @@ margin: 0;
     font-size: 1.35rem;
 } }
  .work-archive .archive-card:hover {
+
+/* Work archive: compact cards */
+.work-archive {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.work-archive .work-swiper {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.work-archive .swiper-slide {
+  height: auto;
+}
+
+.work-archive .archive-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+}
+
+.work-archive .archive-card img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.work-archive .archive-card-info {
+  padding: 10px 0;
+}
+
+.work-archive .archive-card-info h3,
+.work-archive .archive-card-info p {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.work-archive .archive-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+  .work-archive .archive-card img {
+    height: 200px;
+  }
+}
