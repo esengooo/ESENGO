@@ -1,1686 +1,1047 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESENGO | Sound Artist & Cultural Producer</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-  <title>ESENGO | Sound Artist & Cultural Producer</title>
+<style>
+.archive-navigation {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:20px;
+  margin:30px 0 40px;
+}
+.archive-filter {
+  background:transparent;
+  border:0;
+  border-bottom:1px solid #ddd;
+  padding:14px 0 18px;
+  text-align:left;
+  cursor:pointer;
+  color:#111;
+  font-family:inherit;
+}
+.archive-filter .filter-number {
+  display:block;
+  color:#999;
+  font-size:.7rem;
+  margin-bottom:8px;
+}
+.archive-filter .filter-name {
+  display:block;
+  font-size:1rem;
+  font-weight:500;
+}
+.archive-filter.active {border-bottom:2px solid #111}
+.archive-filter:hover {color:#777}
+.archive-section-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  margin-bottom:20px;
+}
+.archive-section-heading h2 {
+  font-size:1.2rem;
+  font-weight:500;
+}
+.archive-count {color:#777;font-size:.8rem}
+.archive-tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+  margin-top:7px;
+}
+.archive-tag {font-size:.68rem;color:#777}
+.archive-tag:not(:last-child)::after {content:" ·"}
+.archive-item-hidden {display:none!important}
 
-  <link rel="stylesheet" href="style.css">
+.project-image img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.editorial-grid,.discography-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:36px 20px;
+  margin-top:30px;
+}
+.editorial-card {
+  display:block;
+  color:#111;
+  text-decoration:none;
+  min-width:0;
+}
+.editorial-image,.release-cover {
+  width:100%;
+  aspect-ratio:1/1;
+  background:#f1f1f1;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.editorial-image img,.release-cover img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.editorial-placeholder {
+  font-size:1.1rem;
+  color:#777;
+  text-align:center;
+  padding:20px;
+}
+.editorial-card h3,.release-button h3 {
+  font-size:.95rem;
+  font-weight:500;
+  margin:10px 0 4px;
+  line-height:1.4;
+}
+.editorial-card p,.release-button p {
+  font-size:.78rem;
+  color:#777;
+}
+.release-card {min-width:0}
+.release-button {
+  width:100%;
+  border:0;
+  padding:0;
+  background:transparent;
+  cursor:pointer;
+  text-align:left;
+  font-family:inherit;
+  color:#111;
+}
+.release-cover-placeholder {
+  font-size:2rem;
+  font-weight:300;
+  color:#888;
+}
+.release-button[aria-expanded="true"] .release-cover {
+  outline:2px solid #111;
+  outline-offset:3px;
+}
+.release-details {
+  margin-top:12px;
+  padding:18px;
+  background:#f6f6f6;
+  font-size:.85rem;
+  overflow-wrap:anywhere;
+}
+.release-details[hidden] {display:none}
+.release-details h4 {
+  font-size:1rem;
+  font-weight:500;
+  margin-bottom:8px;
+}
+.release-details p {margin-bottom:10px}
+.release-details a {text-decoration:underline}
+.release-details iframe {
+  display:block;
+  width:100%;
+  border:0;
+  margin:15px 0;
+}
+.music-photo {
+  width:100%;
+  max-width:400px;
+  margin:0 auto 35px;
+  text-align:center;
+}
+.music-photo img {width:100%;display:block}
+.discography-intro {margin:10px 0 20px}
+.iframe-container {margin-top:45px;width:100%}
+.iframe-container iframe {
+  width:100%;
+  height:166px;
+  border:0;
+}
+.site-footer {
+  margin-top:70px;
+  padding:35px 20px;
+  border-top:1px solid #e5e5e5;
+  text-align:center;
+}
+.site-footer .nav-links {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px 25px;
+  list-style:none;
+  margin-bottom:20px;
+}
+.site-footer .nav-links a {font-size:.85rem}
+.site-footer p {font-size:.75rem;color:#777}
 
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-  <!-- Additional editorial gallery styling -->
-  <style>
-    .archive-navigation {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 20px;
-      margin: 30px 0 40px;
-    }
-
-    .archive-filter {
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid #ddd;
-      padding: 14px 0 18px;
-      text-align: left;
-      cursor: pointer;
-      color: #111;
-      font-family: inherit;
-    }
-
-    .archive-filter .filter-number {
-      display: block;
-      color: #999;
-      font-size: 0.7rem;
-      margin-bottom: 8px;
-    }
-
-    .archive-filter .filter-name {
-      display: block;
-      font-size: 1rem;
-      font-weight: 500;
-    }
-
-    .archive-filter.active {
-      border-bottom: 2px solid #111;
-    }
-
-    .archive-filter:hover {
-      color: #777;
-    }
-
-    .archive-section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 20px;
-    }
-
-    .archive-section-heading h2 {
-      font-size: 1.2rem;
-      font-weight: 500;
-    }
-
-    .archive-count {
-      color: #777;
-      font-size: 0.8rem;
-    }
-
-    .archive-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-top: 7px;
-    }
-
-    .archive-tag {
-      font-size: 0.68rem;
-      color: #777;
-    }
-
-    .archive-tag:not(:last-child)::after {
-      content: " ·";
-    }
-
-    .archive-item-hidden {
-      display: none !important;
-    }
-
-    /* Articles */
-
-    .editorial-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 36px 20px;
-      margin-top: 30px;
-    }
-
-    .editorial-card {
-      display: block;
-      color: #111;
-      text-decoration: none;
-      min-width: 0;
-    }
-
-    .editorial-card:hover {
-      text-decoration: none;
-    }
-
-    .editorial-image {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      background: #f1f1f1;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .editorial-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .editorial-card:hover .editorial-image img {
-      transform: scale(1.035);
-    }
-
-    .editorial-placeholder {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: #777;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .editorial-card h3 {
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin: 10px 0 4px;
-      line-height: 1.4;
-    }
-
-    .editorial-card p {
-      font-size: 0.78rem;
-      color: #777;
-    }
-
-    /* Music */
-
-    .discography-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 32px 20px;
-      margin-top: 25px;
-    }
-
-    .release-card {
-      min-width: 0;
-    }
-
-    .release-button {
-      width: 100%;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      text-align: left;
-      font-family: inherit;
-      color: #111;
-    }
-
-    .release-cover {
-      aspect-ratio: 1 / 1;
-      background: #efefef;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .release-cover img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .release-cover-placeholder {
-      color: #888;
-      font-size: 2.5rem;
-    }
-
-    .release-button h3 {
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin-top: 9px;
-    }
-
-    .release-button p {
-      font-size: 0.78rem;
-      color: #777;
-    }
-
-    .release-button[aria-expanded="true"] .release-cover {
-      outline: 2px solid #111;
-      outline-offset: 3px;
-    }
-
-    .release-details {
-      margin-top: 12px;
-      padding: 18px;
-      background: #f6f6f6;
-      font-size: 0.85rem;
-    }
-
-    .release-details[hidden] {
-      display: none;
-    }
-
-    .release-details h4 {
-      font-size: 1rem;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-
-    .release-details p {
-      margin-bottom: 8px;
-    }
-
-    .release-details a {
-      text-decoration: underline;
-    }
-
-    .release-details ul {
-      padding-left: 20px;
-      margin: 10px 0;
-    }
-
-    .discography-intro {
-      margin: 10px 0 20px;
-    }
-
-    .music-photo {
-      width: 100%;
-      max-width: 400px;
-      margin: 0 auto 35px;
-      text-align: center;
-    }
-
-    .music-photo img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .iframe-container {
-      margin-top: 45px;
-      width: 100%;
-    }
-
-    .iframe-container iframe {
-      width: 100%;
-      height: 166px;
-      border: none;
-    }
-
-    /* Footer */
-
-    footer {
-      margin-top: 70px;
-      padding: 35px 20px;
-      border-top: 1px solid #e5e5e5;
-      text-align: center;
-    }
-
-    footer .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px 25px;
-      list-style: none;
-      margin-bottom: 20px;
-    }
-
-    footer .nav-links a {
-      font-size: 0.85rem;
-    }
-
-    footer p {
-      font-size: 0.75rem;
-      color: #777;
-    }
-
-    /* Responsive */
-
-    @media (max-width: 900px) {
-      .editorial-grid,
-      .discography-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .archive-navigation {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 560px) {
-      .archive-navigation {
-        gap: 12px;
-      }
-
-      .archive-filter .filter-name {
-        font-size: 0.85rem;
-      }
-
-      .editorial-grid,
-      .discography-grid {
-        gap: 26px 12px;
-      }
-
-      .editorial-card h3,
-      .release-button h3 {
-        font-size: 0.85rem;
-      }
-
-      .archive-section-heading {
-        align-items: flex-start;
-      }
-
-      .release-details {
-        padding: 12px;
-      }
-    }
-
-    @media (max-width: 360px) {
-      .editorial-grid,
-      .discography-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .editorial-image img {
-        transition: none;
-      }
-    }
-  </style>
+@media(max-width:900px) {
+  .editorial-grid,.discography-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .archive-navigation {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:560px) {
+  .archive-navigation {gap:12px}
+  .archive-filter .filter-name {font-size:.85rem}
+  .editorial-grid,.discography-grid {gap:26px 12px}
+  .editorial-card h3,.release-button h3 {font-size:.85rem}
+  .release-details {padding:12px}
+}
+@media(max-width:360px) {
+  .editorial-grid,.discography-grid {grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- FLOATING MENU -->
-
-  <button class="menu-toggle"
-          type="button"
-          onclick="toggleMenu()"
-          aria-controls="menu-panel"
-          aria-expanded="false">
-    MENU
-  </button>
-
-  <nav id="menu-panel" class="menu-panel hidden">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#profile">Profile</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#work-section">Work</a></li>
-      <li><a href="#bachelor-project">Bachelor Project</a></li>
-      <li><a href="#articles-section">Articles</a></li>
-      <li><a href="#music">Music</a></li>
-      <li><a href="#video">Video</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HOME VIDEO -->
-
-  <section id="home" class="home-section">
-    <div class="home-video-container">
-      <video class="home-video"
-             autoplay muted loop playsinline>
-        <source src="./assets/home-video.mp4"
-                type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </section>
-
-  <!-- PROFILE -->
-
-  <section id="profile">
-    <div class="section__text">
-
-      <h1 class="title">ESENGO</h1>
-
-      <p class="section__text__p2">
-        Culture & Event Producer | Sound Artist
-      </p>
-
-      <div class="btn-container">
-        <button class="btn btn-color-1"
-                onclick="location.href='#contact'">
-          Contact Info
-        </button>
-      </div>
-
-      <div id="socials-container">
-
-        <img src="./assets/instagram.png"
-             alt="Instagram"
-             class="icon"
-             onclick="location.href='https://instagram.com/esengooo'">
-
-        <img src="./assets/linktree2.png"
-             alt="Linktree"
-             class="icon"
-             onclick="location.href='https://linktr.ee/esengo.artist'">
-
-        <img src="./assets/Logo-Resident-Advisor.jpeg"
-             alt="Resident Advisor"
-             class="icon"
-             onclick="location.href='https://ra.co/dj/esengo'">
-
-        <img src="./assets/soundcloud.png"
-             alt="SoundCloud"
-             class="icon"
-             onclick="location.href='https://soundcloud.com/esengoartist'">
-
-        <img src="./assets/email.png"
-             alt="Email"
-             class="icon"
-             onclick="location.href='mailto:esengo.artist@gmail.com'">
-
-      </div>
-
-      <div class="profile-boxes">
-        <div class="profile-box">
-
-          <img src="./assets/education.png"
-               alt="Education icon"
-               class="icon">
-
-          <h3>Education</h3>
-
-          <p>
-            <strong>B.A. – Bachelor of Arts</strong><br>
-            Academy of Art and Design (HGK) FHNW, Basel
-            (September 2022 – July 2025)
-          </p>
-
-          <p class="pedagogy">
-            <strong>Pedagogical Maturity</strong><br>
-            ECG Ella-Maillart & Henry Dunant, Geneva
-          </p>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-
-  <section id="about">
-
-    <h1 class="title">About</h1>
-
-    <div class="section-container about-section">
-
-      <div class="section__pic-container">
-        <img src="./assets/PROFILE PIC.jpeg"
-             alt="ESENGO"
-             class="about-pic">
-      </div>
-
-      <div class="about-details-container">
-        <div class="about-text">
-
-          <p>
-            <strong>ESENGO</strong> (<em>er/he/il</em>),
-            is a cultural producer, <strong>event producer</strong>,
-            sound artist, and DJ based between
-            <strong>Geneva</strong> and <strong>Basel</strong>,
-            Switzerland. His practice operates at the
-            intersection of artistic creation, social
-            engagement, and education, using sound as a
-            tool for collective expression and transmission.
-          </p>
-
-          <p>
-            As a cultural producer and event producer,
-            <strong>ESENGO</strong> develops cultural and
-            educational projects with strong public outreach,
-            grounded in community exchange and long-term
-            collaboration. His work focuses on creating
-            accessible spaces for dialogue, care, and
-            critical reflection, particularly within queer,
-            Black, and diasporic contexts.
-          </p>
-
-          <div id="more-bio" class="hidden">
-
-            <p>
-              As a sound artist and DJ,
-              <strong>ESENGO</strong> draws from his
-              <em>African heritage</em> and from Black
-              and queer diasporic histories. Through
-              sound, performance, and collaborative formats,
-              he weaves sonic and historical narratives
-              across club spaces, performance contexts,
-              and audiovisual works. In his work, sound
-              becomes a way to transmit stories, memory,
-              and experience through the body and through
-              listening.
-            </p>
-
-            <p>
-              A key work within his artistic practice is
-              the sound design for the short film
-              <strong>NVLH</strong> by Thaís Iroko and
-              Felipe Dutra, screened at the Cinemateca
-              do Museu de Arte Moderna do Rio de Janeiro
-              (MAM).
-            </p>
-
-            <p>
-              His work spans venues and platforms such as
-              <strong>Motel Campo</strong> (Geneva),
-              <strong>La Créole</strong> (Paris),
-              <strong>OXI</strong> (Berlin), ballroom events
-              across Europe, and the
-              <strong>Montreux Jazz Festival</strong>.
-            </p>
-
-            <p>
-              In 2023, he released
-              <strong>Arma – Sequencing (ESENGO Edit)</strong>,
-              followed by releases on
-              <strong>TIG WERK</strong> and collaborations
-              with artists including <strong>Fels</strong>.
-            </p>
-
-            <p>
-              A member of <strong>Angels in Disguise</strong>,
-              ESENGO released his debut EP
-              <strong><em>A KII</em></strong> in June 2024.
-              His work has been recognized by
-              <strong>Cakes da Killa</strong> and
-              <strong>Nídia</strong>.
-            </p>
-
-          </div>
-
-          <button class="read-more-btn"
-                  onclick="toggleBio()">
-            Read more
-          </button>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- WORK -->
-
-  <section id="work-section">
-
-    <h1 class="title">Work</h1>
-
-    <div class="section-container">
-
-      <div id="work-archive" class="work-archive">
-
-        <div class="archive-heading">
-          <h2>Selected Projects</h2>
-          <p>Artistic practice, sound, events and research · 2022–2026</p>
-        </div>
-
-        <!-- FOUR WORK CATEGORIES -->
-
-        <div class="archive-navigation"
-             role="group"
-             aria-label="Filter work projects">
-
-          <button class="archive-filter active"
-                  type="button"
-                  data-work-filter="all"
-                  aria-pressed="true">
-            <span class="filter-number">01</span>
-            <span class="filter-name">All Projects</span>
-          </button>
-
-          <button class="archive-filter"
-                  type="button"
-                  data-work-filter="event"
-                  aria-pressed="false">
-            <span class="filter-number">02</span>
-            <span class="filter-name">Event Production</span>
-          </button>
-
-          <button class="archive-filter"
-                  type="button"
-                  data-work-filter="sound"
-                  aria-pressed="false">
-            <span class="filter-number">03</span>
-            <span class="filter-name">Sound</span>
-          </button>
-
-          <button class="archive-filter"
-                  type="button"
-                  data-work-filter="research"
-                  aria-pressed="false">
-            <span class="filter-number">04</span>
-            <span class="filter-name">Research</span>
-          </button>
-
-        </div>
-
-        <div class="archive-section-heading">
-          <h2 id="work-current-category">All Projects</h2>
-          <span id="work-count" class="archive-count"></span>
-        </div>
-
-        <!-- PROJECT GALLERY -->
-
-        <div class="project-grid" id="work-project-grid">
-
-          <!-- Cartoon Network Kiki Ball -->
-
-          <a class="project-card"
-             data-category="event"
-             href="projects/cartoon-network-kiki-ball.html">
-
-            <div class="project-image">
-              <img src="assets/COVER B&Y.jpeg"
-                   alt="Cartoon Network Kiki Ball project cover"
-                   loading="lazy">
-            </div>
-
-            <div class="project-info">
-              <h3>Cartoon Network Kiki Ball</h3>
-              <p>2025–2026 · Event Production</p>
-              <div class="archive-tags">
-                <span class="archive-tag">Ballroom</span>
-                <span class="archive-tag">Cultural Production</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Blackbox Association -->
-
-          <a class="project-card"
-             data-category="event"
-             href="projects/blackbox-association.html">
-
-            <div class="project-image">
-              <div class="editorial-image">
-                <span class="editorial-placeholder">Blackbox</span>
-              </div>
-            </div>
-
-            <div class="project-info">
-              <h3>Blackbox Association</h3>
-              <p>2022–2025 · Event Production</p>
-              <div class="archive-tags">
-                <span class="archive-tag">Coordination</span>
-                <span class="archive-tag">Community</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- OMG FRANCK -->
-
-          <a class="project-card"
-             data-category="event"
-             href="projects/omg-franck.html">
-
-            <div class="project-image">
-              <img src="assets/COVER OMG FRANCK.jpg"
-                   alt="OMG Franck project cover"
-                   loading="lazy">
-            </div>
-
-            <div class="project-info">
-              <h3>OMG FRANCK</h3>
-              <p>2025 · Event Production</p>
-              <div class="archive-tags">
-                <span class="archive-tag">Performance</span>
-                <span class="archive-tag">Collaboration</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Soft Enchantments -->
-
-          <a class="project-card"
-             data-category="event"
-             href="projects/soft-enchantments.html">
-
-            <div class="project-image">
-              <div class="editorial-image">
-                <span class="editorial-placeholder">Soft Enchantments</span>
-              </div>
-            </div>
-
-            <div class="project-info">
-              <h3>Soft Enchantments</h3>
-              <p>2023 · Event Production</p>
-              <div class="archive-tags">
-                <span class="archive-tag">Programming</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Angels in Disguise -->
-
-          <a class="project-card"
-             data-category="event"
-             href="projects/angels-in-disguise.html">
-
-            <div class="project-image">
-              <div class="editorial-image">
-                <span class="editorial-placeholder">Angels in Disguise</span>
-              </div>
-            </div>
-
-            <div class="project-info">
-              <h3>Angels in Disguise</h3>
-              <p>2023–present · Event Production</p>
-              <div class="archive-tags">
-                <span class="archive-tag">Ballroom</span>
-                <span class="archive-tag">Collective</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- NVLH -->
-
-          <a class="project-card"
-             data-category="sound"
-             href="projects/nvlh.html">
-
-            <div class="project-image">
-              <div class="editorial-image">
-                <span class="editorial-placeholder">NVLH</span>
-              </div>
-            </div>
-
-            <div class="project-info">
-              <h3>NVLH</h3>
-              <p>2024 · Sound Design</p>
-              <div class="archive-tags">
-                <span class="archive-tag">Film</span>
-                <span class="archive-tag">Sound</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Ruhrtriennale -->
-
-          <a class="project-card"
-             data-category="sound"
-             href="projects/ruhrtriennale.html">
-
-            <div class="project-image">
-              <div class="editorial-image">
-                <span class="editorial-placeholder">Ruhrtriennale</span>
-              </div>
-            </div>
-
-            <div class="project-info">
-              <h3>Ruhrtriennale</h3>
-              <p>2024 · Sound Contribution</p>
-              <div class="archive-tags">
-                <span class="archive-tag">Performance</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Forever Imbricated -->
-
-          <a class="project-card"
-             data-category="sound"
-             href="projects/forever-imbricated.html">
-
-            <div class="project-image">
-              <div class="editorial-image">
-                <span class="editorial-placeholder">Forever Imbricated</span>
-              </div>
-            </div>
-
-            <div class="project-info">
-              <h3>Forever Imbricated</h3>
-              <p>2023 · Sound Design</p>
-              <div class="archive-tags">
-                <span class="archive-tag">Residency</span>
-                <span class="archive-tag">Movement</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Jollof and Cheese -->
-
-          <a class="project-card"
-             data-category="research"
-             href="projects/jollof-and-cheese.html">
-
-            <div class="project-image">
-              <div class="editorial-image">
-                <span class="editorial-placeholder">Jollof & Cheese</span>
-              </div>
-            </div>
-
-            <div class="project-info">
-              <h3>Jollof and Cheese</h3>
-              <p>2021–2023 · Radio & Curation</p>
-              <div class="archive-tags">
-                <span class="archive-tag">Radio</span>
-                <span class="archive-tag">Curation</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- SOUNDLAB -->
-
-          <a class="project-card"
-             data-category="research"
-             href="projects/soundlab.html">
-
-            <div class="project-image">
-              <div class="editorial-image">
-                <span class="editorial-placeholder">SOUNDLAB</span>
-              </div>
-            </div>
-
-            <div class="project-info">
-              <h3>SOUNDLAB</h3>
-              <p>2025 · Artistic Research</p>
-              <div class="archive-tags">
-                <span class="archive-tag">Education</span>
-                <span class="archive-tag">Sound</span>
-              </div>
-            </div>
-          </a>
-
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- BACHELOR PROJECT -->
-
-  <section id="bachelor-project">
-
-    <h1 class="title">Bachelor Project</h1>
-
-    <div class="section-container">
-
-      <div class="project">
-        <p>
-          <strong>SOUNDLAB</strong><br>
-          <strong>BA Prozessgestaltung</strong>,
-          HyperWerk FHNW (2025)
-        </p>
-
-        <p>
-          A practical and research-based exploration of
-          the role of <strong>sound in community practices</strong>,
-          focusing on club culture, education, and
-          methodologies that support collaborative
-          sound creation.
-        </p>
-
-        <p>
-          <a href="https://nextgeneration.hgk.fhnw.ch/2025/diplom/hyperwerk/ndoum-jeremy-esengo/"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="project-link">
-            See the project on NEXT GENERATION (HyperWerk FHNW)
-          </a>
-        </p>
-      </div>
-
-      <div id="more-bachelor" class="hidden">
-
-        <p>
-          The bachelor project aims to gather and develop
-          tools for sound-related practices, including
-          workshops, interviews, a designed card game,
-          sound mapping, and archival work of both
-          institutional and self-produced methodologies.
-        </p>
-
-        <p>
-          By creating accessible methods and tools for
-          interaction with sound, the project investigates
-          how sound practices can be structured and shared
-          across communities, and how these practices can
-          influence collective cultural engagement.
-        </p>
-
-      </div>
-
-      <button class="read-more-btn"
-              onclick="toggleCategory('more-bachelor', this)">
-        Read more
-      </button>
-
-    </div>
-  </section>
-
-  <!-- ARTICLES & PRESS -->
-
-  <section id="articles-section">
-
-    <h1 class="title">Articles & Press</h1>
-
-    <div class="section-container">
-
-      <p>Selected features, interviews and publications.</p>
-
-      <div class="editorial-grid">
-
-        <!-- RED BULL -->
-
-        <a class="editorial-card"
-           href="https://www.redbull.com/ch-fr/swiss-selecta-esengo"
-           target="_blank"
-           rel="noopener noreferrer">
-
-          <div class="editorial-image">
-            <span class="editorial-placeholder">Red Bull</span>
-          </div>
-
-          <h3>Swiss Selecta: Esengo</h3>
-          <p>Red Bull · Feature</p>
-          <p>By François Graz</p>
-        </a>
-
-        <!-- MONTREUX -->
-
-        <a class="editorial-card"
-           href="https://www.montreuxjazzfestival.com/en/artist/esengo/"
-           target="_blank"
-           rel="noopener noreferrer">
-
-          <div class="editorial-image">
-            <span class="editorial-placeholder">Montreux Jazz Festival</span>
-          </div>
-
-          <h3>Esengo — Montreux Jazz Festival</h3>
-          <p>Artist Profile</p>
-        </a>
-
-        <!-- RADIO X -->
-
-        <a class="editorial-card"
-           href="https://radiox.ch/news-archiv/ballroom-cartoon-network-kiki-ball-kaserne.html#"
-           target="_blank"
-           rel="noopener noreferrer">
-
-          <div class="editorial-image">
-            <span class="editorial-placeholder">Radio X</span>
-          </div>
-
-          <h3>Ballroom in Basel: The Cartoon Network Kiki Ball</h3>
-          <p>Radio X · Interview</p>
-          <p>By Danielle Bürgin</p>
-        </a>
-
-        <!-- CCS PARIS -->
-
-        <a class="editorial-card"
-           href="https://ccsparis.com/en/events/ccs-on-tour-au-nouveau-printemps-2025/esengo/"
-           target="_blank"
-           rel="noopener noreferrer">
-
-          <div class="editorial-image">
-            <span class="editorial-placeholder">CCS Paris</span>
-          </div>
-
-          <h3>Esengo at Centre Culturel Suisse</h3>
-          <p>CCS On Tour · Artist Profile</p>
-        </a>
-
-        <!-- LETYPE -->
-
-        <a class="editorial-card"
-           href="https://letype.fr/7-artistes-de-la-scene-emergente-de-geneve-a-suivre/"
-           target="_blank"
-           rel="noopener noreferrer">
-
-          <div class="editorial-image">
-            <span class="editorial-placeholder">Le Type</span>
-          </div>
-
-          <h3>7 Artists from Geneva's Emerging Scene to Follow</h3>
-          <p>Le Type · Feature</p>
-          <p>By Maxence Pourpoint</p>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- MUSIC / DISCOGRAPHY -->
-
-  <section id="music">
-
-    <h1 class="title">Music</h1>
-
-    <div class="section-container">
-
-      <div class="music-photo">
-        <img src="./assets/VisàlKimEsengo.jpg"
-             alt="Portrait of ESENGO">
-        <p class="image-credit">Photo credit: VISÁL KIM</p>
-      </div>
-
-      <div class="archive-heading">
-        <h2>Discography</h2>
-        <p class="discography-intro">
-          Releases, remixes and collaborations · 2023–2026
-        </p>
-      </div>
-
-      <!-- MUSIC FILTERS -->
-
-      <div class="archive-navigation"
-           role="group"
-           aria-label="Filter music releases">
-
-        <button class="archive-filter active"
-                type="button"
-                data-music-filter="all"
-                aria-pressed="true">
-          <span class="filter-number">01</span>
-          <span class="filter-name">All Releases</span>
-        </button>
-
-        <button class="archive-filter"
-                type="button"
-                data-music-filter="ep"
-                aria-pressed="false">
-          <span class="filter-number">02</span>
-          <span class="filter-name">EPs</span>
-        </button>
-
-        <button class="archive-filter"
-                type="button"
-                data-music-filter="single"
-                aria-pressed="false">
-          <span class="filter-number">03</span>
-          <span class="filter-name">Singles</span>
-        </button>
-
-        <button class="archive-filter"
-                type="button"
-                data-music-filter="remix"
-                aria-pressed="false">
-          <span class="filter-number">04</span>
-          <span class="filter-name">Remixes & Collaborations</span>
-        </button>
-
-      </div>
-
-      <div class="archive-section-heading">
-        <h2 id="music-current-category">All Releases</h2>
-        <span id="music-count" class="archive-count"></span>
-      </div>
-
-      <!-- DISCOGRAPHY GRID -->
-
-      <div class="discography-grid">
-
-        <!-- A KII -->
-
-        <article class="release-card" data-category="ep">
-
-          <button class="release-button"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="release-akii">
-
-            <div class="release-cover">
-              <i class="fa-solid fa-compact-disc release-cover-placeholder"
-                 aria-hidden="true"></i>
-            </div>
-
-            <h3>A KII</h3>
-            <p>ESENGO · 2024 · EP</p>
-          </button>
-
-          <div class="release-details"
-               id="release-akii"
-               hidden>
-
-            <h4>A KII</h4>
-            <p>ESENGO · June 2024</p>
-            <p>Debut EP by ESENGO.</p>
-            <p>Tracklist and release credits to be added.</p>
-
-            <a href="https://soundcloud.com/esengoartist"
-               target="_blank"
-               rel="noopener noreferrer">
-              Explore on SoundCloud
-            </a>
-          </div>
-        </article>
-
-        <!-- TITTIES AT THE TOP -->
-
-        <article class="release-card" data-category="single">
-
-          <button class="release-button"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="release-titties">
-
-            <div class="release-cover">
-              <i class="fa-solid fa-compact-disc release-cover-placeholder"
-                 aria-hidden="true"></i>
-            </div>
-
-            <h3>Titties At The Top</h3>
-            <p>ESENGO · 2024 · Single</p>
-          </button>
-
-          <div class="release-details"
-               id="release-titties"
-               hidden>
-
-            <h4>Titties At The Top</h4>
-            <p>ESENGO · 2024</p>
-            <p>Original track by ESENGO.</p>
-
-            <a href="https://soundcloud.com/esengoartist"
-               target="_blank"
-               rel="noopener noreferrer">
-              Explore on SoundCloud
-            </a>
-          </div>
-        </article>
-
-        <!-- THE MEAN BEAT -->
-
-        <article class="release-card" data-category="single">
-
-          <button class="release-button"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="release-mean">
-
-            <div class="release-cover">
-              <i class="fa-solid fa-compact-disc release-cover-placeholder"
-                 aria-hidden="true"></i>
-            </div>
-
-            <h3>The Mean Beat</h3>
-            <p>ESENGO · 2023 · Single</p>
-          </button>
-
-          <div class="release-details"
-               id="release-mean"
-               hidden>
-
-            <h4>The Mean Beat</h4>
-            <p>ESENGO · 2023</p>
-            <p>Original track by ESENGO.</p>
-          </div>
-        </article>
-
-        <!-- THE FLUTE HA -->
-
-        <article class="release-card" data-category="single">
-
-          <button class="release-button"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="release-flute">
-
-            <div class="release-cover">
-              <i class="fa-solid fa-compact-disc release-cover-placeholder"
-                 aria-hidden="true"></i>
-            </div>
-
-            <h3>The Flute Ha</h3>
-            <p>ESENGO · 2023 · Single</p>
-          </button>
-
-          <div class="release-details"
-               id="release-flute"
-               hidden>
-
-            <h4>The Flute Ha</h4>
-            <p>ESENGO · 2023</p>
-            <p>Original track by ESENGO.</p>
-          </div>
-        </article>
-
-        <!-- JUST LIKE A FQ -->
-
-        <article class="release-card" data-category="single">
-
-          <button class="release-button"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="release-fq">
-
-            <div class="release-cover">
-              <i class="fa-solid fa-compact-disc release-cover-placeholder"
-                 aria-hidden="true"></i>
-            </div>
-
-            <h3>Just Like A FQ</h3>
-            <p>ESENGO · 2023 · Single</p>
-          </button>
-
-          <div class="release-details"
-               id="release-fq"
-               hidden>
-
-            <h4>Just Like A FQ</h4>
-            <p>ESENGO · 2023</p>
-            <p>Original track by ESENGO.</p>
-          </div>
-        </article>
-
-        <!-- PISTA REMIX -->
-
-        <article class="release-card" data-category="remix">
-
-          <button class="release-button"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="release-pista">
-
-            <div class="release-cover">
-              <i class="fa-solid fa-compact-disc release-cover-placeholder"
-                 aria-hidden="true"></i>
-            </div>
-
-            <h3>Pista (ESENGO Remix)</h3>
-            <p>Wesout · 2025 · Remix</p>
-          </button>
-
-          <div class="release-details"
-               id="release-pista"
-               hidden>
-
-            <h4>Pista (ESENGO Remix)</h4>
-            <p>Wesout · 2025</p>
-            <p>Remix by ESENGO.</p>
-          </div>
-        </article>
-
-        <!-- VIRUS.BAT -->
-
-        <article class="release-card" data-category="remix">
-
-          <button class="release-button"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="release-virus">
-
-            <div class="release-cover">
-              <i class="fa-solid fa-compact-disc release-cover-placeholder"
-                 aria-hidden="true"></i>
-            </div>
-
-            <h3>virus.bat (ESENGO Remix)</h3>
-            <p>e-garbage · 2025 · Remix</p>
-          </button>
-
-          <div class="release-details"
-               id="release-virus"
-               hidden>
-
-            <h4>virus.bat (ESENGO Remix)</h4>
-            <p>e-garbage · 2025</p>
-            <p>Remix by ESENGO.</p>
-          </div>
-        </article>
-
-        <!-- PCG -->
-
-        <article class="release-card" data-category="remix">
-
-          <button class="release-button"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="release-pcg">
-
-            <div class="release-cover">
-              <i class="fa-solid fa-compact-disc release-cover-placeholder"
-                 aria-hidden="true"></i>
-            </div>
-
-            <h3>PCG</h3>
-            <p>Missy Da Kunt ft. ESENGO · 2025</p>
-          </button>
-
-          <div class="release-details"
-               id="release-pcg"
-               hidden>
-
-            <h4>PCG</h4>
-            <p>Missy Da Kunt featuring ESENGO · 2025</p>
-            <p>Musical collaboration.</p>
-          </div>
-        </article>
-
-        <!-- SEQUENCING -->
-
-        <article class="release-card" data-category="remix">
-
-          <button class="release-button"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="release-sequencing">
-
-            <div class="release-cover">
-              <i class="fa-solid fa-compact-disc release-cover-placeholder"
-                 aria-hidden="true"></i>
-            </div>
-
-            <h3>Sequencing (ESENGO Edit)</h3>
-            <p>Arma · 2023 · Edit</p>
-          </button>
-
-          <div class="release-details"
-               id="release-sequencing"
-               hidden>
-
-            <h4>Sequencing (ESENGO Edit)</h4>
-            <p>Arma · 2023</p>
-            <p>Edit by ESENGO.</p>
-          </div>
-        </article>
-
-        <!-- DIZZY HEAD -->
-
-        <article class="release-card" data-category="remix">
-
-          <button class="release-button"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="release-dizzy">
-
-            <div class="release-cover">
-              <i class="fa-solid fa-compact-disc release-cover-placeholder"
-                 aria-hidden="true"></i>
-            </div>
-
-            <h3>Dizzy Head (ESENGO Remix)</h3>
-            <p>Fels · 2023 · Remix</p>
-          </button>
-
-          <div class="release-details"
-               id="release-dizzy"
-               hidden>
-
-            <h4>Dizzy Head (ESENGO Remix)</h4>
-            <p>Fels · 2023</p>
-            <p>Remix by ESENGO.</p>
-          </div>
-        </article>
-
-      </div>
-
-      <!-- SOUNDCLOUD PLAYER -->
-
-      <div class="iframe-container">
-        <iframe
-          title="ESENGO on SoundCloud"
-          src="https://w.soundcloud.com/player/?url=https://soundcloud.com/esengoartist"
-          allow="autoplay">
-        </iframe>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- VIDEO -->
-
-  <section id="video">
-
-    <h1 class="title">Video</h1>
-
-    <div class="video-container">
-      <iframe
-        src="https://www.youtube.com/embed/T4Gll2lNpwk"
-        title="ESENGO Video"
-        allow="autoplay; encrypted-media; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-  </section>
-
-  <!-- CONTACT -->
-
-  <section id="contact">
-
-    <h1 class="title">Contact Me</h1>
-
-    <div class="contact-info-upper-container">
-
-      <div class="contact-info-container">
-        <img src="./assets/email.png"
-             alt="Email icon"
-             class="icon contact-icon email-icon">
-
-        <p>
-          <a href="mailto:jade@chabloz.art">
-            Bookings: jade@chabloz.art
-          </a>
-        </p>
-      </div>
-
-      <div class="contact-info-container">
-        <img src="./assets/email.png"
-             alt="Email icon"
-             class="icon contact-icon email-icon">
-
-        <p>
-          <a href="mailto:esengo.artist@gmail.com">
-            esengo.artist@gmail.com
-          </a>
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer class="site-footer">
-
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#work-section">Work</a></li>
-      <li><a href="#articles-section">Articles</a></li>
-      <li><a href="#music">Music</a></li>
-      <li><a href="#video">Video</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-
-    <p>© ESENGO 2026</p>
-
-  </footer>
-
-  <!-- JAVASCRIPT -->
-
-  <script>
-
-    /* MENU */
-
-    function toggleMenu() {
-      const menu = document.getElementById("menu-panel");
-      const button = document.querySelector(".menu-toggle");
-
-      if (!menu || !button) return;
-
-      menu.classList.toggle("hidden");
-
-      button.setAttribute(
-        "aria-expanded",
-        String(!menu.classList.contains("hidden"))
-      );
-    }
-
-    document.querySelectorAll("#menu-panel a").forEach(link => {
-      link.addEventListener("click", () => {
-        const menu = document.getElementById("menu-panel");
-        const button = document.querySelector(".menu-toggle");
-
-        menu.classList.add("hidden");
-        button.setAttribute("aria-expanded", "false");
-      });
+<!-- FLOATING MENU -->
+<button class="menu-toggle" type="button"
+  onclick="toggleMenu()" aria-controls="menu-panel"
+  aria-expanded="false">MENU</button>
+
+<nav id="menu-panel" class="menu-panel hidden">
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#profile">Profile</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#work-section">Work</a></li>
+<li><a href="#bachelor-project">Bachelor Project</a></li>
+<li><a href="#articles-section">Articles</a></li>
+<li><a href="#music">Music</a></li>
+<li><a href="#video">Video</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HOME VIDEO -->
+<section id="home" class="home-section">
+<div class="home-video-container">
+<video class="home-video" autoplay muted loop playsinline>
+<source src="./assets/home-video.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+</section>
+
+<!-- PROFILE -->
+<section id="profile">
+<div class="section__text">
+<h1 class="title">ESENGO</h1>
+<p class="section__text__p2">
+Culture & Event Producer | Sound Artist
+</p>
+<div class="btn-container">
+<button class="btn btn-color-1"
+  onclick="location.href='#contact'">Contact Info</button>
+</div>
+
+<div id="socials-container">
+<img src="./assets/instagram.png" alt="Instagram"
+ class="icon" onclick="location.href='https://instagram.com/esengooo'">
+<img src="./assets/linktree2.png" alt="Linktree"
+ class="icon" onclick="location.href='https://linktr.ee/esengo.artist'">
+<img src="./assets/Logo-Resident-Advisor.jpeg" alt="Resident Advisor"
+ class="icon" onclick="location.href='https://ra.co/dj/esengo'">
+<img src="./assets/soundcloud.png" alt="SoundCloud"
+ class="icon" onclick="location.href='https://soundcloud.com/esengoartist'">
+<img src="./assets/email.png" alt="Email"
+ class="icon" onclick="location.href='mailto:esengo.artist@gmail.com'">
+</div>
+
+<div class="profile-boxes">
+<div class="profile-box">
+<img src="./assets/education.png" alt="" class="icon">
+<h3>Education</h3>
+<p><strong>B.A. – Bachelor of Arts</strong><br>
+Academy of Art and Design (HGK) FHNW, Basel<br>
+September 2022 – July 2025</p>
+<p class="pedagogy">
+<strong>Pedagogical Maturity</strong><br>
+ECG Ella-Maillart & Henry Dunant, Geneva
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h1 class="title">About</h1>
+<div class="section-container about-section">
+<div class="section__pic-container">
+<img src="./assets/PROFILE PIC.jpeg" alt="ESENGO"
+ class="about-pic">
+</div>
+<div class="about-details-container">
+<div class="about-text">
+<p><strong>ESENGO</strong> (<em>er/he/il</em>) is a
+cultural producer, <strong>event producer</strong>,
+sound artist, and DJ based between
+<strong>Geneva</strong> and <strong>Basel</strong>,
+Switzerland. His practice operates at the
+intersection of artistic creation, social engagement,
+and education, using sound as a tool for collective
+expression and transmission.</p>
+
+<p>As a cultural producer and event producer,
+<strong>ESENGO</strong> develops cultural and educational
+projects with strong public outreach, grounded in
+community exchange and long-term collaboration.
+His work focuses on creating accessible spaces for
+dialogue, care, and critical reflection, particularly
+within queer, Black, and diasporic contexts.</p>
+
+<div id="more-bio" class="hidden">
+<p>As a sound artist and DJ, <strong>ESENGO</strong>
+draws from his <em>African heritage</em> and from
+Black and queer diasporic histories. Through sound,
+performance, and collaborative formats, he weaves
+sonic and historical narratives across club spaces,
+performance contexts, and audiovisual works.</p>
+
+<p>A key work within his artistic practice is the sound
+design for the short film <strong>NVLH</strong> by
+Thaís Iroko and Felipe Dutra, screened at the
+Cinemateca do Museu de Arte Moderna do Rio de Janeiro
+(MAM).</p>
+
+<p>His work spans venues and platforms such as
+<strong>Motel Campo</strong> (Geneva),
+<strong>La Créole</strong> (Paris),
+<strong>OXI</strong> (Berlin), ballroom events
+across Europe, and the
+<strong>Montreux Jazz Festival</strong>.</p>
+
+<p>In 2023, he released <strong>Arma – Sequencing
+(ESENGO Edit)</strong>, followed by releases on
+<strong>TIG WERK</strong> and collaborations with
+artists including <strong>Fels</strong>.</p>
+
+<p>A member of <strong>Angels in Disguise</strong>,
+ESENGO released his debut EP <strong>A KII</strong>
+in June 2024, followed by <strong>Closer</strong>
+in April 2026.</p>
+</div>
+<button class="read-more-btn" onclick="toggleBio()">
+Read more</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- WORK -->
+<section id="work-section">
+<h1 class="title">Work</h1>
+<div class="section-container">
+<div id="work-archive" class="work-archive">
+<div class="archive-heading">
+<h2>Selected Projects</h2>
+<p>Artistic practice, sound, events and research · 2022–2026</p>
+</div>
+
+<div class="archive-navigation" role="group"
+ aria-label="Filter work projects">
+<button class="archive-filter active" data-work-filter="all"
+ aria-pressed="true">
+<span class="filter-number">01</span>
+<span class="filter-name">All Projects</span></button>
+<button class="archive-filter" data-work-filter="event"
+ aria-pressed="false">
+<span class="filter-number">02</span>
+<span class="filter-name">Event Production</span></button>
+<button class="archive-filter" data-work-filter="sound"
+ aria-pressed="false">
+<span class="filter-number">03</span>
+<span class="filter-name">Sound</span></button>
+<button class="archive-filter" data-work-filter="research"
+ aria-pressed="false">
+<span class="filter-number">04</span>
+<span class="filter-name">Research</span></button>
+</div>
+
+<div class="archive-section-heading">
+<h2 id="work-current-category">All Projects</h2>
+<span id="work-count" class="archive-count"></span>
+</div>
+
+<div class="project-grid" id="work-project-grid">
+
+<a class="project-card" data-category="event"
+ href="projects/cartoon-network-kiki-ball.html">
+<div class="project-image">
+<img src="assets/COVER B&amp;Y.jpeg"
+ alt="Cartoon Network Kiki Ball" loading="lazy">
+</div>
+<div class="project-info">
+<h3>Cartoon Network Kiki Ball</h3>
+<p>2025–2026 · Event Production</p>
+<div class="archive-tags">
+<span class="archive-tag">Ballroom</span>
+<span class="archive-tag">Cultural Production</span>
+</div></div></a>
+
+<a class="project-card" data-category="event"
+ href="projects/blackbox-association.html">
+<div class="project-image">
+<img src="assets/BB Basel 2025.jpeg"
+ alt="Blackbox Association" loading="lazy">
+</div>
+<div class="project-info">
+<h3>Blackbox Association</h3>
+<p>2022–2025 · Event Production</p>
+<div class="archive-tags">
+<span class="archive-tag">Coordination</span>
+<span class="archive-tag">Community</span>
+</div></div></a>
+
+<a class="project-card" data-category="event"
+ href="projects/omg-franck.html">
+<div class="project-image">
+<img src="assets/COVER OMG FRANCK.jpg"
+ alt="OMG FRANCK" loading="lazy">
+</div>
+<div class="project-info">
+<h3>OMG FRANCK</h3>
+<p>2025 · Event Production</p>
+<div class="archive-tags">
+<span class="archive-tag">Performance</span>
+<span class="archive-tag">Collaboration</span>
+</div></div></a>
+
+<a class="project-card" data-category="event"
+ href="projects/soft-enchantments.html">
+<div class="project-image">
+<div class="editorial-image">
+<span class="editorial-placeholder">Soft Enchantments</span>
+</div></div>
+<div class="project-info">
+<h3>Soft Enchantments</h3>
+<p>2023 · Event Production</p>
+<div class="archive-tags">
+<span class="archive-tag">Programming</span>
+</div></div></a>
+
+<a class="project-card" data-category="event"
+ href="projects/angels-in-disguise.html">
+<div class="project-image">
+<img src="assets/AID 2023.JPG"
+ alt="Angels in Disguise" loading="lazy">
+</div>
+<div class="project-info">
+<h3>Angels in Disguise</h3>
+<p>2023–present · Event Production</p>
+<div class="archive-tags">
+<span class="archive-tag">Ballroom</span>
+<span class="archive-tag">Collective</span>
+</div></div></a>
+
+<a class="project-card" data-category="sound"
+ href="projects/nvlh.html">
+<div class="project-image">
+<img src="assets/NVLH.jpg"
+ alt="NVLH film" loading="lazy">
+</div>
+<div class="project-info">
+<h3>NVLH</h3>
+<p>2024 · Sound Design</p>
+<div class="archive-tags">
+<span class="archive-tag">Film</span>
+<span class="archive-tag">Sound</span>
+</div></div></a>
+
+<a class="project-card" data-category="sound"
+ href="projects/ruhrtriennale.html">
+<div class="project-image">
+<div class="editorial-image">
+<span class="editorial-placeholder">Ruhrtriennale</span>
+</div></div>
+<div class="project-info">
+<h3>Ruhrtriennale</h3>
+<p>2024 · Sound Contribution</p>
+<div class="archive-tags">
+<span class="archive-tag">Performance</span>
+</div></div></a>
+
+<a class="project-card" data-category="sound"
+ href="projects/forever-imbricated.html">
+<div class="project-image">
+<div class="editorial-image">
+<span class="editorial-placeholder">Forever Imbricated</span>
+</div></div>
+<div class="project-info">
+<h3>Forever Imbricated</h3>
+<p>2023 · Sound Design</p>
+<div class="archive-tags">
+<span class="archive-tag">Residency</span>
+<span class="archive-tag">Movement</span>
+</div></div></a>
+
+<a class="project-card" data-category="research"
+ href="projects/jollof-and-cheese.html">
+<div class="project-image">
+<div class="editorial-image">
+<span class="editorial-placeholder">Jollof & Cheese</span>
+</div></div>
+<div class="project-info">
+<h3>Jollof and Cheese</h3>
+<p>2021–2023 · Radio & Curation</p>
+<div class="archive-tags">
+<span class="archive-tag">Radio</span>
+<span class="archive-tag">Curation</span>
+</div></div></a>
+
+<a class="project-card" data-category="research"
+ href="projects/soundlab.html">
+<div class="project-image">
+<img src="assets/Residency FHNW 2.JPG"
+ alt="SOUNDLAB" loading="lazy">
+</div>
+<div class="project-info">
+<h3>SOUNDLAB</h3>
+<p>2025 · Artistic Research</p>
+<div class="archive-tags">
+<span class="archive-tag">Education</span>
+<span class="archive-tag">Sound</span>
+</div></div></a>
+
+<!-- NEW YORK PANEL TALK -->
+<a class="project-card" data-category="research"
+ href="projects/the-legacy-continues.html">
+<div class="project-image">
+<img src="assets/COVER NYC.JPG"
+ alt="The Legacy Continues, New York City"
+ loading="lazy">
+</div>
+<div class="project-info">
+<h3>The Legacy Continues</h3>
+<p>2026 · Panel Talk · New York City</p>
+<div class="archive-tags">
+<span class="archive-tag">Ballroom History</span>
+<span class="archive-tag">Public Speaking</span>
+</div></div></a>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- BACHELOR PROJECT -->
+<section id="bachelor-project">
+<h1 class="title">Bachelor Project</h1>
+<div class="section-container">
+<div class="project">
+<p><strong>SOUNDLAB</strong><br>
+<strong>BA Prozessgestaltung</strong>,
+HyperWerk FHNW (2025)</p>
+<p>A practical and research-based exploration of
+the role of <strong>sound in community practices</strong>,
+focusing on club culture, education, and methodologies
+that support collaborative sound creation.</p>
+<p><a class="project-link"
+ href="https://nextgeneration.hgk.fhnw.ch/2025/diplom/hyperwerk/ndoum-jeremy-esengo/"
+ target="_blank" rel="noopener noreferrer">
+See the project on NEXT GENERATION (HyperWerk FHNW)
+</a></p>
+</div>
+<div id="more-bachelor" class="hidden">
+<p>The bachelor project aims to gather and develop
+tools for sound-related practices, including workshops,
+interviews, a designed card game, sound mapping,
+and archival work of both institutional and
+self-produced methodologies.</p>
+<p>By creating accessible methods and tools for
+interaction with sound, the project investigates
+how sound practices can be structured and shared
+across communities.</p>
+</div>
+<button class="read-more-btn"
+ onclick="toggleCategory('more-bachelor',this)">
+Read more</button>
+</div>
+</section>
+
+<!-- ARTICLES & PRESS -->
+<section id="articles-section">
+<h1 class="title">Articles & Press</h1>
+<div class="section-container">
+<p>Selected features, interviews and publications.</p>
+<div class="editorial-grid">
+
+<a class="editorial-card"
+ href="https://www.redbull.com/ch-fr/swiss-selecta-esengo"
+ target="_blank" rel="noopener noreferrer">
+<div class="editorial-image">
+<span class="editorial-placeholder">Red Bull</span></div>
+<h3>Swiss Selecta: Esengo</h3>
+<p>Red Bull · Feature</p>
+<p>By François Graz</p></a>
+
+<a class="editorial-card"
+ href="https://www.montreuxjazzfestival.com/en/artist/esengo/"
+ target="_blank" rel="noopener noreferrer">
+<div class="editorial-image">
+<span class="editorial-placeholder">Montreux Jazz Festival</span>
+</div>
+<h3>Esengo — Montreux Jazz Festival</h3>
+<p>Artist Profile</p></a>
+
+<a class="editorial-card"
+ href="https://radiox.ch/news-archiv/ballroom-cartoon-network-kiki-ball-kaserne.html#"
+ target="_blank" rel="noopener noreferrer">
+<div class="editorial-image">
+<span class="editorial-placeholder">Radio X</span></div>
+<h3>Ballroom in Basel: The Cartoon Network Kiki Ball</h3>
+<p>Radio X · Interview</p>
+<p>By Danielle Bürgin</p></a>
+
+<a class="editorial-card"
+ href="https://ccsparis.com/en/events/ccs-on-tour-au-nouveau-printemps-2025/esengo/"
+ target="_blank" rel="noopener noreferrer">
+<div class="editorial-image">
+<span class="editorial-placeholder">CCS Paris</span></div>
+<h3>Esengo at Centre Culturel Suisse</h3>
+<p>CCS On Tour · Artist Profile</p></a>
+
+<a class="editorial-card"
+ href="https://letype.fr/7-artistes-de-la-scene-emergente-de-geneve-a-suivre/"
+ target="_blank" rel="noopener noreferrer">
+<div class="editorial-image">
+<span class="editorial-placeholder">Le Type</span></div>
+<h3>7 Artists from Geneva's Emerging Scene to Follow</h3>
+<p>Le Type · Feature</p>
+<p>By Maxence Pourpoint</p></a>
+
+</div>
+</div>
+</section>
+
+<!-- MUSIC -->
+<section id="music">
+<h1 class="title">Music</h1>
+<div class="section-container">
+
+<div class="music-photo">
+<img src="./assets/VisàlKimEsengo.jpg"
+ alt="Portrait of ESENGO">
+<p class="image-credit">Photo credit: VISÁL KIM</p>
+</div>
+
+<div class="archive-heading">
+<h2>Discography</h2>
+<p class="discography-intro">
+Releases, remixes and collaborations · 2023–2026
+</p>
+</div>
+
+<div class="archive-navigation" role="group"
+ aria-label="Filter music releases">
+<button class="archive-filter active" data-music-filter="all"
+ aria-pressed="true">
+<span class="filter-number">01</span>
+<span class="filter-name">All Releases</span></button>
+<button class="archive-filter" data-music-filter="ep"
+ aria-pressed="false">
+<span class="filter-number">02</span>
+<span class="filter-name">EPs</span></button>
+<button class="archive-filter" data-music-filter="single"
+ aria-pressed="false">
+<span class="filter-number">03</span>
+<span class="filter-name">Singles</span></button>
+<button class="archive-filter" data-music-filter="remix"
+ aria-pressed="false">
+<span class="filter-number">04</span>
+<span class="filter-name">Remixes & Collaborations</span></button>
+</div>
+
+<div class="archive-section-heading">
+<h2 id="music-current-category">All Releases</h2>
+<span id="music-count" class="archive-count"></span>
+</div>
+
+<!-- RELEASES GENERATED FROM THE LIST BELOW -->
+<div class="discography-grid" id="discography-grid"></div>
+
+<div class="iframe-container">
+<iframe title="ESENGO on SoundCloud"
+ src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/esengoartist"
+ allow="autoplay" loading="lazy"></iframe>
+</div>
+
+</div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+<h1 class="title">Video</h1>
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/T4Gll2lNpwk"
+ title="ESENGO Video"
+ allow="autoplay; encrypted-media; picture-in-picture"
+ allowfullscreen loading="lazy"></iframe>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h1 class="title">Contact Me</h1>
+<div class="contact-info-upper-container">
+<div class="contact-info-container">
+<img src="./assets/email.png" alt=""
+ class="icon contact-icon email-icon">
+<p><a href="mailto:jade@chabloz.art">
+Bookings: jade@chabloz.art</a></p>
+</div>
+<div class="contact-info-container">
+<img src="./assets/email.png" alt=""
+ class="icon contact-icon email-icon">
+<p><a href="mailto:esengo.artist@gmail.com">
+esengo.artist@gmail.com</a></p>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#work-section">Work</a></li>
+<li><a href="#articles-section">Articles</a></li>
+<li><a href="#music">Music</a></li>
+<li><a href="#video">Video</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<p>© ESENGO 2026</p>
+</footer>
+
+<script>
+/* MENU */
+function toggleMenu() {
+  const menu=document.getElementById("menu-panel");
+  const button=document.querySelector(".menu-toggle");
+  menu.classList.toggle("hidden");
+  button.setAttribute("aria-expanded",
+    String(!menu.classList.contains("hidden")));
+}
+document.querySelectorAll("#menu-panel a").forEach(link=>{
+  link.addEventListener("click",()=>{
+    document.getElementById("menu-panel").classList.add("hidden");
+    document.querySelector(".menu-toggle")
+      .setAttribute("aria-expanded","false");
+  });
+});
+
+/* ABOUT */
+function toggleBio() {
+  const bio=document.getElementById("more-bio");
+  const button=document.querySelector("#about .read-more-btn");
+  bio.classList.toggle("hidden");
+  button.textContent=bio.classList.contains("hidden")
+    ?"Read more":"Read less";
+}
+function toggleCategory(id,button) {
+  const section=document.getElementById(id);
+  if(!section)return;
+  section.classList.toggle("hidden");
+  button.textContent=section.classList.contains("hidden")
+    ?"Read more":"Read less";
+}
+
+/* WORK FILTERS */
+function filterWork(category) {
+  const cards=[...document.querySelectorAll(
+    "#work-project-grid .project-card")];
+  cards.forEach(card=>{
+    card.classList.toggle("archive-item-hidden",
+      category!=="all" && card.dataset.category!==category);
+  });
+  document.querySelectorAll("[data-work-filter]").forEach(button=>{
+    const active=button.dataset.workFilter===category;
+    button.classList.toggle("active",active);
+    button.setAttribute("aria-pressed",String(active));
+    if(active)document.getElementById("work-current-category")
+      .textContent=button.querySelector(".filter-name").textContent;
+  });
+  const count=cards.filter(card=>
+    !card.classList.contains("archive-item-hidden")).length;
+  document.getElementById("work-count").textContent=
+    count+(count===1?" project":" projects");
+}
+document.querySelectorAll("[data-work-filter]").forEach(button=>{
+  button.addEventListener("click",()=>
+    filterWork(button.dataset.workFilter));
+});
+filterWork("all");
+
+/* DISCOGRAPHY DATA
+   Nine Bandcamp releases + seven additional
+   releases from the previous website.
+*/
+const releases=[
+  {
+    title:"Kelela – If We Meet Again (Esengo Edit)",
+    year:"2026",type:"Edit",category:"remix",
+    url:"https://esengooo.bandcamp.com/track/kelela-if-we-meet-again-esengo-edit"
+  },
+  {
+    title:"KHS3",
+    year:"2026",type:"Single",category:"single",
+    url:"https://esengooo.bandcamp.com/track/khs3"
+  },
+  {
+    title:"Closer",
+    year:"2026",type:"EP",category:"ep",
+    url:"https://esengooo.bandcamp.com/album/closer"
+  },
+  {
+    title:"Ride (Vogue Edit + Crashless Version)",
+    year:"2025",type:"Edit",category:"remix",
+    url:"https://esengooo.bandcamp.com/album/ride-vogue-edit-crashless-version"
+  },
+  {
+    title:"The Delish Ha (feat. DJ Delish)",
+    year:"2025",type:"Collaboration",category:"remix",
+    url:"https://esengooo.bandcamp.com/album/the-delish-ha-feat-dj-delish"
+  },
+  {
+    title:"Bima",
+    year:"2025",type:"Single",category:"single",
+    url:"https://esengooo.bandcamp.com/track/bima"
+  },
+  {
+    title:"TITTIES AT THE TOP (feat. Sunkee Angel)",
+    year:"2024",type:"Single",category:"single",
+    url:"https://esengooo.bandcamp.com/album/titties-at-the-top-feat-sunkee-angel"
+  },
+  {
+    title:"A KII",
+    year:"2024",type:"EP",category:"ep",
+    image:"assets/A KII Cover Willon pucena.PNG",
+    url:"https://esengooo.bandcamp.com/album/a-kii"
+  },
+  {
+    title:"Arma – Sequencing (Esengo Edit)",
+    year:"2023",type:"Edit",category:"remix",
+    url:"https://esengooo.bandcamp.com/track/arma-sequencing-esengo-edit"
+  },
+  {
+    title:"Pista (ESENGO Remix)",
+    artist:"Wesout",year:"2025",type:"Remix",
+    category:"remix"
+  },
+  {
+    title:"virus.bat (ESENGO Remix)",
+    artist:"e-garbage",year:"2025",type:"Remix",
+    category:"remix"
+  },
+  {
+    title:"PCG",
+    artist:"Missy Da Kunt feat. ESENGO",
+    year:"2025",type:"Collaboration",category:"remix"
+  },
+  {
+    title:"The Mean Beat",
+    year:"2023",type:"Single",category:"single"
+  },
+  {
+    title:"The Flute Ha",
+    year:"2023",type:"Single",category:"single"
+  },
+  {
+    title:"Just Like A FQ",
+    year:"2023",type:"Single",category:"single"
+  },
+  {
+    title:"Dizzy Head (ESENGO Remix)",
+    artist:"Fels",year:"2023",
+    type:"Remix",category:"remix"
+  }
+];
+
+const grid=document.getElementById("discography-grid");
+
+releases.forEach((release,index)=>{
+  const card=document.createElement("article");
+  card.className="release-card";
+  card.dataset.category=release.category;
+
+  const button=document.createElement("button");
+  button.type="button";
+  button.className="release-button";
+  button.setAttribute("aria-expanded","false");
+
+  const panelId="release-"+index;
+  button.setAttribute("aria-controls",panelId);
+
+  const cover=document.createElement("div");
+  cover.className="release-cover";
+
+  if(release.image){
+    const img=document.createElement("img");
+    img.src=release.image;
+    img.alt=release.title+" cover";
+    img.loading="lazy";
+    cover.appendChild(img);
+  }else{
+    const placeholder=document.createElement("span");
+    placeholder.className="release-cover-placeholder";
+    placeholder.textContent="♫";
+    cover.appendChild(placeholder);
+  }
+
+  const heading=document.createElement("h3");
+  heading.textContent=release.title;
+  const subtitle=document.createElement("p");
+  subtitle.textContent=
+    (release.artist||"ESENGO")+" · "+release.year+" · "+release.type;
+  button.append(cover,heading,subtitle);
+
+  const details=document.createElement("div");
+  details.className="release-details";
+  details.id=panelId;
+  details.hidden=true;
+
+  const detailTitle=document.createElement("h4");
+  detailTitle.textContent=release.title;
+  const info=document.createElement("p");
+  info.textContent=
+    (release.artist||"ESENGO")+" · "+release.year+" · "+release.type;
+  details.append(detailTitle,info);
+
+  if(release.url){
+    const embed=document.createElement("div");
+    embed.className="bandcamp-embed";
+    details.appendChild(embed);
+
+    const link=document.createElement("a");
+    link.href=release.url;
+    link.target="_blank";
+    link.rel="noopener noreferrer";
+    link.textContent="Listen / buy on Bandcamp ↗";
+    details.appendChild(link);
+
+    /* Attempt official Bandcamp artwork and player.
+       If Bandcamp blocks cross-origin requests,
+       the direct listening link still works. */
+    card.dataset.bandcampUrl=release.url;
+  }else{
+    const link=document.createElement("a");
+    link.href="https://soundcloud.com/esengoartist";
+    link.target="_blank";
+    link.rel="noopener noreferrer";
+    link.textContent="Explore ESENGO on SoundCloud ↗";
+    details.appendChild(link);
+  }
+
+  button.addEventListener("click",()=>{
+    const wasOpen=button.getAttribute("aria-expanded")==="true";
+    document.querySelectorAll(".release-button").forEach(b=>{
+      b.setAttribute("aria-expanded","false");
     });
-
-    /* ABOUT READ MORE */
-
-    function toggleBio() {
-      const bio = document.getElementById("more-bio");
-      const button = document.querySelector("#about .read-more-btn");
-
-      if (!bio || !button) return;
-
-      bio.classList.toggle("hidden");
-
-      button.textContent = bio.classList.contains("hidden")
-        ? "Read more"
-        : "Read less";
+    document.querySelectorAll(".release-details").forEach(d=>{
+      d.hidden=true;
+    });
+    if(!wasOpen){
+      button.setAttribute("aria-expanded","true");
+      details.hidden=false;
+      if(release.url)loadBandcamp(card);
     }
+  });
 
-    /* GENERAL READ MORE */
+  card.append(button,details);
+  grid.appendChild(card);
+});
 
-    function toggleCategory(id, button) {
-      const section = document.getElementById(id);
+/* BANDCAMP ARTWORK / EMBED ENHANCEMENT */
+async function loadBandcamp(card){
+  if(card.dataset.loaded==="true")return;
+  if(card.dataset.loading==="true")return;
+  const url=card.dataset.bandcampUrl;
+  if(!url)return;
+  card.dataset.loading="true";
+  try{
+    const response=await fetch(
+      "https://bandcamp.com/oembed?format=json&url="+
+      encodeURIComponent(url)
+    );
+    if(!response.ok)throw new Error("Unavailable");
+    const data=await response.json();
 
-      if (!section) return;
-
-      section.classList.toggle("hidden");
-
-      const isHidden = section.classList.contains("hidden");
-
-      if (button.textContent.trim() === "Read more" ||
-          button.textContent.trim() === "Read less") {
-        button.textContent = isHidden ? "Read more" : "Read less";
-      } else {
-        button.textContent = isHidden ? "Show more" : "Show less";
+    if(data.thumbnail_url){
+      const cover=card.querySelector(".release-cover");
+      if(!cover.querySelector("img")){
+        const img=document.createElement("img");
+        img.src=data.thumbnail_url;
+        img.alt=card.querySelector("h3").textContent+" cover";
+        img.loading="lazy";
+        cover.replaceChildren(img);
       }
     }
 
-    /* WORK CATEGORY FILTERS */
-
-    const workFilters = document.querySelectorAll(
-      "[data-work-filter]"
-    );
-
-    const workProjects = document.querySelectorAll(
-      "#work-project-grid .project-card"
-    );
-
-    function filterWork(category) {
-      workProjects.forEach(project => {
-        const matches =
-          category === "all" ||
-          project.dataset.category === category;
-
-        project.classList.toggle(
-          "archive-item-hidden",
-          !matches
-        );
-      });
-
-      workFilters.forEach(button => {
-        const active =
-          button.dataset.workFilter === category;
-
-        button.classList.toggle("active", active);
-        button.setAttribute("aria-pressed", String(active));
-      });
-
-      const selectedButton = document.querySelector(
-        '[data-work-filter="' + category + '"]'
-      );
-
-      const title = document.getElementById(
-        "work-current-category"
-      );
-
-      if (title && selectedButton) {
-        title.textContent = selectedButton.querySelector(
-          ".filter-name"
-        ).textContent;
-      }
-
-      const visibleCount = document.querySelectorAll(
-        "#work-project-grid .project-card:not(.archive-item-hidden)"
-      ).length;
-
-      document.getElementById("work-count").textContent =
-        visibleCount + (visibleCount === 1 ? " project" : " projects");
-    }
-
-    workFilters.forEach(button => {
-      button.addEventListener("click", () => {
-        filterWork(button.dataset.workFilter);
-      });
-    });
-
-    filterWork("all");
-
-    /* MUSIC CATEGORY FILTERS */
-
-    const musicFilters = document.querySelectorAll(
-      "[data-music-filter]"
-    );
-
-    const musicReleases = document.querySelectorAll(
-      ".discography-grid .release-card"
-    );
-
-    function filterMusic(category) {
-      musicReleases.forEach(release => {
-        const matches =
-          category === "all" ||
-          release.dataset.category === category;
-
-        release.classList.toggle(
-          "archive-item-hidden",
-          !matches
-        );
-
-        if (!matches) {
-          const button = release.querySelector(".release-button");
-          const details = release.querySelector(".release-details");
-
-          button.setAttribute("aria-expanded", "false");
-          details.hidden = true;
+    if(data.html){
+      const template=document.createElement("template");
+      template.innerHTML=data.html;
+      const iframe=template.content.querySelector("iframe");
+      if(iframe){
+        const parsed=new URL(iframe.src);
+        if(parsed.protocol==="https:" &&
+          (parsed.hostname==="bandcamp.com" ||
+           parsed.hostname.endsWith(".bandcamp.com"))){
+          iframe.title="Bandcamp player";
+          iframe.loading="lazy";
+          iframe.setAttribute("allow","autoplay");
+          card.querySelector(".bandcamp-embed")
+            .replaceChildren(iframe);
         }
-      });
-
-      musicFilters.forEach(button => {
-        const active =
-          button.dataset.musicFilter === category;
-
-        button.classList.toggle("active", active);
-        button.setAttribute("aria-pressed", String(active));
-      });
-
-      const selectedButton = document.querySelector(
-        '[data-music-filter="' + category + '"]'
-      );
-
-      const title = document.getElementById(
-        "music-current-category"
-      );
-
-      if (title && selectedButton) {
-        title.textContent = selectedButton.querySelector(
-          ".filter-name"
-        ).textContent;
       }
-
-      const visibleCount = document.querySelectorAll(
-        ".discography-grid .release-card:not(.archive-item-hidden)"
-      ).length;
-
-      document.getElementById("music-count").textContent =
-        visibleCount + (visibleCount === 1 ? " release" : " releases");
     }
+    card.dataset.loaded="true";
+  }catch(error){
+    card.dataset.embedStatus="unavailable";
+  }finally{
+    card.dataset.loading="false";
+  }
+}
 
-    musicFilters.forEach(button => {
-      button.addEventListener("click", () => {
-        filterMusic(button.dataset.musicFilter);
-      });
-    });
-
-    filterMusic("all");
-
-    /* EXPANDABLE MUSIC RELEASE PANELS */
-
-    document.querySelectorAll(".release-button").forEach(button => {
-      button.addEventListener("click", () => {
-
-        const release = button.closest(".release-card");
-        const details = release.querySelector(".release-details");
-
-        const wasExpanded =
-          button.getAttribute("aria-expanded") === "true";
-
-        /* Close other open releases */
-
-        document.querySelectorAll(".release-button").forEach(other => {
-          other.setAttribute("aria-expanded", "false");
-        });
-
-        document.querySelectorAll(".release-details").forEach(panel => {
-          panel.hidden = true;
-        });
-
-        /* Open the selected release */
-
-        if (!wasExpanded) {
-          button.setAttribute("aria-expanded", "true");
-          details.hidden = false;
-        }
-      });
-    });
-
-  </script>
-
+/* MUSIC FILTERS */
+function filterMusic(category){
+  const cards=[...document.querySelectorAll(".release-card")];
+  cards.forEach(card=>{
+    const visible=category==="all"||
+      card.dataset.category===category;
+    card.classList.toggle("archive-item-hidden",!visible);
+    if(!visible){
+      card.querySelector(".release-button")
+        .setAttribute("aria-expanded","false");
+      card.querySelector(".release-details").hidden=true;
+    }
+  });
+  document.querySelectorAll("[data-music-filter]").forEach(button=>{
+    const active=button.dataset.musicFilter===category;
+    button.classList.toggle("active",active);
+    button.setAttribute("aria-pressed",String(active));
+    if(active)document.getElementById("music-current-category")
+      .textContent=button.querySelector(".filter-name").textContent;
+  });
+  const count=cards.filter(card=>
+    !card.classList.contains("archive-item-hidden")).length;
+  document.getElementById("music-count").textContent=
+    count+(count===1?" release":" releases");
+}
+document.querySelectorAll("[data-music-filter]").forEach(button=>{
+  button.addEventListener("click",()=>
+    filterMusic(button.dataset.musicFilter));
+});
+filterMusic("all");
+</script>
 </body>
 </html>
-
