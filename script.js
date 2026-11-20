@@ -70,3 +70,28 @@ function toggleBachelor() {
     btn.textContent = "Read more";
   }
 }
+// WORK ARCHIVE SLIDER
+document.querySelectorAll(".work-swiper").forEach(slider => {
+  const section = slider.closest(".work-archive");
+
+  if (!section || typeof Swiper === "undefined") return;
+
+  new Swiper(slider, {
+    slidesPerView: 1.15,
+    spaceBetween: 16,
+    grabCursor: true,
+    navigation: {
+      nextEl: section.querySelector(".archive-next"),
+      prevEl: section.querySelector(".archive-prev")
+    },
+    pagination: {
+      el: section.querySelector(".archive-pagination"),
+      clickable: true
+    },
+    breakpoints: {
+      600: { slidesPerView: 2, spaceBetween: 20 },
+      900: { slidesPerView: 3, spaceBetween: 24 },
+      1200: { slidesPerView: 3.5, spaceBetween: 24 }
+    }
+  });
+});
