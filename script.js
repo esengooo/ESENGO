@@ -73,8 +73,14 @@ function toggleBachelor() {
 // WORK ARCHIVE SLIDER
 document.querySelectorAll(".work-swiper").forEach(slider => {
   const section = slider.closest(".work-archive");
-
-  if (!section || typeof Swiper === "undefined") return;
+  
+if (!section || typeof Swiper === "undefined") {
+  console.error("Swiper or the Work archive section was not found.", {
+    sectionFound: !!section,
+    swiperLoaded: typeof Swiper !== "undefined"
+  });
+  return;
+}
 
   new Swiper(slider, {
     slidesPerView: 1.15,
