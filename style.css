@@ -1,6 +1,13 @@
-/* ===============================
-   GENERAL STYLES
-=============================== */
+
+/* =========================================
+   ESENGO PORTFOLIO
+   MAIN STYLESHEET
+========================================= */
+
+/* =========================================
+   1. GENERAL STYLES
+========================================= */
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 * {
@@ -9,9 +16,17 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+}
+
 body {
   font-family: "Poppins", sans-serif;
-  scroll-behavior: smooth;
+  color: #111;
+  background: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
 p {
@@ -19,19 +34,37 @@ p {
   line-height: 1.6;
 }
 
-/* ===============================
-   LINKS & BUTTONS
-=============================== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+/* =========================================
+   2. LINKS & BUTTONS
+========================================= */
+
 a {
   color: black;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 a:hover {
   color: grey;
   text-decoration: underline;
   text-underline-offset: 0.3rem;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 4px;
 }
 
 .btn {
@@ -51,14 +84,17 @@ a:hover {
 
 .btn-color-1:hover {
   background: black;
+  color: white;
 }
 
-/* ===============================
-   HERO VIDEO (FULL SCREEN)
-=============================== */
+/* =========================================
+   3. HERO VIDEO
+========================================= */
+
 .home-video-container {
   width: 100%;
-  height: 100vh; /* full viewport height */
+  height: 100vh;
+  height: 100svh;
   overflow: hidden;
   position: relative;
   margin-bottom: 2rem;
@@ -73,30 +109,35 @@ a:hover {
   object-position: center;
 }
 
-/* Optional overlay for readability */
 .home-video-container::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.15);
+  background: rgba(0, 0, 0, 0.15);
   pointer-events: none;
 }
 
-/* ===============================
-   FLOATING MENU STYLES
-=============================== */
+/* =========================================
+   4. FLOATING MENU
+========================================= */
+
 .menu-toggle {
   position: fixed;
   top: 20px;
   right: 20px;
+  z-index: 9999;
+
   background: black;
   color: white;
+
   padding: 0.8rem 1rem;
-  cursor: pointer;
-  z-index: 9999;
+  border: none;
   border-radius: 1rem;
+
   font-weight: 600;
-  transition: all 0.3s ease;
+  cursor: pointer;
+
+  transition: background 0.3s ease;
 }
 
 .menu-toggle:hover {
@@ -105,14 +146,23 @@ a:hover {
 
 .menu-panel {
   position: fixed;
-  top: 60px;
+  top: 75px;
   right: 20px;
+  z-index: 9998;
+
   background: white;
   padding: 1rem 2rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  z-index: 9998;
-  transition: all 0.3s ease;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  max-width: calc(100vw - 40px);
+  max-height: calc(100dvh - 95px);
+  overflow-y: auto;
+}
+
+.menu-panel.hidden {
+  display: none;
 }
 
 .menu-panel ul {
@@ -124,8 +174,9 @@ a:hover {
 }
 
 .menu-panel li a {
-  text-decoration: none;
+  display: block;
   color: black;
+  text-decoration: none;
   font-weight: 500;
   font-size: 1.2rem;
 }
@@ -134,13 +185,10 @@ a:hover {
   color: grey;
 }
 
-.menu-panel.hidden {
-  display: none;
-}
+/* =========================================
+   5. SECTIONS & SPACING
+========================================= */
 
-/* ===============================
-   SECTIONS & SPACING
-=============================== */
 section {
   padding-top: 4vh;
   min-height: fit-content;
@@ -150,15 +198,22 @@ section:not(.home-section) {
   margin: 0 10rem;
 }
 
+.section-container {
+  width: 100%;
+  min-width: 0;
+}
+
 .title {
   font-size: 3rem;
+  font-weight: 600;
   margin-bottom: 1rem;
   text-align: center;
 }
 
-/* ===============================
-   PROFILE SECTION
-=============================== */
+/* =========================================
+   6. PROFILE SECTION
+========================================= */
+
 #profile {
   display: flex;
   gap: 4rem;
@@ -169,15 +224,16 @@ section:not(.home-section) {
 .section__pic-container {
   width: 400px;
   height: 400px;
+  flex-shrink: 0;
 }
 
 .section__pic-container img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 1rem;
-  display: block;
-  margin: 0 auto; /* center image */
+  margin: 0 auto;
 }
 
 .image-credit {
@@ -189,7 +245,8 @@ section:not(.home-section) {
 
 .section__text {
   flex: 1;
-  text-align: center; /* center text including "Cultural Producer" */
+  min-width: 0;
+  text-align: center;
 }
 
 .section__text__p2 {
@@ -197,12 +254,15 @@ section:not(.home-section) {
   margin-bottom: 1rem;
 }
 
-/* Center the part before the icons (Cultural Producer) */
 .section__text .cultural-producer {
   text-align: center;
   display: block;
-  margin: 0 auto 1rem auto;
+  margin: 0 auto 1rem;
 }
+
+/* =========================================
+   7. SOCIAL ICONS & PROFILE BUTTONS
+========================================= */
 
 #socials-container {
   display: flex;
@@ -225,9 +285,10 @@ section:not(.home-section) {
   justify-content: center;
 }
 
-/* ===============================
-   PROFILE BOXES
-=============================== */
+/* =========================================
+   8. PROFILE BOXES
+========================================= */
+
 .profile-boxes {
   display: flex;
   gap: 2rem;
@@ -250,9 +311,10 @@ section:not(.home-section) {
   margin-bottom: 1rem;
 }
 
-/* ===============================
-   WORK / PROJECTS
-=============================== */
+/* =========================================
+   9. EXISTING WORK / PROJECT DESCRIPTIONS
+========================================= */
+
 .projects-container {
   display: flex;
   flex-direction: column;
@@ -268,9 +330,10 @@ section:not(.home-section) {
   font-weight: 500;
 }
 
-/* ===============================
-   READ MORE
-=============================== */
+/* =========================================
+   10. READ MORE / EXPANDABLE CONTENT
+========================================= */
+
 .hidden {
   display: none;
 }
@@ -282,11 +345,17 @@ section:not(.home-section) {
   cursor: pointer;
   text-decoration: underline;
   margin-top: 1rem;
+  color: inherit;
 }
 
-/* ===============================
-   VIDEO SECTION
-=============================== */
+.read-more-btn:hover {
+  color: #777;
+}
+
+/* =========================================
+   11. EMBEDDED VIDEOS
+========================================= */
+
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -303,19 +372,21 @@ section:not(.home-section) {
   border: none;
 }
 
-/* ===============================
-   ARTICLES PHOTOS FIX
-=============================== */
+/* =========================================
+   12. ARTICLES & PHOTOGRAPHS
+========================================= */
+
 .articles img {
   display: block;
-  margin: 2rem auto; /* center the image & margin from above/below sections */
+  margin: 2rem auto;
   max-width: 90%;
   height: auto;
 }
 
-/* ===============================
-   CONTACT
-=============================== */
+/* =========================================
+   13. CONTACT SECTION
+========================================= */
+
 #contact {
   display: flex;
   flex-direction: column;
@@ -332,12 +403,13 @@ section:not(.home-section) {
   border: 1px solid #ccc;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 2rem; /* fix spacing with icons */
+  margin-bottom: 2rem;
 }
 
-/* ===============================
-   FOOTER
-=============================== */
+/* =========================================
+   14. FOOTER
+========================================= */
+
 .site-footer {
   padding: 2rem;
   text-align: center;
@@ -347,79 +419,25 @@ section:not(.home-section) {
   margin-top: 4rem;
 }
 
-/* ===============================
-   RESPONSIVE
-=============================== */
-@media (max-width: 1024px) {
-  section:not(.home-section) {
-    margin: 0 4rem;
-  }
-}
+/* =========================================
+   15. WORK ARCHIVE - EDITORIAL GALLERY
+========================================= */
 
-@media (max-width: 768px) {
-  section:not(.home-section) {
-    margin: 0 2rem;
-  }
-
-  #profile {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .section__pic-container {
-    width: 250px;
-    height: 250px;
-    margin: 0 auto;
-  }
-
-  .home-overlay h1 {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  section:not(.home-section) {
-    margin: 0 1rem;
-  }
-
-  .home-overlay h1 {
-    font-size: 2rem;
-  }
-}
-
-.menu-panel {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  background: #fff;
-  z-index: 1000;
-  transform: translateY(-100%);
-  opacity: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.menu-panel:not(.hidden) {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-
- /* ===============================
-    WORK ARCHIVE SLIDER
- =============================== */
 .work-archive {
   width: 100%;
   max-width: 100%;
   min-width: 0;
+
   margin-top: 2rem;
   padding: 1.5rem 0 2rem;
+
   border-top: 1px solid #e5e5e5;
-  overflow: hidden;
 }
 
+/* Gallery heading */
+
 .work-archive .archive-heading {
-  margin-bottom: 1.25rem;
+  margin-bottom: 2rem;
 }
 
 .work-archive .archive-heading h2 {
@@ -429,124 +447,289 @@ section:not(.home-section) {
 }
 
 .work-archive .archive-heading p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  color: #777;
 }
 
-.work-archive .work-swiper {
+/* Three-column gallery */
+
+.work-archive .project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 20px;
+  row-gap: 36px;
   width: 100%;
+}
+
+/* Individual project entries */
+
+.work-archive .project-card {
+  display: block;
   min-width: 0;
-  overflow: hidden;
-}
-
-.work-archive .swiper-slide {
-  height: auto;
-}
-
-.work-archive .archive-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
   color: #111;
   text-decoration: none;
-  border: 1px solid #e6e6e6;
-  background: #fff;
-  border-radius: 0.8rem;
-  overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.work-archive .archive-card:hover {
+.work-archive .project-card:hover {
   color: #111;
   text-decoration: none;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.09);
 }
 
-.work-archive .archive-card img {
+/* Square project thumbnails */
+
+.work-archive .project-image {
   display: block;
   width: 100%;
-  height: 240px;
-  object-fit: contain;
-  object-position: center;
-  margin: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.work-archive .project-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
   max-width: none;
-  background: #f7f7f7;
-}
-
-.work-archive .archive-card-info {
-  padding: 0.85rem;
-}
-
-.work-archive .archive-card-info .archive-category {
-  margin: 0 0 0.4rem;
-  color: #666;
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.work-archive .archive-card-info h3 {
-  margin: 0 0 0.4rem;
-  font-size: 1.05rem;
-  line-height: 1.35;
-  font-weight: 600;
-}
-
-.work-archive .archive-card-info .archive-meta {
   margin: 0;
-  font-size: 0.82rem;
-  color: #666;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.35s ease;
 }
 
-.work-archive .archive-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-  margin-top: 1rem;
+.work-archive .project-card:hover .project-image img {
+  transform: scale(1.035);
 }
 
-.work-archive .archive-prev,
-.work-archive .archive-next {
-  flex: 0 0 auto;
-  width: 2.3rem;
-  height: 2.3rem;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  background: white;
-  color: #111;
-  cursor: pointer;
-  font-size: 1.1rem;
+/* Project title and metadata */
+
+.work-archive .project-info {
+  padding-top: 8px;
 }
 
-.work-archive .archive-prev:hover,
-.work-archive .archive-next:hover {
-  background: #111;
-  color: white;
+.work-archive .project-info h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0 0 4px;
 }
 
-.work-archive .archive-pagination {
-  width: auto;
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
+.work-archive .project-info p {
+  font-size: 0.78rem;
+  color: #777;
+  line-height: 1.5;
+  margin: 0;
 }
 
-.work-archive .archive-pagination .swiper-pagination-bullet {
-  opacity: 1;
-  background: #ccc;
+/* =========================================
+   16. RESPONSIVE - SMALL DESKTOP / TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+
+  section:not(.home-section) {
+    margin: 0 4rem;
+  }
+
+  #profile {
+    gap: 2.5rem;
+  }
+
+  .section__pic-container {
+    width: 320px;
+    height: 320px;
+  }
+
 }
 
-.work-archive .archive-pagination .swiper-pagination-bullet-active {
-  background: #111;
+/* =========================================
+   17. RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .work-archive .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 16px;
+    row-gap: 30px;
+  }
+
 }
 
 @media (max-width: 768px) {
+
+  section:not(.home-section) {
+    margin: 0 2rem;
+  }
+
+  .title {
+    font-size: 2.3rem;
+  }
+
+  /* Profile */
+
+  #profile {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    min-height: auto;
+    padding: 3rem 0;
+  }
+
+  .section__pic-container {
+    width: min(250px, 100%);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+  }
+
+  .section__text {
+    width: 100%;
+  }
+
+  .section__text__p2 {
+    font-size: 1.4rem;
+  }
+
+  /* Hero */
+
+  .home-overlay h1 {
+    font-size: 2.5rem;
+  }
+
+  /* Menu */
+
+  .menu-toggle {
+    top: 15px;
+    right: 15px;
+  }
+
+  .menu-panel {
+    top: 70px;
+    right: 15px;
+    max-width: calc(100vw - 30px);
+    max-height: calc(100dvh - 85px);
+    padding: 1rem 1.5rem;
+  }
+
+}
+
+/* =========================================
+   18. RESPONSIVE - MOBILE
+========================================= */
+
+@media (max-width: 560px) {
+
+  /* Gallery remains two columns */
+
+  .work-archive {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+  }
+
+  .work-archive .archive-heading {
+    margin-bottom: 1.5rem;
+  }
+
   .work-archive .archive-heading h2 {
     font-size: 1.35rem;
   }
 
-  .work-archive .archive-card img {
-    height: 200px;
+  .work-archive .archive-heading p {
+    font-size: 0.8rem;
   }
+
+  .work-archive .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
+    row-gap: 26px;
+  }
+
+  .work-archive .project-info {
+    padding-top: 7px;
+  }
+
+  .work-archive .project-info h3 {
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+
+  .work-archive .project-info p {
+    font-size: 0.72rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  section:not(.home-section) {
+    margin: 0 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .section__text__p2 {
+    font-size: 1.2rem;
+  }
+
+  .home-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .profile-box {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contact-info-upper-container {
+    width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .site-footer {
+    padding: 1.5rem 1rem;
+  }
+
+}
+
+/* =========================================
+   19. VERY SMALL MOBILE SCREENS
+========================================= */
+
+@media (max-width: 360px) {
+
+  .work-archive .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-archive .project-info h3 {
+    font-size: 0.95rem;
+  }
+
+  .work-archive .project-info p {
+    font-size: 0.78rem;
+  }
+
+}
+
+/* =========================================
+   20. ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  a,
+  .btn,
+  .menu-toggle,
+  .work-archive .project-image img {
+    transition: none;
+  }
+
 }
