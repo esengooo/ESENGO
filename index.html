@@ -211,6 +211,7 @@ aria-label="Previous projects">←</button> <div class="archive-pagination"></di
         <p style="color:#000; font-weight:bold; margin-bottom: 5px;">Blackbox Association, Experi Theater, Zurich & Geneva<br><span style="font-weight:normal;">2022–2025</span></p>
         <p>Event production and project coordination, with a focus on Geneva. Managed fundraising, artist communication, social media, and logistics across multiple cities. Also contributed to the <a href="https://www.instagram.com/reel/DKiKF-uKC3G/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">Basel edition</a>.</p>
         <p><a href="https://www.experitheater.ch/blackbox/" target="_blank" class="project-link">More information</a></p>
+      </div>
       <div class="project" style="margin-bottom: 30px;">
         <p style="color:#000; font-weight:bold; margin-bottom: 5px;"> OMG FRANCK : DJ Sets & Dance Performances<br><span style="font-weight:normal;">19.06.2025</span></p>
         <p>Co-production with Danielle Bürgin (Radio X & OMG Franck) and coordination of an evening program featuring DJ sets and ballroom performances during Art Basel.</p>
@@ -439,42 +440,50 @@ aria-label="Previous projects">←</button> <div class="archive-pagination"></di
     <p>© ESENGO 2026</p>
   </footer>
 
-  <!-- ===========================
-       SCRIPTS
-  ============================ -->
-  <script>
-    // Hamburger toggle
-    function toggleMenu() {
-      const menu = document.querySelector('.menu-links');
-      menu.classList.toggle('open');
-    }
+ 
+<!-- SCRIPTS -->
 
-    // Read More / Read Less for Bio
-    function toggleBio() {
-      const bio = document.getElementById('more-bio');
-      const btn = document.querySelector('#about .read-more-btn');
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menu-panel');
+    if (menu) menu.classList.toggle('hidden');
+  }
 
-      bio.classList.toggle('hidden');
-      btn.textContent = bio.classList.contains('hidden') ? 'Read more' : 'Read less';
-    }
+  function toggleBio() {
+    const bio = document.getElementById('more-bio');
+    const btn = document.querySelector('#about .read-more-btn');
 
-    // Read More / Read Less for Work
-    function toggleWork() {
-      const moreWork = document.getElementById('more-work');
-      const btn = document.querySelector('#work-section .read-more-btn');
+    if (!bio || !btn) return;
 
-      moreWork.classList.toggle('hidden');
-      btn.textContent = moreWork.classList.contains('hidden') ? 'Read more' : 'Read less';
-    }
+    bio.classList.toggle('hidden');
+    btn.textContent = bio.classList.contains('hidden')
+      ? 'Read more'
+      : 'Read less';
+  }
+
+  function toggleWork() {
+    const moreWork = document.getElementById('more-work');
+    const btn = document.querySelector('#work-section .read-more-btn');
+
+    if (!moreWork || !btn) return;
+
+    moreWork.classList.toggle('hidden');
+    btn.textContent = moreWork.classList.contains('hidden')
+      ? 'Read more'
+      : 'Read less';
+  }
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
 <script>
-  // Initialise the Work Archive slider
-  document.querySelectorAll(".work-swiper").forEach(slider => {
-    const section = slider.closest(".work-archive");
+  document.querySelectorAll('.work-swiper').forEach(slider => {
+    const section = slider.closest('.work-archive');
 
-    if (!section || typeof Swiper === "undefined") return;
+    if (!section || typeof Swiper === 'undefined') {
+      console.error('Work archive or Swiper library not found.');
+      return;
+    }
 
     new Swiper(slider, {
       slidesPerView: 1.15,
@@ -483,12 +492,12 @@ aria-label="Previous projects">←</button> <div class="archive-pagination"></di
       grabCursor: true,
 
       navigation: {
-        nextEl: section.querySelector(".archive-next"),
-        prevEl: section.querySelector(".archive-prev")
+        nextEl: section.querySelector('.archive-next'),
+        prevEl: section.querySelector('.archive-prev')
       },
 
       pagination: {
-        el: section.querySelector(".archive-pagination"),
+        el: section.querySelector('.archive-pagination'),
         clickable: true
       },
 
@@ -512,4 +521,3 @@ aria-label="Previous projects">←</button> <div class="archive-pagination"></di
 
 </body>
 </html>
-
